@@ -1,0 +1,1236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BERCO PH — Custom Cabinetry for Philippine Homes</title>
+<meta name="description" content="BERCO PH crafts bespoke cabinetry — kitchens, wardrobes, walk-in closets, and whole-home interiors — for discerning Philippine homeowners, designers, and architects." />
+
+<!-- Tailwind via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Fonts: Playfair Display (display serif) + Inter (sans body) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          serif: ['"Playfair Display"', 'Georgia', 'serif'],
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        },
+        colors: {
+          ivory:   '#F6F2EC',
+          paper:   '#FBF9F5',
+          stone1:  '#EDE7DD',
+          stone2:  '#D9D2C5',
+          ink:     '#1F1B17',
+          ink2:    '#2A2622',
+          mute:    '#6B6258',
+          line:    '#E4DDD0',
+          forest:  '#3A4A3F',
+          bronze:  '#7A5C3B',
+          bronze2: '#8E6E48',
+        },
+        letterSpacing: {
+          'wider2': '.18em',
+          'widest2': '.32em',
+        },
+      },
+    },
+  };
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: #FBF9F5; color: #1F1B17; -webkit-font-smoothing: antialiased; }
+  .font-display { font-family: 'Playfair Display', Georgia, serif; font-weight: 400; letter-spacing: -0.01em; }
+
+  /* Subtle paper grain */
+  .grain::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(31,27,23,0.05) 1px, transparent 1px);
+    background-size: 3px 3px;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    opacity: .35;
+  }
+
+  /* Soft photo overlay for legibility */
+  .photo-overlay::after {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.45) 100%);
+    pointer-events: none;
+  }
+
+  /* Hairline divider */
+  .hairline { height: 1px; background: #E4DDD0; }
+
+  /* Phone frame */
+  .phone {
+    width: 360px;
+    height: 760px;
+    border-radius: 44px;
+    background: #1F1B17;
+    padding: 14px;
+    box-shadow: 0 40px 80px -30px rgba(31,27,23,0.35), 0 8px 24px -8px rgba(31,27,23,0.2);
+    position: relative;
+  }
+  .phone-screen {
+    width: 100%; height: 100%;
+    border-radius: 32px;
+    overflow: hidden;
+    background: #FBF9F5;
+    position: relative;
+  }
+  .phone-notch {
+    position: absolute;
+    top: 18px; left: 50%; transform: translateX(-50%);
+    width: 110px; height: 26px;
+    background: #1F1B17;
+    border-radius: 14px;
+    z-index: 30;
+  }
+
+  /* Custom scrollbar inside phones */
+  .phone-scroll::-webkit-scrollbar { width: 0; }
+  .phone-scroll { scrollbar-width: none; }
+
+  /* Animated underline for nav */
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: "";
+    position: absolute; left: 0; bottom: -6px;
+    height: 1px; width: 0; background: currentColor;
+    transition: width .35s cubic-bezier(.23,1,.32,1);
+  }
+  .nav-link:hover::after { width: 100%; }
+
+  /* Reveal on hover for project cards */
+  .project-card .project-meta { transform: translateY(8px); opacity: 0; transition: all .5s cubic-bezier(.23,1,.32,1); }
+  .project-card:hover .project-meta { transform: translateY(0); opacity: 1; }
+  .project-card img { transition: transform 1.2s cubic-bezier(.23,1,.32,1); }
+  .project-card:hover img { transform: scale(1.04); }
+
+  /* Tag chip */
+  .chip {
+    display: inline-flex; align-items: center;
+    border: 1px solid #E4DDD0;
+    padding: .45rem .9rem;
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #2A2622;
+    border-radius: 999px;
+    background: #FBF9F5;
+    transition: all .25s cubic-bezier(.23,1,.32,1);
+  }
+  .chip:hover { background: #1F1B17; color: #FBF9F5; border-color: #1F1B17; }
+  .chip.active { background: #1F1B17; color: #FBF9F5; border-color: #1F1B17; }
+
+  /* Section label */
+  .eyebrow {
+    font-size: .7rem; letter-spacing: .32em; text-transform: uppercase; color: #7A5C3B; font-weight: 500;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: .65rem;
+    background: #1F1B17; color: #FBF9F5;
+    padding: 1rem 1.6rem;
+    font-size: .82rem; letter-spacing: .22em; text-transform: uppercase;
+    transition: transform .18s ease-out, background .25s ease-out;
+  }
+  .btn-primary:hover { background: #2A2622; }
+  .btn-primary:active { transform: scale(.98); }
+
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: .65rem;
+    color: #1F1B17;
+    padding: 1rem 0;
+    font-size: .82rem; letter-spacing: .22em; text-transform: uppercase;
+    border-bottom: 1px solid #1F1B17;
+    transition: color .25s ease-out, border-color .25s ease-out;
+  }
+  .btn-ghost:hover { color: #7A5C3B; border-color: #7A5C3B; }
+
+  /* Vertical text */
+  .vtext { writing-mode: vertical-rl; transform: rotate(180deg); letter-spacing: .32em; }
+
+  /* Page label */
+  .page-label {
+    position: sticky; top: 0; z-index: 40;
+    background: #1F1B17; color: #FBF9F5;
+    padding: 14px 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: .7rem; letter-spacing: .32em; text-transform: uppercase;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  /* Soft entrance */
+  .fade-up { opacity: 0; transform: translateY(12px); animation: fadeUp .9s cubic-bezier(.23,1,.32,1) forwards; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+
+<body class="bg-paper text-ink">
+
+<!-- =========================================================
+     PRESENTATION HEADER (visible only in concept mode)
+     ========================================================= -->
+<div class="bg-ink text-paper">
+  <div class="max-w-[1400px] mx-auto px-6 py-3 flex items-center justify-between text-[11px] tracking-widest2 uppercase">
+    <span>BERCO PH — Visual Concept v1.0</span>
+    <span class="hidden sm:inline">Dada × Cantilever · Quiet Luxury · Photography-led</span>
+    <span>Prepared for Client Review</span>
+  </div>
+</div>
+
+<!-- =========================================================
+     CONCEPT NAVIGATION (jump between pages)
+     ========================================================= -->
+<nav class="sticky top-0 z-50 bg-paper/85 backdrop-blur border-b border-line">
+  <div class="max-w-[1400px] mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#home" class="font-display text-xl tracking-tight">BERCO<span class="text-bronze">.</span>PH</a>
+    <div class="hidden md:flex items-center gap-8 text-[11px] tracking-widest2 uppercase text-ink2">
+      <a href="#home" class="nav-link">01 Home</a>
+      <a href="#projects" class="nav-link">02 Projects</a>
+      <a href="#collections" class="nav-link">03 Collections</a>
+      <a href="#process" class="nav-link">04 Process</a>
+      <a href="#contact" class="nav-link">05 Contact</a>
+      <a href="#mobile" class="nav-link">Mobile</a>
+    </div>
+    <a href="#contact" class="hidden md:inline-flex text-[11px] tracking-widest2 uppercase border-b border-ink pb-1">Book Consultation</a>
+  </div>
+</nav>
+
+<!-- ============================================================
+     01 — HOMEPAGE
+     ============================================================ -->
+<section id="home">
+  <div class="page-label">
+    <span>01 / Homepage — Desktop</span>
+    <span class="hidden sm:inline">bercoph.com</span>
+  </div>
+
+  <!-- Site chrome (mock) -->
+  <header class="bg-paper border-b border-line">
+    <div class="max-w-[1400px] mx-auto px-8 py-6 flex items-center justify-between">
+      <div class="flex items-center gap-12">
+        <a class="font-display text-2xl">BERCO<span class="text-bronze">.</span>PH</a>
+        <div class="hidden lg:flex items-center gap-8 text-[11px] tracking-widest2 uppercase text-ink2">
+          <a class="nav-link">Projects</a>
+          <a class="nav-link">Collections</a>
+          <a class="nav-link">Process &amp; Materials</a>
+          <a class="nav-link">Studio</a>
+          <a class="nav-link">Journal</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-6 text-[11px] tracking-widest2 uppercase text-ink2">
+        <a class="hidden md:inline">EN / FIL</a>
+        <a class="border-b border-ink pb-1 text-ink">Book a Consultation</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="relative h-[88vh] min-h-[640px] overflow-hidden photo-overlay">
+    <img src="https://bercohome.com/wp-content/uploads/2023/01/Modern-Matte-Black-Kitchen-Cabinets-OBK22-Dark-2-1.jpg" alt="Luxury kitchen" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 z-10 flex">
+      <!-- Left rail -->
+      <div class="hidden md:flex flex-col justify-between py-12 pl-8 pr-6 text-paper/80">
+        <div class="vtext text-[10px] tracking-widest2 uppercase">Manila · Cebu · Davao</div>
+        <div class="vtext text-[10px] tracking-widest2 uppercase">Since 2014</div>
+      </div>
+
+      <div class="flex-1 flex flex-col justify-end p-8 md:p-16 text-paper">
+        <div class="max-w-3xl fade-up">
+          <span class="eyebrow text-paper/80">Bespoke Cabinetry · Manila</span>
+          <h1 class="font-display text-5xl md:text-7xl lg:text-[88px] leading-[1.02] mt-6">
+            Custom Cabinetry<br/>for <em class="italic font-normal">Philippine</em> Homes.
+          </h1>
+          <p class="mt-8 max-w-md text-paper/85 text-[15px] leading-relaxed">
+            Quiet, considered interiors — drawn by hand, joined by craftsmen, installed in the houses of those who live with intention.
+          </p>
+          <div class="mt-10 flex flex-wrap items-center gap-6">
+            <a class="btn-primary bg-paper text-ink hover:bg-stone1">Book a Design Consultation
+              <span aria-hidden>→</span>
+            </a>
+            <a class="text-paper/85 text-[12px] tracking-widest2 uppercase border-b border-paper/60 pb-1">View Recent Projects</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom hairline meta -->
+    <div class="absolute bottom-0 inset-x-0 z-10 px-8 md:px-16 py-5 flex justify-between items-end text-paper/70 text-[10px] tracking-widest2 uppercase">
+      <span>Featured — Forbes Park Residence</span>
+      <span>Photography · Spencer Anderson</span>
+    </div>
+  </div>
+
+  <!-- Statement strip -->
+  <div class="border-b border-line">
+    <div class="max-w-[1400px] mx-auto px-8 py-20 grid md:grid-cols-12 gap-12 items-end">
+      <div class="md:col-span-3">
+        <span class="eyebrow">001 — Studio</span>
+      </div>
+      <div class="md:col-span-7">
+        <p class="font-display text-3xl md:text-4xl leading-[1.25]">
+          We design cabinetry the way architects draw — with restraint, proportion, and a reverence for the materials beneath the lacquer.
+        </p>
+      </div>
+      <div class="md:col-span-2 text-right">
+        <a class="text-[11px] tracking-widest2 uppercase border-b border-ink pb-1">Our Approach</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured projects -->
+  <div class="bg-paper">
+    <div class="max-w-[1400px] mx-auto px-8 py-24">
+      <div class="flex items-end justify-between mb-12">
+        <div>
+          <span class="eyebrow">002 — Our Categories</span>
+          <h2 class="font-display text-4xl md:text-5xl mt-4">Bespoke by Room.</h2>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-8 mt-12">
+        <!-- Category 1: Kitchens -->
+        <a class="group block">
+          <div class="aspect-[4/5] overflow-hidden bg-stone1 mb-5">
+            <img src="https://bercohome.com/wp-content/uploads/2025/12/Medium-Grey-Lacquer-Modern-Kitchen-Cabinets-OB22-Moher-3-1.webp" alt="Kitchen cabinetry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <h3 class="font-display text-2xl">Kitchens</h3>
+          <p class="text-[13px] text-mute mt-3">Islands, sculleries, and galley kitchens — from compact condos to sprawling villas.</p>
+          <a class="btn-ghost mt-6">Explore →</a>
+        </a>
+
+        <!-- Category 2: Wardrobes & Closets -->
+        <a class="group block">
+          <div class="aspect-[4/5] overflow-hidden bg-stone1 mb-5">
+            <img src="https://bercohome.com/wp-content/uploads/2025/12/Modern-Elegance-Two-Tone-Wardrobe2-1024x640-1.webp" alt="Wardrobe cabinetry" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <h3 class="font-display text-2xl">Wardrobes</h3>
+          <p class="text-[13px] text-mute mt-3">Walk-ins, sliding doors, and built-in dressing rooms — tailored to how you live.</p>
+          <a class="btn-ghost mt-6">Explore →</a>
+        </a>
+
+        <!-- Category 3: Vanities -->
+        <a class="group block">
+          <div class="aspect-[4/5] overflow-hidden bg-stone1 mb-5">
+            <img src="https://bercohome.com/wp-content/uploads/2025/12/modern-elegance-bathroom-cabinet4-1024x640-1.webp" alt="Bathroom vanity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <h3 class="font-display text-2xl">Vanities</h3>
+          <p class="text-[13px] text-mute mt-3">Floating, freestanding, and built-in — stone, lacquer, and natural finishes.</p>
+          <a class="btn-ghost mt-6">Explore →</a>
+        </a>
+
+        <!-- Category 4: Whole Home -->
+        <a class="group block">
+          <div class="aspect-[4/5] overflow-hidden bg-stone1 mb-5">
+            <img src="https://bercohome.com/wp-content/uploads/2023/01/modern-white-scandinavian-kitchen-design-obk22-l01-2.jpg" alt="Whole-home interiors" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <h3 class="font-display text-2xl">Whole Home</h3>
+          <p class="text-[13px] text-mute mt-3">Coordinated cabinetry across kitchens, bedrooms, and living spaces — unified design.</p>
+          <a class="btn-ghost mt-6">Explore →</a>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process strip -->
+  <div class="bg-stone1 grain relative">
+    <div class="max-w-[1400px] mx-auto px-8 py-24 relative">
+      <div class="grid md:grid-cols-12 gap-12 mb-14">
+        <div class="md:col-span-4">
+          <span class="eyebrow">003 — How BERCO Works</span>
+          <h2 class="font-display text-4xl md:text-5xl mt-4 leading-tight">Four conversations between you and the work.</h2>
+        </div>
+        <div class="md:col-span-7 md:col-start-6 self-end">
+          <p class="text-mute text-[15px] leading-relaxed max-w-md">
+            Every BERCO interior begins with listening. From the first sketch to the final hinge, the process is unhurried — and the same designer follows your home through.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-px bg-line">
+        <div class="bg-stone1 p-8">
+          <span class="font-display italic text-bronze text-2xl">i.</span>
+          <h4 class="font-display text-2xl mt-3">Consult</h4>
+          <p class="text-[13px] text-mute mt-3 leading-relaxed">A studio visit, or a house call. We discuss how you live before we discuss what you'll build.</p>
+        </div>
+        <div class="bg-stone1 p-8">
+          <span class="font-display italic text-bronze text-2xl">ii.</span>
+          <h4 class="font-display text-2xl mt-3">Design</h4>
+          <p class="text-[13px] text-mute mt-3 leading-relaxed">Hand drawings, then 3D — refined over two to three rounds, with materials laid out on the table.</p>
+        </div>
+        <div class="bg-stone1 p-8">
+          <span class="font-display italic text-bronze text-2xl">iii.</span>
+          <h4 class="font-display text-2xl mt-3">Build</h4>
+          <p class="text-[13px] text-mute mt-3 leading-relaxed">Fabricated in our Laguna atelier with European hardware and Philippine hardwoods, where appropriate.</p>
+        </div>
+        <div class="bg-stone1 p-8">
+          <span class="font-display italic text-bronze text-2xl">iv.</span>
+          <h4 class="font-display text-2xl mt-3">Install</h4>
+          <p class="text-[13px] text-mute mt-3 leading-relaxed">A small, dedicated team. Dust-controlled installation. A ten-year structural warranty signed at handover.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wide editorial image -->
+  <div class="relative photo-overlay">
+    <img src="https://bercohome.com/wp-content/uploads/2025/12/minimalist-shiny-white-kitchen-cabinets-with-island-obk22-l22-1.jpg" class="w-full h-[70vh] object-cover" alt="Editorial kitchen" />
+    <div class="absolute inset-0 z-10 flex items-end p-8 md:p-16">
+      <div class="text-paper max-w-2xl">
+        <span class="eyebrow text-paper/80">004 — A Note on Materials</span>
+        <p class="font-display text-3xl md:text-4xl mt-6 leading-[1.25]">
+          Honest oak. Honed stone. A bronze pull that warms with time. We choose finishes that age in the right direction.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-ink text-paper">
+    <div class="max-w-[1400px] mx-auto px-8 py-20">
+      <div class="grid md:grid-cols-12 gap-10">
+        <div class="md:col-span-5">
+          <div class="font-display text-3xl">BERCO<span class="text-bronze2">.</span>PH</div>
+          <p class="mt-6 text-paper/70 max-w-sm text-[14px] leading-relaxed">
+            A small studio for custom cabinetry, based in Manila. Working across the Philippines and, occasionally, abroad.
+          </p>
+          <div class="mt-10 flex items-center gap-6 text-[11px] tracking-widest2 uppercase">
+            <a class="border-b border-paper/40 pb-1">Instagram</a>
+            <a class="border-b border-paper/40 pb-1">Pinterest</a>
+            <a class="border-b border-paper/40 pb-1">Houzz</a>
+          </div>
+        </div>
+        <div class="md:col-span-3">
+          <div class="text-[11px] tracking-widest2 uppercase text-paper/60 mb-5">Studio</div>
+          <p class="text-[14px] leading-relaxed text-paper/85">
+            14 Jupiter Street<br/>Bel-Air, Makati 1209<br/>By appointment
+          </p>
+          <p class="mt-5 text-[14px] leading-relaxed text-paper/85">
+            +63 917 555 0114<br/>hello@bercoph.com
+          </p>
+        </div>
+        <div class="md:col-span-2">
+          <div class="text-[11px] tracking-widest2 uppercase text-paper/60 mb-5">Service Areas</div>
+          <ul class="space-y-2 text-[14px] text-paper/85">
+            <li>Metro Manila</li>
+            <li>Tagaytay · Batangas</li>
+            <li>Cebu · Bohol</li>
+            <li>Davao</li>
+            <li>Selected International</li>
+          </ul>
+        </div>
+        <div class="md:col-span-2">
+          <div class="text-[11px] tracking-widest2 uppercase text-paper/60 mb-5">Studio</div>
+          <ul class="space-y-2 text-[14px] text-paper/85">
+            <li>Projects</li>
+            <li>Collections</li>
+            <li>Process</li>
+            <li>Journal</li>
+            <li>Contact</li>
+          </ul>
+        </div>
+      </div>
+      <div class="hairline opacity-30 my-12"></div>
+      <div class="flex flex-col md:flex-row justify-between items-center text-[11px] tracking-widest2 uppercase text-paper/50 gap-3">
+        <span>© 2026 BERCO Cabinetry, Inc.</span>
+        <span>Crafted in the Philippines</span>
+        <span>Privacy · Terms · Warranty</span>
+      </div>
+    </div>
+  </footer>
+</section>
+
+<!-- ============================================================
+     02 — PROJECTS
+     ============================================================ -->
+<section id="projects">
+  <div class="page-label">
+    <span>02 / Projects — Desktop</span>
+    <span class="hidden sm:inline">bercoph.com / projects</span>
+  </div>
+
+  <div class="bg-paper">
+    <div class="max-w-[1400px] mx-auto px-8 pt-20 pb-10">
+      <div class="grid md:grid-cols-12 gap-10 items-end">
+        <div class="md:col-span-7">
+          <span class="eyebrow">Selected Work · 2018 — 2026</span>
+          <h2 class="font-display text-5xl md:text-6xl mt-5 leading-[1.05]">
+            Twenty-eight homes,<br/>
+            <em class="italic">one quiet hand.</em>
+          </h2>
+        </div>
+        <div class="md:col-span-4 md:col-start-9">
+          <p class="text-mute text-[15px] leading-relaxed">
+            A working archive of recent commissions. Filter by room, or simply scroll — every project below was designed and built by the same studio.
+          </p>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="mt-14 flex flex-wrap items-center gap-3">
+        <span class="text-[10px] tracking-widest2 uppercase text-mute mr-2">Filter</span>
+        <button class="chip active">All · 28</button>
+        <button class="chip">Kitchens</button>
+        <button class="chip">Wardrobes &amp; Closets</button>
+        <button class="chip">Bathroom Vanities</button>
+        <button class="chip">Whole-Home</button>
+        <button class="chip">Condominium</button>
+        <button class="chip">Standalone Home</button>
+      </div>
+    </div>
+
+    <!-- Editorial grid -->
+    <div class="max-w-[1400px] mx-auto px-8 pb-24">
+      <div class="grid md:grid-cols-12 gap-x-6 gap-y-20">
+        <!-- 1 large -->
+        <a class="project-card md:col-span-7 block">
+          <div class="aspect-[5/4] overflow-hidden bg-stone1">
+            <img src="https://bercohome.com/wp-content/uploads/2023/11/dark-wood-kitchen-cabinets-with-grey-countertop-obk23-m01-2.jpg" alt="" class="w-full h-full object-cover" />
+          </div>
+          <div class="pt-5 flex justify-between">
+            <div>
+              <p class="text-[10px] tracking-widest2 uppercase text-mute">Forbes Park · Makati</p>
+              <h3 class="font-display text-3xl mt-2">The Quiet Kitchen</h3>
+              <p class="text-[14px] text-mute mt-3 max-w-md">Walnut and honed travertine, with a six-metre island drawn as a single line.</p>
+            </div>
+            <span class="text-[11px] tracking-widest2 uppercase text-mute">2025 · Kitchen</span>
+          </div>
+        </a>
+        <!-- 2 small offset -->
+        <a class="project-card md:col-span-4 md:col-start-9 md:translate-y-24 block">
+          <div class="aspect-[3/4] overflow-hidden bg-stone1">
+            <img src="https://bercohome.com/wp-content/uploads/2025/12/modern-luxury-closet-in-dark-grey-and-dark-wood-obw23-l07-2.webp" alt="" class="w-full h-full object-cover" />
+          </div>
+          <div class="pt-5">
+            <p class="text-[10px] tracking-widest2 uppercase text-mute">Park McKinley · BGC</p>
+            <h3 class="font-display text-2xl mt-2">Walk-in, in Oak.</h3>
+            <p class="text-[14px] text-mute mt-3">Brushed bronze, full-height oak, a single seam of light.</p>
+          </div>
+        </a>
+
+        <!-- 3 -->
+        <a class="project-card md:col-span-5 md:col-start-1 block">
+          <div class="aspect-[4/5] overflow-hidden bg-stone1">
+            <img src="https://bercohome.com/wp-content/uploads/2025/12/double-island-kitchen-design-for-long-kitchen-layout-obk23-l11-3.webp" alt="" class="w-full h-full object-cover" />
+          </div>
+          <div class="pt-5">
+            <p class="text-[10px] tracking-widest2 uppercase text-mute">Ayala Alabang</p>
+            <h3 class="font-display text-2xl mt-2">A House for Two Cooks.</h3>
+            <p class="text-[14px] text-mute mt-3">Two islands, twin pantries, and a quiet preference for matte lacquer.</p>
+          </div>
+        </a>
+        <!-- 4 -->
+        <a class="project-card md:col-span-6 md:col-start-7 block">
+          <div class="aspect-[5/4] overflow-hidden bg-stone1">
+            <img src="https://bercohome.com/wp-content/uploads/2023/11/cream-kitchen-cabinets-with-white-island-obk23-l05-2.jpg" alt="" class="w-full h-full object-cover" />
+          </div>
+          <div class="pt-5">
+            <p class="text-[10px] tracking-widest2 uppercase text-mute">Maria Luisa · Cebu</p>
+            <h3 class="font-display text-2xl mt-2">House on the Ridge.</h3>
+            <p class="text-[14px] text-mute mt-3">Whole-home cabinetry in pale ash, drawn around a courtyard.</p>
+          </div>
+        </a>
+
+        <!-- 5 -->
+        <a class="project-card md:col-span-4 block">
+          <div class="aspect-[3/4] overflow-hidden bg-stone1">
+            <img src="https://bercohome.com/wp-content/uploads/2023/01/modern-galley-kitchen-in-grey-and-white-obk22-l20.jpg" alt="" class="w-full h-full object-cover" />
+          </div>
+          <div class="pt-5">
+            <p class="text-[10px] tracking-widest2 uppercase text-mute">Rockwell · Makati</p>
+            <h3 class="font-display text-2xl mt-2">A Condo, Disguised.</h3>
+            <p class="text-[14px] text-mute mt-3">Eighty square metres reorganised behind a single, continuous line of cabinetry.</p>
+          </div>
+        </a>
+        <!-- 6 -->
+        <a class="project-card md:col-span-7 md:col-start-6 md:translate-y-12 block">
+          <div class="aspect-[5/4] overflow-hidden bg-stone1">
+            <img src="https://bercohome.com/wp-content/uploads/2025/12/white-and-timber-kitchen-warm-minimalist-design-obk22-l25-1.jpg" alt="" class="w-full h-full object-cover" />
+          </div>
+          <div class="pt-5">
+            <p class="text-[10px] tracking-widest2 uppercase text-mute">Tagaytay Highlands</p>
+            <h3 class="font-display text-2xl mt-2">Mountain Pantry.</h3>
+            <p class="text-[14px] text-mute mt-3">A working scullery clad in tongue-and-groove oak, behind a hidden door.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="mt-24 flex justify-center">
+        <a class="btn-primary">Load More Projects <span aria-hidden>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     03 — COLLECTIONS
+     ============================================================ -->
+<section id="collections">
+  <div class="page-label">
+    <span>03 / Collections — Desktop</span>
+    <span class="hidden sm:inline">bercoph.com / collections</span>
+  </div>
+
+  <div class="bg-ivory">
+    <div class="max-w-[1400px] mx-auto px-8 pt-20 pb-10 grid md:grid-cols-12 gap-10 items-end">
+      <div class="md:col-span-7">
+        <span class="eyebrow">Lifestyle Collections</span>
+        <h2 class="font-display text-5xl md:text-6xl mt-5 leading-[1.05]">
+          Six ways to live<br/><em class="italic">at home.</em>
+        </h2>
+      </div>
+      <div class="md:col-span-4 md:col-start-9">
+        <p class="text-mute text-[15px] leading-relaxed">
+          Every commission is bespoke — but most homes begin in one of six places. These are the design directions our clients ask for, again and again.
+        </p>
+      </div>
+    </div>
+
+    <!-- Collection 1 -->
+    <div class="border-t border-line">
+      <div class="max-w-[1400px] mx-auto px-8 py-20 grid md:grid-cols-12 gap-10 items-center">
+        <div class="md:col-span-7 order-2 md:order-1">
+          <div class="aspect-[16/10] overflow-hidden bg-stone1">
+            <img src="https://bercohome.com/wp-content/uploads/2023/01/all-white-kitchen-cabinets-in-minimalist-look-obk22-l13-2.jpg" class="w-full h-full object-cover" alt="" />
+          </div>
+        </div>
+        <div class="md:col-span-4 md:col-start-9 order-1 md:order-2">
+          <span class="eyebrow">Collection 01</span>
+          <h3 class="font-display text-4xl mt-4 leading-tight">Modern Minimal.</h3>
+          <p class="text-mute mt-5 text-[15px] leading-relaxed">
+            Handle-less doors. Matte stone. The architecture does the talking; the cabinetry, politely, listens.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="text-[10px] tracking-widest2 uppercase text-mute">Lacquer</span>
+            <span class="text-mute">·</span>
+            <span class="text-[10px] tracking-widest2 uppercase text-mute">Quartzite</span>
+            <span class="text-mute">·</span>
+            <span class="text-[10px] tracking-widest2 uppercase text-mute">Touch-latch</span>
+          </div>
+          <a class="btn-ghost mt-8">Book for this collection →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collection 2 -->
+    <div class="border-t border-line bg-stone1">
+      <div class="max-w-[1400px] mx-auto px-8 py-20 grid md:grid-cols-12 gap-10 items-center">
+        <div class="md:col-span-4">
+          <span class="eyebrow">Collection 02</span>
+          <h3 class="font-display text-4xl mt-4 leading-tight">Warm Wood.</h3>
+          <p class="text-mute mt-5 text-[15px] leading-relaxed">
+            Solid oak, walnut, smoked ash. A house that smells, faintly and forever, of beeswax and morning coffee.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="text-[10px] tracking-widest2 uppercase text-mute">Oak</span>
+            <span class="text-mute">·</span>
+            <span class="text-[10px] tracking-widest2 uppercase text-mute">Bronze pulls</span>
+            <span class="text-mute">·</span>
+            <span class="text-[10px] tracking-widest2 uppercase text-mute">Soft-close</span>
+          </div>
+          <a class="btn-ghost mt-8">Book for this collection →</a>
+        </div>
+        <div class="md:col-span-7 md:col-start-6">
+          <div class="aspect-[16/10] overflow-hidden bg-paper">
+            <img src="https://bercohome.com/wp-content/uploads/2025/11/White-And-Wood-Two-Tone-Kitchen-Cabinet-2-1024x640-1.webp" class="w-full h-full object-cover" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collection 3 -->
+    <div class="border-t border-line">
+      <div class="max-w-[1400px] mx-auto px-8 py-20 grid md:grid-cols-12 gap-10 items-center">
+        <div class="md:col-span-7 order-2 md:order-1">
+          <div class="aspect-[16/10] overflow-hidden bg-stone1">
+            <img src="https://bercohome.com/wp-content/uploads/2023/01/minimalist-kitchen-design-in-white-obk22-l14-1.jpg" class="w-full h-full object-cover" alt="" />
+          </div>
+        </div>
+        <div class="md:col-span-4 md:col-start-9 order-1 md:order-2">
+          <span class="eyebrow">Collection 03</span>
+          <h3 class="font-display text-4xl mt-4 leading-tight">Compact Condo.</h3>
+          <p class="text-mute mt-5 text-[15px] leading-relaxed">
+            Drawn for forty to a hundred square metres. Every door earns its keep; every drawer, its depth.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span class="text-[10px] tracking-widest2 uppercase text-mute">Slim-frame</span>
+            <span class="text-mute">·</span>
+            <span class="text-[10px] tracking-widest2 uppercase text-mute">Pocket doors</span>
+            <span class="text-mute">·</span>
+            <span class="text-[10px] tracking-widest2 uppercase text-mute">Integrated</span>
+          </div>
+          <a class="btn-ghost mt-8">Book for this collection →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collection 4 / 5 / 6 — compact rail -->
+    <div class="border-t border-line bg-paper">
+      <div class="max-w-[1400px] mx-auto px-8 py-20">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <div class="aspect-[4/5] overflow-hidden bg-stone1">
+              <img src="https://bercohome.com/wp-content/uploads/2023/11/blue-green-kitchen-cabinets-modern-style-obk23-l10-2.webp" class="w-full h-full object-cover" alt="" />
+            </div>
+            <span class="eyebrow mt-5 inline-block">Collection 04</span>
+            <h3 class="font-display text-2xl mt-2">Tropical Modern.</h3>
+            <p class="text-[14px] text-mute mt-3">Narra, capiz, and rattan — translated into cabinetry that breathes.</p>
+            <a class="btn-ghost mt-6">Enquire →</a>
+          </div>
+          <div>
+            <div class="aspect-[4/5] overflow-hidden bg-stone1">
+              <img src="https://bercohome.com/wp-content/uploads/2023/01/grey-painted-kitchen-cabinets-with-white-island-obk22-pvc02.jpg" class="w-full h-full object-cover" alt="" />
+            </div>
+            <span class="eyebrow mt-5 inline-block">Collection 05</span>
+            <h3 class="font-display text-2xl mt-2">Heritage Manila.</h3>
+            <p class="text-[14px] text-mute mt-3">For ancestral homes — panelled doors, brass, and patient detailing.</p>
+            <a class="btn-ghost mt-6">Enquire →</a>
+          </div>
+          <div>
+            <div class="aspect-[4/5] overflow-hidden bg-stone1">
+              <img src="https://bercohome.com/wp-content/uploads/2025/12/modern-elegance-bathroom-cabinet4-1024x640-1.webp" class="w-full h-full object-cover" alt="" />
+            </div>
+            <span class="eyebrow mt-5 inline-block">Collection 06</span>
+            <h3 class="font-display text-2xl mt-2">Quiet Bath.</h3>
+            <p class="text-[14px] text-mute mt-3">Vanities and storage drawn for the bathroom — stone, mirror, and warm light.</p>
+            <a class="btn-ghost mt-6">Enquire →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     04 — PROCESS + MATERIALS
+     ============================================================ -->
+<section id="process">
+  <div class="page-label">
+    <span>04 / Process &amp; Materials — Desktop</span>
+    <span class="hidden sm:inline">bercoph.com / process</span>
+  </div>
+
+  <div class="bg-paper">
+    <!-- Intro -->
+    <div class="max-w-[1400px] mx-auto px-8 pt-20 pb-16 grid md:grid-cols-12 gap-10 items-end">
+      <div class="md:col-span-7">
+        <span class="eyebrow">Process</span>
+        <h2 class="font-display text-5xl md:text-6xl mt-5 leading-[1.05]">From first <em class="italic">conversation</em><br/>to final hinge.</h2>
+      </div>
+      <div class="md:col-span-4 md:col-start-9">
+        <p class="text-mute text-[15px] leading-relaxed">
+          A typical BERCO commission takes between four and six months. What follows is the path most of our houses walk — slowly, with one designer beside you the whole way.
+        </p>
+      </div>
+    </div>
+
+    <!-- Visual timeline -->
+    <div class="max-w-[1400px] mx-auto px-8 pb-16">
+      <div class="relative">
+        <div class="absolute left-0 right-0 top-12 h-px bg-line hidden md:block"></div>
+        <ol class="grid md:grid-cols-7 gap-y-12 md:gap-x-6 relative">
+          <li class="text-center md:text-left">
+            <div class="flex md:block items-center gap-4 md:gap-0">
+              <div class="w-6 h-6 rounded-full bg-bronze inline-flex items-center justify-center text-paper text-[10px] font-medium md:mb-6 relative z-10 mx-auto md:mx-0">01</div>
+              <h4 class="font-display text-xl md:mt-2">Consultation</h4>
+            </div>
+            <p class="text-[12px] text-mute mt-3 leading-relaxed">A studio meeting. Budget and brief.</p>
+          </li>
+          <li class="text-center md:text-left">
+            <div class="w-6 h-6 rounded-full bg-ink inline-flex items-center justify-center text-paper text-[10px] font-medium md:mb-6 relative z-10">02</div>
+            <h4 class="font-display text-xl">Site Visit</h4>
+            <p class="text-[12px] text-mute mt-3 leading-relaxed">Measurements, light, the way you actually move.</p>
+          </li>
+          <li class="text-center md:text-left">
+            <div class="w-6 h-6 rounded-full bg-ink inline-flex items-center justify-center text-paper text-[10px] font-medium md:mb-6 relative z-10">03</div>
+            <h4 class="font-display text-xl">3D Design</h4>
+            <p class="text-[12px] text-mute mt-3 leading-relaxed">Two to three rounds of refinement, drawn in-house.</p>
+          </li>
+          <li class="text-center md:text-left">
+            <div class="w-6 h-6 rounded-full bg-ink inline-flex items-center justify-center text-paper text-[10px] font-medium md:mb-6 relative z-10">04</div>
+            <h4 class="font-display text-xl">Materials</h4>
+            <p class="text-[12px] text-mute mt-3 leading-relaxed">Samples on the table. Decisions made in daylight.</p>
+          </li>
+          <li class="text-center md:text-left">
+            <div class="w-6 h-6 rounded-full bg-ink inline-flex items-center justify-center text-paper text-[10px] font-medium md:mb-6 relative z-10">05</div>
+            <h4 class="font-display text-xl">Fabrication</h4>
+            <p class="text-[12px] text-mute mt-3 leading-relaxed">Built in our Laguna atelier, six to ten weeks.</p>
+          </li>
+          <li class="text-center md:text-left">
+            <div class="w-6 h-6 rounded-full bg-ink inline-flex items-center justify-center text-paper text-[10px] font-medium md:mb-6 relative z-10">06</div>
+            <h4 class="font-display text-xl">Installation</h4>
+            <p class="text-[12px] text-mute mt-3 leading-relaxed">A small, dedicated team. Dust-controlled.</p>
+          </li>
+          <li class="text-center md:text-left">
+            <div class="w-6 h-6 rounded-full bg-bronze inline-flex items-center justify-center text-paper text-[10px] font-medium md:mb-6 relative z-10">07</div>
+            <h4 class="font-display text-xl">Warranty</h4>
+            <p class="text-[12px] text-mute mt-3 leading-relaxed">Ten-year structural. Lifetime studio relationship.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- Materials section -->
+    <div class="bg-stone1 grain relative">
+      <div class="max-w-[1400px] mx-auto px-8 py-24">
+        <div class="grid md:grid-cols-12 gap-10 items-end mb-14">
+          <div class="md:col-span-6">
+            <span class="eyebrow">Materials &amp; Hardware</span>
+            <h3 class="font-display text-4xl md:text-5xl mt-4 leading-tight">The cabinet, then the cabinetry.</h3>
+          </div>
+          <div class="md:col-span-5 md:col-start-8">
+            <p class="text-mute text-[15px] leading-relaxed">
+              We work with a curated set of European fittings and Asian-sourced timbers. Below — a working list, kept short on purpose.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-px bg-line border border-line">
+          <div class="bg-stone1 p-8">
+            <div class="aspect-[4/3] bg-paper overflow-hidden mb-6">
+              <img src="https://bercohome.com/wp-content/uploads/2025/11/warm-minimalist-kitchen-cabinets-in-beige-and-light-wood-obk23-l09-2.jpg" class="w-full h-full object-cover" alt="Wood finishes" />
+            </div>
+            <span class="eyebrow">01 — Cabinetry Carcass</span>
+            <h4 class="font-display text-2xl mt-3">Marine-Grade Plywood.</h4>
+            <p class="text-[13px] text-mute mt-3 leading-relaxed">CARB P2-certified, edge-banded with PUR adhesive. Tropic-stable for Philippine humidity.</p>
+          </div>
+          <div class="bg-stone1 p-8">
+            <div class="aspect-[4/3] bg-paper overflow-hidden mb-6">
+              <img src="https://bercohome.com/wp-content/uploads/2023/01/Modern-Matte-Black-Kitchen-Cabinets-OBK22-Dark-2-1.jpg" class="w-full h-full object-cover" alt="Stone surfaces" />
+            </div>
+            <span class="eyebrow">02 — Door &amp; Surface Finishes</span>
+            <h4 class="font-display text-2xl mt-3">Oak · Walnut · Lacquer · Stone.</h4>
+            <p class="text-[13px] text-mute mt-3 leading-relaxed">Solid hardwoods, fenix-laminate, ten-coat matte lacquer, honed quartzite and travertine.</p>
+          </div>
+          <div class="bg-stone1 p-8">
+            <div class="aspect-[4/3] bg-paper overflow-hidden mb-6">
+              <img src="https://bercohome.com/wp-content/uploads/2023/01/designer-wardrobe-with-long-handle-obw23-l01-2.jpg" class="w-full h-full object-cover" alt="Hardware" />
+            </div>
+            <span class="eyebrow">03 — Hardware</span>
+            <h4 class="font-display text-2xl mt-3">Blum · Hettich · Salice.</h4>
+            <p class="text-[13px] text-mute mt-3 leading-relaxed">German and Italian-engineered hinges, drawer systems, soft-close and push-to-open mechanisms.</p>
+          </div>
+        </div>
+
+        <!-- Sample swatches -->
+        <div class="mt-14">
+          <span class="eyebrow">Studio Palette · A Working Selection</span>
+          <div class="mt-6 grid grid-cols-4 md:grid-cols-8 gap-4">
+            <div>
+              <div class="aspect-square" style="background:#F6F2EC;border:1px solid #E4DDD0"></div>
+              <p class="text-[10px] tracking-widest2 uppercase text-mute mt-2">Bone</p>
+            </div>
+            <div>
+              <div class="aspect-square" style="background:#D9D2C5"></div>
+              <p class="text-[10px] tracking-widest2 uppercase text-mute mt-2">Linen</p>
+            </div>
+            <div>
+              <div class="aspect-square" style="background:#A89A85"></div>
+              <p class="text-[10px] tracking-widest2 uppercase text-mute mt-2">Travertine</p>
+            </div>
+            <div>
+              <div class="aspect-square" style="background:#7A5C3B"></div>
+              <p class="text-[10px] tracking-widest2 uppercase text-mute mt-2">Bronze</p>
+            </div>
+            <div>
+              <div class="aspect-square" style="background:#3A4A3F"></div>
+              <p class="text-[10px] tracking-widest2 uppercase text-mute mt-2">Forest</p>
+            </div>
+            <div>
+              <div class="aspect-square" style="background:#4A3F36"></div>
+              <p class="text-[10px] tracking-widest2 uppercase text-mute mt-2">Walnut</p>
+            </div>
+            <div>
+              <div class="aspect-square" style="background:#2A2622"></div>
+              <p class="text-[10px] tracking-widest2 uppercase text-mute mt-2">Smoked Oak</p>
+            </div>
+            <div>
+              <div class="aspect-square" style="background:#1F1B17"></div>
+              <p class="text-[10px] tracking-widest2 uppercase text-mute mt-2">Ink</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     05 — CONTACT / PLANNER
+     ============================================================ -->
+<section id="contact">
+  <div class="page-label">
+    <span>05 / Contact &amp; Planner — Desktop</span>
+    <span class="hidden sm:inline">bercoph.com / consultation</span>
+  </div>
+
+  <div class="bg-paper">
+    <div class="max-w-[1400px] mx-auto px-8 pt-20 pb-24">
+      <div class="grid md:grid-cols-12 gap-12">
+        <!-- Left: form -->
+        <div class="md:col-span-7">
+          <span class="eyebrow">Book a Consultation</span>
+          <h2 class="font-display text-5xl md:text-6xl mt-5 leading-[1.05]">Tell us about<br/><em class="italic">your home.</em></h2>
+          <p class="text-mute text-[15px] leading-relaxed mt-6 max-w-lg">
+            A short brief is enough to begin. We'll reply within two business days to schedule a studio visit or a call.
+          </p>
+
+          <form class="mt-12 space-y-10">
+            <div>
+              <label class="text-[10px] tracking-widest2 uppercase text-mute">Which room?</label>
+              <div class="mt-3 flex flex-wrap gap-2">
+                <button type="button" class="chip active">Kitchen</button>
+                <button type="button" class="chip">Wardrobe</button>
+                <button type="button" class="chip">Walk-in Closet</button>
+                <button type="button" class="chip">Bathroom Vanity</button>
+                <button type="button" class="chip">Whole Home</button>
+                <button type="button" class="chip">Not Sure Yet</button>
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <label class="text-[10px] tracking-widest2 uppercase text-mute">Full name</label>
+                <input class="mt-3 w-full bg-transparent border-b border-ink/40 focus:border-ink focus:outline-none py-3 text-[15px]" placeholder="Maria Santos" />
+              </div>
+              <div>
+                <label class="text-[10px] tracking-widest2 uppercase text-mute">Phone / Viber</label>
+                <input class="mt-3 w-full bg-transparent border-b border-ink/40 focus:border-ink focus:outline-none py-3 text-[15px]" placeholder="+63 917 ___ ____" />
+              </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+              <div>
+                <label class="text-[10px] tracking-widest2 uppercase text-mute">Property location</label>
+                <input class="mt-3 w-full bg-transparent border-b border-ink/40 focus:border-ink focus:outline-none py-3 text-[15px]" placeholder="Forbes Park, Makati" />
+              </div>
+              <div>
+                <label class="text-[10px] tracking-widest2 uppercase text-mute">Timeline</label>
+                <select class="mt-3 w-full bg-transparent border-b border-ink/40 focus:border-ink focus:outline-none py-3 text-[15px] appearance-none">
+                  <option>Within 3 months</option>
+                  <option>3 — 6 months</option>
+                  <option>6 — 12 months</option>
+                  <option>Just exploring</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="text-[10px] tracking-widest2 uppercase text-mute">A short brief (optional)</label>
+              <textarea rows="4" class="mt-3 w-full bg-transparent border-b border-ink/40 focus:border-ink focus:outline-none py-3 text-[15px]" placeholder="Tell us about the space, the way you cook or dress, and what you'd like the cabinetry to do."></textarea>
+            </div>
+
+            <div>
+              <label class="text-[10px] tracking-widest2 uppercase text-mute">Floor plan (optional)</label>
+              <div class="mt-3 border border-dashed border-ink/30 px-6 py-10 text-center">
+                <p class="text-[13px] text-mute">Drag a PDF, JPG, or PNG here — or <span class="underline">browse</span>.</p>
+                <p class="text-[11px] text-mute mt-2">Up to 25 MB. Floor plans help us prepare for the first conversation.</p>
+              </div>
+            </div>
+
+            <div class="pt-4 flex flex-col sm:flex-row sm:items-center gap-6">
+              <button class="btn-primary">Request Consultation <span aria-hidden>→</span></button>
+              <p class="text-[11px] tracking-widest2 uppercase text-mute">We reply within 2 business days.</p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Right: contact rail -->
+        <aside class="md:col-span-4 md:col-start-9">
+          <div class="sticky top-24 space-y-10">
+            <div>
+              <span class="eyebrow">Studio</span>
+              <p class="font-display text-2xl mt-3 leading-snug">14 Jupiter Street<br/>Bel-Air, Makati 1209</p>
+              <p class="text-[13px] text-mute mt-3">By appointment, Tuesday — Saturday.</p>
+            </div>
+            <div>
+              <span class="eyebrow">Direct</span>
+              <ul class="mt-4 space-y-3 text-[15px]">
+                <li class="flex justify-between border-b border-line pb-3"><span class="text-mute">Phone</span><span>+63 917 555 0114</span></li>
+                <li class="flex justify-between border-b border-line pb-3"><span class="text-mute">Viber</span><span>+63 917 555 0114</span></li>
+                <li class="flex justify-between border-b border-line pb-3"><span class="text-mute">Messenger</span><span>m.me/bercoph</span></li>
+                <li class="flex justify-between border-b border-line pb-3"><span class="text-mute">Email</span><span>hello@bercoph.com</span></li>
+              </ul>
+            </div>
+
+            <!-- Map placeholder -->
+            <div>
+              <span class="eyebrow">Service Areas</span>
+              <div class="mt-4 aspect-[4/5] bg-stone1 relative overflow-hidden border border-line">
+                <img src="https://bercohome.com/wp-content/uploads/2023/01/modern-white-scandinavian-kitchen-design-obk22-l01-2.jpg" class="w-full h-full object-cover opacity-70" alt="Map of the Philippines" />
+                <div class="absolute inset-0 bg-paper/40"></div>
+                <!-- Pins -->
+                <span class="absolute top-[42%] left-[58%] w-2 h-2 bg-bronze rounded-full ring-4 ring-bronze/20"></span>
+                <span class="absolute top-[58%] left-[64%] w-2 h-2 bg-bronze rounded-full ring-4 ring-bronze/20"></span>
+                <span class="absolute top-[72%] left-[72%] w-2 h-2 bg-bronze rounded-full ring-4 ring-bronze/20"></span>
+                <div class="absolute bottom-4 left-4 right-4 bg-paper/90 backdrop-blur p-4">
+                  <p class="text-[10px] tracking-widest2 uppercase text-mute">Active</p>
+                  <p class="font-display text-lg mt-1">Manila · Cebu · Davao</p>
+                  <p class="text-[12px] text-mute mt-1">Tagaytay · Batangas · Bohol on request.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     06 — MOBILE VIEWS (showcase)
+     ============================================================ -->
+<section id="mobile" class="bg-ivory">
+  <div class="page-label">
+    <span>06 / Mobile — iPhone Preview</span>
+    <span class="hidden sm:inline">375 × 812</span>
+  </div>
+
+  <div class="max-w-[1400px] mx-auto px-8 pt-20 pb-10 grid md:grid-cols-12 gap-10 items-end">
+    <div class="md:col-span-7">
+      <span class="eyebrow">Mobile Experience</span>
+      <h2 class="font-display text-5xl md:text-6xl mt-5 leading-[1.05]">In the hand,<br/><em class="italic">just as quiet.</em></h2>
+    </div>
+    <div class="md:col-span-4 md:col-start-9">
+      <p class="text-mute text-[15px] leading-relaxed">
+        Mobile-first, with a sticky bottom bar for the two actions that actually matter — Book and Call. A slide-out menu for everything else.
+      </p>
+    </div>
+  </div>
+
+  <!-- Phone showcase -->
+  <div class="max-w-[1400px] mx-auto px-8 pb-28">
+    <div class="grid md:grid-cols-3 gap-y-16 gap-x-8 justify-items-center">
+
+      <!-- PHONE 1: Home -->
+      <div class="flex flex-col items-center">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen phone-scroll overflow-y-auto">
+            <!-- Status bar -->
+            <div class="h-12 flex items-center justify-between px-6 pt-3 text-[10px] font-medium text-ink">
+              <span>9:41</span>
+              <span class="opacity-70">●●● ▮</span>
+            </div>
+            <!-- Top nav -->
+            <div class="px-5 py-3 flex justify-between items-center border-b border-line">
+              <span class="font-display text-lg">BERCO<span class="text-bronze">.</span>PH</span>
+              <button class="w-8 h-8 flex flex-col justify-center gap-[5px]">
+                <span class="block w-5 h-px bg-ink"></span>
+                <span class="block w-5 h-px bg-ink"></span>
+              </button>
+            </div>
+            <!-- Hero -->
+            <div class="relative h-[420px] photo-overlay">
+              <img src="https://bercohome.com/wp-content/uploads/2023/01/Modern-Matte-Black-Kitchen-Cabinets-OBK22-Dark-2-1.jpg" class="absolute inset-0 w-full h-full object-cover" alt="" />
+              <div class="absolute bottom-0 inset-x-0 z-10 p-5 text-paper">
+                <span class="text-[9px] tracking-widest2 uppercase text-paper/80">Bespoke Cabinetry</span>
+                <h3 class="font-display text-3xl leading-[1.05] mt-3">Custom Cabinetry for <em class="italic">Philippine</em> Homes.</h3>
+                <p class="text-[12px] text-paper/80 mt-3">Quietly drawn. Carefully built. For homes that mean to stay.</p>
+              </div>
+            </div>
+            <!-- CTA strip -->
+            <div class="px-5 py-6 border-b border-line">
+              <a class="btn-primary w-full justify-center text-[10px]">Book a Consultation →</a>
+              <p class="text-center text-[10px] tracking-widest2 uppercase text-mute mt-3">View Recent Projects</p>
+            </div>
+            <!-- Project teasers -->
+            <div class="px-5 py-6">
+              <span class="eyebrow text-[9px]">Recent Work</span>
+              <div class="mt-4 space-y-5">
+                <div>
+                  <div class="aspect-[5/4] overflow-hidden bg-stone1">
+                    <img src="https://bercohome.com/wp-content/uploads/2025/12/Medium-Grey-Lacquer-Modern-Kitchen-Cabinets-OB22-Moher-3-1.webp" class="w-full h-full object-cover" alt="" />
+                  </div>
+                  <div class="flex justify-between mt-3">
+                    <div>
+                      <p class="text-[9px] tracking-widest2 uppercase text-mute">Forbes Park</p>
+                      <h4 class="font-display text-lg">The Quiet Kitchen</h4>
+                    </div>
+                    <span class="text-[10px] text-mute">2025</span>
+                  </div>
+                </div>
+                <div>
+                  <div class="aspect-[5/4] overflow-hidden bg-stone1">
+                    <img src="https://bercohome.com/wp-content/uploads/2025/12/big-walk-in-closet-with-beige-and-light-wood-cabinets-obw23-l05-2.webp" class="w-full h-full object-cover" alt="" />
+                  </div>
+                  <div class="flex justify-between mt-3">
+                    <div>
+                      <p class="text-[9px] tracking-widest2 uppercase text-mute">Park McKinley</p>
+                      <h4 class="font-display text-lg">Walk-in, in Oak.</h4>
+                    </div>
+                    <span class="text-[10px] text-mute">2025</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Process strip -->
+            <div class="bg-stone1 px-5 py-6">
+              <span class="eyebrow text-[9px]">How BERCO Works</span>
+              <ol class="mt-4 space-y-3">
+                <li class="flex gap-3 items-baseline"><span class="font-display italic text-bronze">i.</span><span class="font-display text-base">Consult</span><span class="text-[11px] text-mute">— a studio meeting.</span></li>
+                <li class="flex gap-3 items-baseline"><span class="font-display italic text-bronze">ii.</span><span class="font-display text-base">Design</span><span class="text-[11px] text-mute">— hand &amp; 3D drawings.</span></li>
+                <li class="flex gap-3 items-baseline"><span class="font-display italic text-bronze">iii.</span><span class="font-display text-base">Build</span><span class="text-[11px] text-mute">— Laguna atelier.</span></li>
+                <li class="flex gap-3 items-baseline"><span class="font-display italic text-bronze">iv.</span><span class="font-display text-base">Install</span><span class="text-[11px] text-mute">— with care, on site.</span></li>
+              </ol>
+            </div>
+            <!-- spacer for sticky bar -->
+            <div class="h-24"></div>
+            <!-- Sticky bottom bar -->
+            <div class="absolute bottom-0 inset-x-0 bg-paper/95 backdrop-blur border-t border-line px-4 py-3 grid grid-cols-2 gap-3">
+              <a class="btn-primary justify-center text-[10px] py-3">Book</a>
+              <a class="border border-ink text-ink py-3 text-[10px] tracking-widest2 uppercase text-center inline-flex items-center justify-center gap-2">Call · 0917</a>
+            </div>
+          </div>
+        </div>
+        <p class="text-[11px] tracking-widest2 uppercase text-mute mt-5">Mobile · Home</p>
+      </div>
+
+      <!-- PHONE 2: Menu open -->
+      <div class="flex flex-col items-center md:translate-y-10">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen phone-scroll overflow-y-auto bg-ink text-paper">
+            <div class="h-12 flex items-center justify-between px-6 pt-3 text-[10px] font-medium">
+              <span>9:41</span>
+              <span class="opacity-70">●●● ▮</span>
+            </div>
+            <div class="px-5 py-3 flex justify-between items-center border-b border-paper/10">
+              <span class="font-display text-lg">BERCO<span class="text-bronze2">.</span>PH</span>
+              <button class="w-8 h-8 flex items-center justify-center text-paper">
+                <span class="text-2xl leading-none">×</span>
+              </button>
+            </div>
+            <div class="px-6 py-10">
+              <span class="text-[9px] tracking-widest2 uppercase text-paper/50">Menu</span>
+              <ul class="mt-6 space-y-5">
+                <li class="font-display text-3xl flex justify-between items-baseline border-b border-paper/10 pb-4"><span>Projects</span><span class="text-paper/40 text-xs">28</span></li>
+                <li class="font-display text-3xl flex justify-between items-baseline border-b border-paper/10 pb-4"><span>Collections</span><span class="text-paper/40 text-xs">06</span></li>
+                <li class="font-display text-3xl flex justify-between items-baseline border-b border-paper/10 pb-4"><span>Process</span></li>
+                <li class="font-display text-3xl flex justify-between items-baseline border-b border-paper/10 pb-4"><span>Studio</span></li>
+                <li class="font-display text-3xl flex justify-between items-baseline border-b border-paper/10 pb-4"><span>Journal</span></li>
+                <li class="font-display text-3xl flex justify-between items-baseline pb-4"><span>Contact</span></li>
+              </ul>
+              <div class="mt-12">
+                <span class="text-[9px] tracking-widest2 uppercase text-paper/50">Direct</span>
+                <p class="text-[14px] mt-3">+63 917 555 0114</p>
+                <p class="text-[14px] text-paper/70">hello@bercoph.com</p>
+                <div class="mt-6 flex gap-4 text-[10px] tracking-widest2 uppercase text-paper/70">
+                  <span class="border-b border-paper/30 pb-1">Instagram</span>
+                  <span class="border-b border-paper/30 pb-1">Pinterest</span>
+                  <span class="border-b border-paper/30 pb-1">Viber</span>
+                </div>
+              </div>
+            </div>
+            <div class="absolute bottom-0 inset-x-0 px-4 py-3 grid grid-cols-2 gap-3">
+              <a class="bg-paper text-ink py-3 text-[10px] tracking-widest2 uppercase text-center">Book</a>
+              <a class="border border-paper py-3 text-[10px] tracking-widest2 uppercase text-center">Call · 0917</a>
+            </div>
+          </div>
+        </div>
+        <p class="text-[11px] tracking-widest2 uppercase text-mute mt-5">Mobile · Slide-out Menu</p>
+      </div>
+
+      <!-- PHONE 3: Contact -->
+      <div class="flex flex-col items-center">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen phone-scroll overflow-y-auto">
+            <div class="h-12 flex items-center justify-between px-6 pt-3 text-[10px] font-medium text-ink">
+              <span>9:41</span>
+              <span class="opacity-70">●●● ▮</span>
+            </div>
+            <div class="px-5 py-3 flex justify-between items-center border-b border-line">
+              <span class="font-display text-lg">BERCO<span class="text-bronze">.</span>PH</span>
+              <button class="w-8 h-8 flex flex-col justify-center gap-[5px]">
+                <span class="block w-5 h-px bg-ink"></span>
+                <span class="block w-5 h-px bg-ink"></span>
+              </button>
+            </div>
+            <div class="px-5 py-7">
+              <span class="eyebrow text-[9px]">Book a Consultation</span>
+              <h3 class="font-display text-3xl mt-3 leading-[1.05]">Tell us about<br/><em class="italic">your home.</em></h3>
+              <p class="text-[12px] text-mute mt-3">A short brief is enough. We'll reply within two business days.</p>
+            </div>
+            <div class="px-5 pb-5 space-y-7">
+              <div>
+                <label class="text-[9px] tracking-widest2 uppercase text-mute">Which room?</label>
+                <div class="mt-3 flex flex-wrap gap-2">
+                  <span class="chip text-[9px] py-2 active">Kitchen</span>
+                  <span class="chip text-[9px] py-2">Wardrobe</span>
+                  <span class="chip text-[9px] py-2">Bath</span>
+                  <span class="chip text-[9px] py-2">Whole Home</span>
+                </div>
+              </div>
+              <div>
+                <label class="text-[9px] tracking-widest2 uppercase text-mute">Full name</label>
+                <input class="mt-2 w-full bg-transparent border-b border-ink/30 py-2 text-[13px]" placeholder="Maria Santos" />
+              </div>
+              <div>
+                <label class="text-[9px] tracking-widest2 uppercase text-mute">Phone / Viber</label>
+                <input class="mt-2 w-full bg-transparent border-b border-ink/30 py-2 text-[13px]" placeholder="+63 917" />
+              </div>
+              <div>
+                <label class="text-[9px] tracking-widest2 uppercase text-mute">Timeline</label>
+                <div class="mt-2 flex justify-between border-b border-ink/30 py-2 text-[13px]">
+                  <span>3 — 6 months</span><span class="text-mute">▾</span>
+                </div>
+              </div>
+              <div>
+                <label class="text-[9px] tracking-widest2 uppercase text-mute">Floor plan (optional)</label>
+                <div class="mt-2 border border-dashed border-ink/30 py-5 text-center text-[11px] text-mute">Tap to upload — PDF, JPG, PNG</div>
+              </div>
+              <a class="btn-primary w-full justify-center text-[10px]">Request Consultation →</a>
+            </div>
+            <div class="h-20"></div>
+            <div class="absolute bottom-0 inset-x-0 bg-paper/95 backdrop-blur border-t border-line px-4 py-3 grid grid-cols-2 gap-3">
+              <a class="btn-primary justify-center text-[10px] py-3">Book</a>
+              <a class="border border-ink text-ink py-3 text-[10px] tracking-widest2 uppercase text-center inline-flex items-center justify-center gap-2">Call · 0917</a>
+            </div>
+          </div>
+        </div>
+        <p class="text-[11px] tracking-widest2 uppercase text-mute mt-5">Mobile · Contact</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     CLOSING CONCEPT NOTE
+     ========================================================= -->
+<section class="bg-ink text-paper">
+  <div class="max-w-[1400px] mx-auto px-8 py-24 grid md:grid-cols-12 gap-10 items-end">
+    <div class="md:col-span-7">
+      <span class="eyebrow text-bronze2">Concept Notes</span>
+      <h2 class="font-display text-4xl md:text-5xl mt-5 leading-[1.1]">
+        A website that behaves like a printed monograph — slow, generous with margin, photography-led.
+      </h2>
+    </div>
+    <div class="md:col-span-4 md:col-start-9 text-paper/75 text-[15px] leading-relaxed space-y-4">
+      <p><strong class="text-paper">Typography.</strong> Playfair Display for editorial moments; Inter at 300–500 for body and UI. Generous line-height. No all-caps body copy.</p>
+      <p><strong class="text-paper">Palette.</strong> Warm whites, stone, ink, with bronze and forest as restrained accents. No high-saturation marketing colours.</p>
+      <p><strong class="text-paper">CTAs.</strong> Always consultative — never "buy", never "shop", never "free quote".</p>
+      <p><strong class="text-paper">Mobile.</strong> Sticky Book + Call bar. Hamburger opens an editorial menu, not a list.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Top return -->
+<a href="#home" class="fixed bottom-6 right-6 bg-ink text-paper text-[10px] tracking-widest2 uppercase px-4 py-3 z-50 hidden md:inline-flex">↑ Top</a>
+
+</body>
+</html>
