@@ -14,6 +14,7 @@ import Laundry from "./pages/Laundry";
 import ProductDetail from "./pages/ProductDetail";
 import Process from "./pages/Process";
 import Contact from "./pages/Contact";
+import ArchitectsDesigners from "./pages/ArchitectsDesigners";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -62,9 +63,10 @@ export default function App() {
           <Route path="/vanities" component={Vanities} />
           <Route path="/tv-units" component={TVUnits} />
           <Route path="/laundry" component={Laundry} />
-          <Route path="/:category/:slug" component={ProductDetail} />
+          <Route path="/architects-designers" component={ArchitectsDesigners} />
           <Route path="/process" component={Process} />
           <Route path="/contact" component={Contact} />
+          <Route path="/:category/:slug" component={ProductDetail} />
           <Route component={NotFound} />
         </Switch>
       </main>

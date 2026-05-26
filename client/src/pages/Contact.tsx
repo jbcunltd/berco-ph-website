@@ -31,13 +31,13 @@ export default function Contact() {
       {/* Hero — Mobile-first */}
       <section className="bg-stone1 py-mobile sm:py-mobile-lg md:py-mobile-xl">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
-          <span className="eyebrow">Get in Touch</span>
+          <span className="eyebrow">Start Your Design Consultation</span>
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl mt-4 leading-tight">
-            Let's Design<br />
-            <em className="italic">Your Next Project.</em>
+            Begin your Berco<br />
+            <em className="italic">design journey.</em>
           </h1>
           <p className="mt-4 sm:mt-6 md:mt-8 text-mute text-sm sm:text-base leading-relaxed max-w-2xl">
-            Fill out the form below or reach out directly. We'll respond within 24 hours to discuss your vision and next steps.
+            Tell us about your space. Our team will guide you through the right cabinetry solution for your home, condo, or project — a single, considered conversation, with a designer who follows your project through.
           </p>
         </div>
       </section>

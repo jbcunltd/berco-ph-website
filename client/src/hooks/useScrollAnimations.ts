@@ -52,8 +52,10 @@ export const useScrollAnimations = () => {
           scrub: 1,
           markers: false,
         },
-        y: (i, target) => {
-          return (1 - ScrollTrigger.getProgress(target.parentElement as HTMLElement)) * 100;
+        y: (_i: number, target: HTMLElement) => {
+          const st = ScrollTrigger.getById(target.id);
+          const progress = st && typeof (st as any).progress === "function" ? (st as any).progress() : 0;
+          return (1 - progress) * 100;
         },
         ease: 'none',
       });

@@ -11,7 +11,7 @@ export default function Footer() {
               BERCO<span className="text-bronze2">.</span>PH
             </div>
             <p className="mt-4 text-paper/70 max-w-sm text-[14px] leading-relaxed">
-              The Heart of Your Home. Custom cabinetry designed and crafted for those who live with intention.
+              The Heart of Your Home. Bespoke cabinetry drawn, fabricated, and installed for Philippine homes — considered, restrained, and built to last.
             </p>
             <div className="mt-8 flex items-center gap-6 text-[11px] tracking-widest2 uppercase">
               <a href="#" className="border-b border-paper/40 pb-1 hover:border-paper transition-colors">
@@ -72,13 +72,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/architects-designers" asChild>
+                  <a className="hover:text-paper transition-colors">For Architects &amp; Designers</a>
+                </Link>
+              </li>
+              <li>
                 <Link href="/process" asChild>
-                  <a className="hover:text-paper transition-colors">Process</a>
+                  <a className="hover:text-paper transition-colors">Process &amp; Materials</a>
                 </Link>
               </li>
               <li>
                 <Link href="/contact" asChild>
-                  <a className="hover:text-paper transition-colors">Contact</a>
+                  <a className="hover:text-paper transition-colors">Start a Consultation</a>
                 </Link>
               </li>
             </ul>

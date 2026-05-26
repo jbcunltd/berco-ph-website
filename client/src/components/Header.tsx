@@ -16,7 +16,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
     { label: "Kitchens", href: "/kitchens" },
     { label: "Wardrobes", href: "/wardrobes" },
     { label: "Vanities", href: "/vanities" },
-    { label: "Whole Home", href: "/whole-home" },
+    { label: "For Architects & Designers", href: "/architects-designers" },
     { label: "Process", href: "/process" },
     { label: "Contact", href: "/contact" },
   ];
@@ -32,7 +32,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-7">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} asChild>
               <a
@@ -51,15 +51,15 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
         {/* CTA + Mobile Menu Toggle */}
         <div className="flex items-center gap-4">
           <Link href="/contact" asChild>
-            <a className="hidden md:inline-block text-[11px] tracking-widest2 uppercase border border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors">
+            <a className="hidden lg:inline-block text-[11px] tracking-widest2 uppercase border border-ink px-4 py-2 hover:bg-ink hover:text-paper transition-colors">
               Book Consultation
             </a>
           </Link>
 
-          {/* Mobile Hamburger */}
+          {/* Mobile / Tablet Hamburger */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden flex flex-col gap-1.5 p-2"
+            className="lg:hidden flex flex-col gap-1.5 p-2"
           >
             <div className={`w-5 h-0.5 bg-ink transition-all ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
             <div className={`w-5 h-0.5 bg-ink transition-all ${mobileMenuOpen ? "opacity-0" : ""}`} />
@@ -70,7 +70,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <nav className="md:hidden bg-paper border-t border-line px-6 py-4 space-y-3">
+        <nav className="lg:hidden bg-paper border-t border-line px-6 py-4 space-y-3">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} asChild>
               <a

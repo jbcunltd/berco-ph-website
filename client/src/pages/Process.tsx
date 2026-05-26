@@ -202,14 +202,15 @@ export default function Process() {
       <section className="bg-ink text-paper py-20 md:py-28">
         <div className="max-w-2xl mx-auto text-center px-6">
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            Ready to Start Your Project?
+            Begin your Berco<br />
+            <em className="italic">design journey.</em>
           </h2>
           <p className="mt-6 text-paper/80 text-[15px] leading-relaxed">
-            Let's begin with a consultation. We'll discuss your vision, your space, and how BERCO can bring it to life.
+            A quiet conversation about your space, the way you live, and the cabinetry that would make it feel resolved.
           </p>
           <Link href="/contact" asChild>
             <a className="inline-block mt-8 bg-paper text-ink px-8 py-3 text-[12px] tracking-widest2 uppercase font-semibold hover:bg-paper/90 transition-colors">
-              Book a Consultation →
+              Start Your Design Consultation →
             </a>
           </Link>
         </div>
