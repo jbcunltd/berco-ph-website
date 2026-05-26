@@ -328,8 +328,8 @@ export default function Home() {
             {[
               { num: "i.", title: "Consult", desc: "A studio visit, or a house call. We discuss how you live before we discuss what you'll build." },
               { num: "ii.", title: "Design", desc: "Hand drawings, then 3D — refined over two to three rounds, with materials laid out on the table." },
-              { num: "iii.", title: "Build", desc: "Fabricated in our Laguna atelier with European hardware and Philippine hardwoods, where appropriate." },
-              { num: "iv.", title: "Install", desc: "A small, dedicated team. Dust-controlled installation. A ten-year structural warranty signed at handover." },
+              { num: "iii.", title: "Build", desc: "Fabricated by our production team with European hardware and Philippine hardwoods, where appropriate." },
+              { num: "iv.", title: "Install", desc: "A small, dedicated team. Dust-controlled installation. Project-specific warranty terms provided at handover." },
             ].map((step, i) => (
               <div key={step.num} className="reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
                 <p className="text-xs uppercase tracking-widest2 text-mute mb-2">{step.num}</p>

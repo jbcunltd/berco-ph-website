@@ -190,5 +190,53 @@
     "gallery": [
       "/assets/products/ejxL8XajpbGV.webp"
     ]
+  },
+  {
+    "id": "bd1",
+    "title": "Minimalist Bedroom Closet",
+    "category": "bedrooms",
+    "gallery": [
+      "/assets/products/iMufIwMtPOnt.jpg"
+    ]
+  },
+  {
+    "id": "bd2",
+    "title": "Walk-in Bedroom Wardrobe",
+    "category": "bedrooms",
+    "gallery": [
+      "/assets/products/FygVPV0KfcgI.jpg"
+    ]
+  },
+  {
+    "id": "ba1",
+    "title": "Spa-Inspired Bathroom",
+    "category": "bathrooms",
+    "gallery": [
+      "/assets/products/High-end-Bathroom-Cabinet-with-UV-Lacquer-and-Glass-Door-PLWY20098-4-1-2.jpg"
+    ]
+  },
+  {
+    "id": "ba2",
+    "title": "Modern Bathroom Vanity",
+    "category": "bathrooms",
+    "gallery": [
+      "/assets/products/High-end-Bathroom-Cabinet-with-UV-Lacquer-and-Glass-Door-PLWY20098-4-1-2.jpg"
+    ]
+  },
+  {
+    "id": "tv1",
+    "title": "Media Wall Study",
+    "category": "tv-units",
+    "gallery": [
+      "/assets/products/ejxL8XajpbGV.webp"
+    ]
+  },
+  {
+    "id": "la1",
+    "title": "Organized Laundry Space",
+    "category": "laundry",
+    "gallery": [
+      "/assets/products/5Ntpd14w9KDj.jpg"
+    ]
   }
 ]
