@@ -73,8 +73,8 @@ export default function Process() {
               <div className="md:col-start-2">
                 <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
                   <img
-                    src="/materials.jpg"
-                    alt="Premium wood samples and finish swatches for cabinetry"
+                    src="/process-design-development.jpg"
+                    alt="Interior design development with 3D rendering and material samples"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -100,8 +100,8 @@ export default function Process() {
               <div>
                 <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
                   <img
-                    src="/fabrication.jpg"
-                    alt="CNC woodworking and cabinet fabrication in workshop"
+                    src="/process-production-coordination.jpg"
+                    alt="Cabinetry production coordination with CNC cutting and quality checks"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -109,7 +109,7 @@ export default function Process() {
               <div>
                 <h3 className="font-display text-3xl md:text-4xl mb-6">Production Coordination</h3>
                 <p className="text-base md:text-lg text-body mb-8 leading-relaxed">
-                  Once approved, your cabinetry is fabricated by our production team using precision CNC cutting, European hardware, and quality control at every stage. Edge-banding is applied with PUR adhesive. Every joint is checked before delivery.
+                  Once approved, your cabinetry is fabricated according to the final specifications, with precision cutting, hardware coordination, and quality checks before delivery.
                 </p>
                 <ul className="space-y-3">
                   {["CNC precision cutting", "European hardware installation", "Quality control checks", "Dust-controlled packaging"].map((item, i) => (
@@ -127,8 +127,8 @@ export default function Process() {
               <div className="md:col-start-2">
                 <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
                   <img
-                    src="/installation.jpg"
-                    alt="Professional cabinet installation and fitting"
+                    src="/process-installation.jpg"
+                    alt="Professional cabinet installation in luxury home"
                     className="w-full h-full object-cover"
                   />
                 </div>
