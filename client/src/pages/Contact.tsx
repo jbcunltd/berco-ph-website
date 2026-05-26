@@ -24,12 +24,26 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, upload: file }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, this would send to a backend
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    try {
+      // Send to backend or email service
+      const formDataToSend = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        if (key === 'upload' && value) {
+          formDataToSend.append(key, value);
+        } else if (key !== 'upload') {
+          formDataToSend.append(key, String(value));
+        }
+      });
+      // TODO: Replace with actual backend endpoint
+      console.log("Form submitted:", formData);
+      // For now, show success message
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (error) {
+      console.error("Form submission error:", error);
+    }
   };
 
   return (
@@ -202,17 +216,17 @@ export default function Contact() {
               <div>
                 <h3 className="text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4">Studio</h3>
                 <p className="text-sm sm:text-base leading-relaxed text-body">
-                  14 Jupiter Street<br />
-                  Bel-Air, Makati 1209<br />
-                  Philippines
+                  322 Sto Rosario<br />
+                  Mandaluyong City, 1550<br />
+                  Kalakhang Maynila
                 </p>
                 <p className="mt-4 sm:mt-6 text-sm sm:text-base leading-relaxed">
-                  <a href="tel:+639175550114" className="text-ink hover:text-champagne transition-colors font-semibold">
-                    +63 917 555 0114
+                  <a href="tel:+639178000730" className="text-ink hover:text-champagne transition-colors font-semibold">
+                    0917 800 0730
                   </a>
                   <br />
-                  <a href="mailto:hello@bercoph.com" className="text-ink hover:text-champagne transition-colors font-semibold">
-                    hello@bercoph.com
+                  <a href="mailto:sales@bercohome.com" className="text-ink hover:text-champagne transition-colors font-semibold">
+                    sales@bercohome.com
                   </a>
                 </p>
               </div>
@@ -221,11 +235,7 @@ export default function Contact() {
               <div>
                 <h3 className="text-lg sm:text-xl md:text-2xl mb-3 sm:mb-4">Service Areas</h3>
                 <ul className="space-y-2 text-sm sm:text-base text-body">
-                  <li>Metro Manila</li>
-                  <li>Tagaytay · Batangas</li>
-                  <li>Cebu · Bohol</li>
-                  <li>Davao</li>
-                  <li>Selected International</li>
+                  <li>Nationwide</li>
                 </ul>
               </div>
 
@@ -244,13 +254,13 @@ export default function Contact() {
               {/* Direct Links */}
               <div className="space-y-3">
                 <a
-                  href="https://wa.me/639175550114"
+                  href="https://wa.me/639178000730"
                   className="block w-full bg-forest text-light px-4 py-3 sm:py-4 text-xs sm:text-sm tracking-widest2 uppercase font-semibold rounded hover:bg-forest/90 transition-colors text-center min-h-[44px] flex items-center justify-center"
                 >
                   WhatsApp
                 </a>
                 <a
-                  href="https://m.me/bercoph"
+                  href="https://m.me/bercophilippines"
                   className="block w-full bg-bronze text-light px-4 py-3 sm:py-4 text-xs sm:text-sm tracking-widest2 uppercase font-semibold rounded hover:bg-bronze/90 transition-colors text-center min-h-[44px] flex items-center justify-center"
                 >
                   Messenger

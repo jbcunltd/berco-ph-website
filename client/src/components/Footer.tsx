@@ -6,7 +6,6 @@ export default function Footer() {
       <div className="max-w-content mx-auto px-6 md:px-8 py-16 md:py-20">
         <div className="grid md:grid-cols-12 gap-10 mb-12">
           {/* Brand */}
-          {/* TODO: Replace placeholder contact details with confirmed studio info, phone, email, and social handles before launch. */}
           <div className="md:col-span-5">
             <div className="font-display text-3xl font-semibold">
               BERCO
@@ -14,18 +13,28 @@ export default function Footer() {
             <p className="mt-4 text-light/85 max-w-sm text-[14px] leading-relaxed">
               The Heart of Your Home. Bespoke cabinetry drawn, fabricated, and installed for Philippine homes — considered, restrained, and built to last.
             </p>
-            {/* Social links removed pending confirmation of active accounts. */}
+            {/* Social links */}
+            <div className="mt-8 flex items-center gap-6 text-[11px] tracking-widest2 uppercase">
+              <a href="https://wa.me/639178000730" className="border-b border-paper/40 pb-1 hover:border-paper transition-colors" aria-label="WhatsApp">
+                WhatsApp
+              </a>
+              <a href="https://m.me/bercophilippines" className="border-b border-paper/40 pb-1 hover:border-paper transition-colors" aria-label="Messenger">
+                Messenger
+              </a>
+            </div>
           </div>
 
-          {/* Studio Info — placeholders marked TODO above */}
+          {/* Studio Info */}
           <div className="md:col-span-3">
             <div className="text-[11px] tracking-widest2 uppercase text-light/60 mb-5">Studio</div>
             <p className="text-[14px] leading-relaxed text-light/95">
-              By appointment, Metro Manila<br />
-              Address available on request
+              322 Sto Rosario<br />
+              Mandaluyong City, 1550<br />
+              Kalakhang Maynila
             </p>
             <p className="mt-6 text-[14px] leading-relaxed text-light/95">
-              <a href="mailto:hello@bercoph.com" className="text-light/95 hover:text-light transition-colors">hello@bercoph.com</a>
+              <a href="mailto:sales@bercohome.com" className="text-light/95 hover:text-light transition-colors">sales@bercohome.com</a><br />
+              <a href="tel:+639178000730" className="text-light/95 hover:text-light transition-colors">0917 800 0730</a>
             </p>
           </div>
 
@@ -33,10 +42,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="text-[11px] tracking-widest2 uppercase text-light/60 mb-5">Service Areas</div>
             <ul className="space-y-2 text-[14px] text-light/95">
-              <li>Metro Manila</li>
-              <li>Tagaytay · Batangas</li>
-              <li>Cebu · Bohol</li>
-              <li>Davao</li>
+              <li>Nationwide</li>
             </ul>
           </div>
 
