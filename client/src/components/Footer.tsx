@@ -8,7 +8,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-5">
             <img
-              src="/manus-storage/berco-wordmark-light_ee29ac0e.png"
+              src="/berco-logo-white.png"
               alt="Berco"
               className="h-16 w-auto mb-6"
             />

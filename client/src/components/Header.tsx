@@ -27,7 +27,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
         {/* Logo */}
         <Link href="/">
           <img
-            src="/manus-storage/berco-wordmark-dark_7cc529a7.png"
+            src="/berco-logo.png"
             alt="Berco"
             className="h-12 w-auto cursor-pointer"
           />
