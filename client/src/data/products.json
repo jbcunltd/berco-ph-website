@@ -64,6 +64,38 @@
     ]
   },
   {
+    "id": "k9",
+    "title": "Sleek Black Kitchen",
+    "category": "kitchens",
+    "gallery": [
+      "/oppolia/bathrooms/alice-modern-minimalist-utopian-style-whole-home-interior-design-ob24ap04-06.webp"
+    ]
+  },
+  {
+    "id": "k10",
+    "title": "Natural Oak Kitchen",
+    "category": "kitchens",
+    "gallery": [
+      "/oppolia/kitchens/all-white-kitchen-obk22-l13-01.jpg"
+    ]
+  },
+  {
+    "id": "k11",
+    "title": "White Lacquer Kitchen",
+    "category": "kitchens",
+    "gallery": [
+      "/oppolia/bathrooms/apartment-furniture-ob22-apart01-07.jpg"
+    ]
+  },
+  {
+    "id": "k12",
+    "title": "Mixed Material Kitchen",
+    "category": "kitchens",
+    "gallery": [
+      "/oppolia/kitchens/beige-kitchen-blcc23075-01.jpg"
+    ]
+  },
+  {
     "id": "w1",
     "title": "Walk-in Wardrobe with Island",
     "category": "wardrobes",
@@ -125,6 +157,38 @@
     "category": "wardrobes",
     "gallery": [
       "/oppolia/bathrooms/cream-interior-design-ob23-apart02-14.webp"
+    ]
+  },
+  {
+    "id": "w9",
+    "title": "Lacquer Wardrobe",
+    "category": "wardrobes",
+    "gallery": [
+      "/oppolia/bedrooms/big-walk-in-closet-obw23-l05-02.webp"
+    ]
+  },
+  {
+    "id": "w10",
+    "title": "Glass Door Closet",
+    "category": "wardrobes",
+    "gallery": [
+      "/oppolia/bedrooms/built-in-closet-obw23-m04-03.webp"
+    ]
+  },
+  {
+    "id": "w11",
+    "title": "Mirrored Wardrobe",
+    "category": "wardrobes",
+    "gallery": [
+      "/oppolia/bathrooms/contemporary-house-ob22-villa03-06.jpg"
+    ]
+  },
+  {
+    "id": "w12",
+    "title": "Corner Closet System",
+    "category": "wardrobes",
+    "gallery": [
+      "/oppolia/bathrooms/cream-interior-design-ob23-apart02-22.webp"
     ]
   },
   {
@@ -192,6 +256,38 @@
     ]
   },
   {
+    "id": "v9",
+    "title": "Minimalist Vanity",
+    "category": "vanities",
+    "gallery": [
+      "/oppolia/vanities/bathroom-cabinet-plwy20022a-02.jpg"
+    ]
+  },
+  {
+    "id": "v10",
+    "title": "Wood Vanity Cabinet",
+    "category": "vanities",
+    "gallery": [
+      "/oppolia/vanities/bathroom-cabinet-plwy20101-02.jpg"
+    ]
+  },
+  {
+    "id": "v11",
+    "title": "Contemporary Sink Unit",
+    "category": "vanities",
+    "gallery": [
+      "/oppolia/vanities/bathroom-cabinets-obv21-005-01.jpg"
+    ]
+  },
+  {
+    "id": "v12",
+    "title": "Elegant Mirror Cabinet",
+    "category": "vanities",
+    "gallery": [
+      "/oppolia/vanities/bathroom-cabinets-obv21-011-03.jpg"
+    ]
+  },
+  {
     "id": "ba1",
     "title": "Spa-Inspired Bathroom",
     "category": "bathrooms",
@@ -253,6 +349,38 @@
     "category": "bathrooms",
     "gallery": [
       "/oppolia/bathrooms/shaker-cabinetry-ob22-villa06-01.jpg"
+    ]
+  },
+  {
+    "id": "ba9",
+    "title": "Minimalist Shower Room",
+    "category": "bathrooms",
+    "gallery": [
+      "/oppolia/vanities/bathroom-cabinets-obv21-015-02.jpg"
+    ]
+  },
+  {
+    "id": "ba10",
+    "title": "Luxury Tile Bathroom",
+    "category": "bathrooms",
+    "gallery": [
+      "/oppolia/vanities/bathroom-cabinets-plwy20104-02.jpg"
+    ]
+  },
+  {
+    "id": "ba11",
+    "title": "Scandinavian Bathroom",
+    "category": "bathrooms",
+    "gallery": [
+      "/oppolia/vanities/bathroom-vanity-blwy23001-01.jpg"
+    ]
+  },
+  {
+    "id": "ba12",
+    "title": "Contemporary Wet Room",
+    "category": "bathrooms",
+    "gallery": [
+      "/oppolia/vanities/bathroom-vanity-obv21-001-02.jpg"
     ]
   },
   {
@@ -320,6 +448,38 @@
     ]
   },
   {
+    "id": "bd9",
+    "title": "Lacquer Bedroom",
+    "category": "bedrooms",
+    "gallery": [
+      "/oppolia/bathrooms/apartment-furniture-ob22-apart01-04.jpg"
+    ]
+  },
+  {
+    "id": "bd10",
+    "title": "Modern Headboard Wall",
+    "category": "bedrooms",
+    "gallery": [
+      "/oppolia/bathrooms/como-series-modern-beige-and-walnut-whole-house-design-03.webp"
+    ]
+  },
+  {
+    "id": "bd11",
+    "title": "Built-in Bedroom Storage",
+    "category": "bedrooms",
+    "gallery": [
+      "/oppolia/bathrooms/contemporary-home-design-ob23-villa01-05.webp"
+    ]
+  },
+  {
+    "id": "bd12",
+    "title": "Luxury Bedroom Cabinetry",
+    "category": "bedrooms",
+    "gallery": [
+      "/oppolia/bathrooms/contemporary-house-ob22-villa03-13.jpg"
+    ]
+  },
+  {
     "id": "tv1",
     "title": "Media Wall Study",
     "category": "tv-units",
@@ -384,6 +544,38 @@
     ]
   },
   {
+    "id": "tv9",
+    "title": "Black Media Wall",
+    "category": "tv-units",
+    "gallery": [
+      "/oppolia/bathrooms/alice-modern-minimalist-utopian-style-whole-home-interior-design-ob24ap04-07.webp"
+    ]
+  },
+  {
+    "id": "tv10",
+    "title": "Wood Entertainment Unit",
+    "category": "tv-units",
+    "gallery": [
+      "/oppolia/bathrooms/como-series-modern-beige-and-walnut-whole-house-design-06.webp"
+    ]
+  },
+  {
+    "id": "tv11",
+    "title": "Modern TV Console",
+    "category": "tv-units",
+    "gallery": [
+      "/oppolia/bathrooms/contemporary-home-design-ob23-villa01-11.webp"
+    ]
+  },
+  {
+    "id": "tv12",
+    "title": "Luxury Living Room Wall",
+    "category": "tv-units",
+    "gallery": [
+      "/oppolia/bathrooms/contemporary-house-ob22-villa03-11.jpg"
+    ]
+  },
+  {
     "id": "la1",
     "title": "Organized Laundry Space",
     "category": "laundry",
@@ -437,6 +629,38 @@
     "category": "laundry",
     "gallery": [
       "/oppolia/bathrooms/monica-series-scandinavian-modern-green-whole-house-design-ob25ap01-06.webp"
+    ]
+  },
+  {
+    "id": "la8",
+    "title": "Elegant Laundry Room",
+    "category": "laundry",
+    "gallery": [
+      "/oppolia/vanities/bathroom-cabinets-obv21-003-01.jpg"
+    ]
+  },
+  {
+    "id": "la9",
+    "title": "Functional Laundry Closet",
+    "category": "laundry",
+    "gallery": [
+      "/oppolia/vanities/bathroom-cabinets-obv21-007-01.jpg"
+    ]
+  },
+  {
+    "id": "la10",
+    "title": "Modern Utility Storage",
+    "category": "laundry",
+    "gallery": [
+      "/oppolia/vanities/bathroom-cabinets-obv21-007-02.jpg"
+    ]
+  },
+  {
+    "id": "la11",
+    "title": "Washer-Dryer Cabinetry",
+    "category": "laundry",
+    "gallery": [
+      "/oppolia/vanities/bathroom-cabinets-obv21-007-05.jpg"
     ]
   }
 ]
