@@ -13,7 +13,7 @@ export default function Process() {
       </section>
 
       {/* 7-Step Timeline Summary */}
-      <section className="bg-paper py-12 md:py-16">
+      <section className="bg-paper py-8 md:py-12">
         <div className="max-w-content mx-auto px-6 md:px-8">
           <div className="grid md:grid-cols-7 gap-4 md:gap-2">
             {[
@@ -30,7 +30,7 @@ export default function Process() {
                   <span className="font-display text-3xl text-champagne">{step.num}</span>
                 </div>
                 <h3 className="font-display text-lg leading-tight">{step.title}</h3>
-                <p className="text-[13px] text-body mt-3 leading-relaxed">{step.desc}</p>
+                <p className="text-[14px] text-body mt-3 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -44,7 +44,7 @@ export default function Process() {
             {/* Block 1: Consultation & Measurement */}
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
               <div>
-                <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
+                <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[320px]">
                   <img
                     src="/process-consultation-measurement.jpg"
                     alt="Interior design consultation with cabinetry plans and material samples"
@@ -71,7 +71,7 @@ export default function Process() {
             {/* Block 2: Design & Material Selection */}
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center md:grid-flow-dense">
               <div className="md:col-start-2">
-                <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
+                <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[320px]">
                   <img
                     src="/process-design-development.jpg"
                     alt="Interior design development with 3D rendering and material samples"
@@ -98,7 +98,7 @@ export default function Process() {
             {/* Block 3: Production Coordination */}
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
               <div>
-                <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
+                <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[320px]">
                   <img
                     src="/process-production-coordination.jpg"
                     alt="Cabinetry production coordination with CNC cutting and quality checks"
@@ -125,7 +125,7 @@ export default function Process() {
             {/* Block 4: Delivery & Installation */}
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center md:grid-flow-dense">
               <div className="md:col-start-2">
-                <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
+                <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[320px]">
                   <img
                     src="/process-installation.jpg"
                     alt="Professional cabinet installation in luxury home"
