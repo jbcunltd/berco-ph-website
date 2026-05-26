@@ -128,19 +128,19 @@ export default function Home() {
             <img src={kitchenImage} alt="BERCO cabinetry" className="w-full h-full object-cover hero-image-warm" />
           </div>
         </div>
-        {/* Desktop: side-by-side, image larger, text vertically centered */}
-        <div className="hidden md:grid md:grid-cols-[1.1fr_1fr] md:min-h-[68vh] md:items-stretch">
+        {/* Desktop: 45/55 split, calm composition, one focal point */}
+        <div className="hidden md:grid md:grid-cols-[0.9fr_1.1fr] md:min-h-[calc(100vh-80px)] md:items-stretch">
           <div className="relative bg-stone1 overflow-hidden image-crop-watermark"><img src={kitchenImage} alt="BERCO cabinetry" className="w-full h-full object-cover hero-image-warm" /></div>
-          <div className="px-12 lg:px-16 py-12 flex flex-col justify-center text-left">
-            <p className="text-xs tracking-[0.10em] uppercase text-mute mb-5">Bespoke Cabinetry · Manila</p>
-            <h1 className="text-5xl lg:text-6xl leading-tight mb-5 text-ink">Custom Cabinetry for <em className="italic">Philippine</em> Homes.</h1>
-            <p className="text-base leading-relaxed text-body mb-7 max-w-lg">Quiet, considered storage — kitchens, wardrobes, vanities, and refined spaces shaped around the way you live.</p>
-            <div className="flex gap-3">
+          <div className="px-12 lg:px-20 py-20 flex flex-col justify-center text-left">
+            <p className="text-xs tracking-[0.10em] uppercase text-mute mb-6">Bespoke Cabinetry · Manila</p>
+            <h1 className="text-5xl lg:text-[58px] leading-[1.08] mb-6 text-ink max-w-[600px]">Custom Cabinetry for <em className="italic">Philippine</em> Homes.</h1>
+            <p className="text-base leading-relaxed text-body mb-8 max-w-[560px]">Quiet, considered storage — kitchens, wardrobes, vanities, and refined spaces shaped around the way you live.</p>
+            <div className="flex gap-5">
               <Link href="/contact" asChild>
-                <a className="bg-ink text-light px-7 py-3.5 text-sm tracking-[0.10em] uppercase font-semibold hover:bg-ink/90 transition-colors rounded">Book a Design Consultation →</a>
+                <a className="bg-ink text-light px-8 py-3 text-sm tracking-[0.10em] uppercase font-semibold hover:bg-ink/90 transition-colors rounded h-14 flex items-center">Book a Design Consultation →</a>
               </Link>
               <Link href="/kitchens" asChild>
-                <a className="border border-ink text-ink px-7 py-3.5 text-sm tracking-[0.10em] uppercase font-semibold hover:bg-ink hover:text-light transition-colors rounded">Explore Collections</a>
+                <a className="border border-ink text-ink px-8 py-3 text-sm tracking-[0.10em] uppercase font-semibold hover:bg-ink hover:text-light transition-colors rounded h-14 flex items-center">Explore Collections</a>
               </Link>
             </div>
           </div>

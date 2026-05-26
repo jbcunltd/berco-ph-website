@@ -66,3 +66,17 @@
 - [ ] 8. Desktop collections card heights reduced (360-400px)
 - [ ] 9. Footer/contact: remove unconfirmed socials (Houzz/Pinterest), mark placeholders
 - [ ] 10. Logo confirmed BERCO (no change)
+
+
+---
+
+## Round Final-2 — Desktop Hierarchy & Breathing Room
+
+- [ ] Hero: 45/55 split, min-h 720px, padding 96-120px vertical
+- [ ] Hero headline 58-64px desktop (down from lg:text-6xl)
+- [ ] CTA height ~56px, gap 16-20px, primary stronger / secondary lighter
+- [ ] Studio section: top padding 120-160px (breathing pause)
+- [ ] Major sections: 120-160px py, medium: 96-120px
+- [ ] Collections gap 40-48px desktop, card image 340-380px
+- [ ] No 3 ideas above the fold; hero is one focal point
+- [ ] Playwright: wait for all images loaded before screenshot

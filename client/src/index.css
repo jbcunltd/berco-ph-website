@@ -248,11 +248,11 @@ button, a, input, select, textarea {
      Tablet: 32-40px side, 72-96px section
      Desktop: 64-96px side, 96-120px section */
 
-  /* Section padding — vertical rhythm */
+  /* Section padding — vertical rhythm: desktop breathing room */
   .py-section-mobile { padding-top: 3.5rem; padding-bottom: 3.5rem; }
   .py-section-tablet { padding-top: 4.5rem; padding-bottom: 4.5rem; }
-  .py-section { padding-top: 6rem; padding-bottom: 6rem; }
-  .py-section-lg { padding-top: 7.5rem; padding-bottom: 7.5rem; }
+  .py-section { padding-top: 7.5rem; padding-bottom: 7.5rem; }
+  .py-section-lg { padding-top: 9rem; padding-bottom: 9rem; }
 
   /* Vertical rhythm: breathing room before section headers */
   .section-top-spacing { margin-top: 2rem; }
@@ -281,24 +281,27 @@ button, a, input, select, textarea {
     .section-top-spacing { margin-top: 4rem; }
     .py-section-mobile { padding-top: 4.5rem; padding-bottom: 4.5rem; }
     .py-section-tablet { padding-top: 6rem; padding-bottom: 6rem; }
-    .py-section { padding-top: 7.5rem; padding-bottom: 7.5rem; }
-    .py-section-lg { padding-top: 8rem; padding-bottom: 8rem; }
+    .py-section { padding-top: 9rem; padding-bottom: 9rem; }
+    .py-section-lg { padding-top: 10rem; padding-bottom: 10rem; }
   }
 
-  /* Card grid gaps: mobile 32px, tablet 28-32px, desktop 32-40px */
+  /* Card grid gaps: mobile 32px, tablet 28-32px, desktop 40-48px for breathing */
   .gap-card-mobile { gap: 2rem; }
   .gap-card-tablet { gap: 1.75rem; }
-  .gap-card-desktop { gap: 2.25rem; }
+  .gap-card-desktop { gap: 2.5rem; }
 
   @media (min-width: 768px) {
     .gap-card-tablet { gap: 2rem; }
-    .gap-card-desktop { gap: 2.5rem; }
+    .gap-card-desktop { gap: 2.75rem; }
+  }
+  @media (min-width: 1024px) {
+    .gap-card-desktop { gap: 3rem; }
   }
 
-  /* Card image heights: 380-460px */
-  .card-image-height { height: 380px; }
-  @media (min-width: 768px) { .card-image-height { height: 420px; } }
-  @media (min-width: 1024px) { .card-image-height { height: 460px; } }
+  /* Card image heights: 340-380px for editorial feature block feel */
+  .card-image-fixed { height: 340px; }
+  @media (min-width: 768px) { .card-image-fixed { height: 360px; } }
+  @media (min-width: 1024px) { .card-image-fixed { height: 380px; } }
 
   /* ============================================================================
      IMAGE RULES: 90-100% opacity, warm dark overlay 12%, hover scale 1.03
