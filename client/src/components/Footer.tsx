@@ -8,9 +8,9 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-5">
             <img
-              src="/berco-logo-white.png"
+              src="/berco-logo.png"
               alt="Berco"
-              className="max-h-20 w-auto mb-6 object-contain"
+              className="max-h-20 w-auto mb-6 object-contain brightness-0 invert"
               style={{ maxWidth: '140px' }}
             />
             <p className="mt-4 text-light/80 max-w-sm text-[14px] leading-relaxed">
