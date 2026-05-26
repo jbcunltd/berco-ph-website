@@ -1,6 +1,63 @@
-import { Link } from "wouter";
-
 export default function Process() {
+  const processSteps = [
+    {
+      num: "01",
+      title: "Initial Consultation",
+      desc: "Studio visit or house call. We listen.",
+      image: "/manus-storage/consultation_b26d44a2.jpg",
+      alt: "Interior designer consultation with material samples",
+      details: ["Studio or house visit", "Detailed space assessment", "Material samples and mood board", "Initial design direction"],
+    },
+    {
+      num: "02",
+      title: "Site Visit & Measurements",
+      desc: "Measure, assess, understand the space.",
+      image: "/manus-storage/measurement_c90c0e11.jpg",
+      alt: "Measuring tape and floor plan for cabinetry design",
+      details: ["Precise measurements taken", "Floor plan documentation", "Site conditions assessed", "Technical specifications recorded"],
+    },
+    {
+      num: "03",
+      title: "Design Development",
+      desc: "Hand sketches + digital renderings.",
+      image: "/manus-storage/design_13c03912.jpg",
+      alt: "CAD drawings and interior design planning",
+      details: ["Hand-drawn sketches", "3D digital renderings", "Multiple design iterations", "Client approval rounds"],
+    },
+    {
+      num: "04",
+      title: "Materials & Finishes",
+      desc: "Select finishes, hardware, samples.",
+      image: "/manus-storage/materials_b4787294.jpg",
+      alt: "Premium wood samples and finish swatches for cabinetry",
+      details: ["Wood species selection", "Hardware finishes chosen", "Finish samples provided", "Final material approval"],
+    },
+    {
+      num: "05",
+      title: "Quotation & Approval",
+      desc: "Proposal and timeline confirmed.",
+      image: "/manus-storage/quotation_17e9c95f.jpg",
+      alt: "Design proposal and project documentation",
+      details: ["Detailed quotation prepared", "Project timeline outlined", "Specifications documented", "Contract and approval"],
+    },
+    {
+      num: "06",
+      title: "Fabrication",
+      desc: "Fabricated by our production team.",
+      image: "/manus-storage/fabrication_70eb2a91.jpg",
+      alt: "CNC woodworking and cabinet fabrication in workshop",
+      details: ["CNC precision cutting", "Cabinet assembly", "Quality control checks", "Hardware installation"],
+    },
+    {
+      num: "07",
+      title: "Delivery & Installation",
+      desc: "Dust-controlled, precise fit.",
+      image: "/manus-storage/installation_77c543e4.jpg",
+      alt: "Professional cabinet installation and fitting",
+      details: ["Dust-controlled delivery", "Professional installation", "Final adjustments", "After-sales support"],
+    },
+  ];
+
   return (
     <div className="w-full">
       {/* Hero */}
@@ -14,19 +71,11 @@ export default function Process() {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Quick Timeline */}
       <section className="bg-paper py-20 md:py-28">
         <div className="max-w-content mx-auto px-6 md:px-8">
           <div className="grid md:grid-cols-7 gap-4 md:gap-2">
-            {[
-              { num: "01", title: "Consultation", desc: "Studio visit or house call. We listen." },
-              { num: "02", title: "Site Visit", desc: "Measure, assess, understand the space." },
-              { num: "03", title: "3D Design", desc: "Hand sketches + digital renderings." },
-              { num: "04", title: "Materials", desc: "Select finishes, hardware, samples." },
-              { num: "05", title: "Fabrication", desc: "Fabricated by our production team." },
-              { num: "06", title: "Installation", desc: "Dust-controlled, precise fit." },
-              { num: "07", title: "After-Sales Support", desc: "Warranty terms and service guidance provided per project scope." },
-            ].map((step, i) => (
+            {processSteps.map((step, i) => (
               <div key={i} className="text-center">
                 <div className="bg-stone1 aspect-square rounded flex items-center justify-center mb-4">
                   <span className="font-display text-3xl text-champagne">{step.num}</span>
@@ -39,44 +88,42 @@ export default function Process() {
         </div>
       </section>
 
-      {/* Process Details */}
-      <section className="bg-stone1 grain relative py-20 md:py-28">
+      {/* Visual Process Timeline */}
+      <section className="bg-paper py-20 md:py-28">
         <div className="max-w-content mx-auto px-6 md:px-8">
-          <div className="grid md:grid-cols-2 gap-16">
-            {[
-              {
-                title: "Consultation & Design",
-                items: [
-                  "Initial studio or house visit",
-                  "Detailed space assessment",
-                  "Hand-drawn sketches",
-                  "3D renderings and revisions",
-                  "Material samples and selection",
-                  "Final approval and timeline",
-                ],
-              },
-              {
-                title: "Fabrication & Installation",
-                items: [
-                  "Precision cutting and assembly",
-                  "European hardware installation",
-                  "Quality control checks",
-                  "Dust-controlled delivery",
-                  "Professional on-site installation",
-                  "After-sales support and warranty guidance",
-                ],
-              },
-            ].map((section, i) => (
-              <div key={i}>
-                <h3 className="font-display text-3xl mb-8">{section.title}</h3>
-                <ul className="space-y-5">
-                  {section.items.map((item, j) => (
-                    <li key={j} className="flex items-start gap-4">
-                      <span className="text-champagne text-2xl leading-none">✓</span>
-                      <span className="text-[15px] text-ink leading-relaxed">{item}</span>
-                    </li>
-                  ))}
-                </ul>
+          <div className="space-y-24 md:space-y-32">
+            {processSteps.map((step, i) => (
+              <div key={i} className={`grid md:grid-cols-2 gap-12 md:gap-16 items-center ${i % 2 === 1 ? "md:grid-flow-dense" : ""}`}>
+                {/* Image */}
+                <div className={`${i % 2 === 1 ? "md:col-start-2" : ""}`}>
+                  <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
+                    <img
+                      src={step.image}
+                      alt={step.alt}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className={`${i % 2 === 1 ? "md:col-start-1" : ""}`}>
+                  <div className="flex items-baseline gap-4 mb-6">
+                    <span className="font-display text-5xl md:text-6xl text-champagne/30">{step.num}</span>
+                    <div>
+                      <h3 className="font-display text-3xl md:text-4xl">{step.title}</h3>
+                      <p className="text-base md:text-lg text-body mt-2">{step.desc}</p>
+                    </div>
+                  </div>
+
+                  <ul className="space-y-3 mt-8">
+                    {step.details.map((detail, j) => (
+                      <li key={j} className="flex items-start gap-3">
+                        <span className="text-champagne text-xl leading-none mt-1">✓</span>
+                        <span className="text-[15px] text-ink leading-relaxed">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
@@ -84,7 +131,7 @@ export default function Process() {
       </section>
 
       {/* Materials */}
-      <section className="bg-paper py-20 md:py-28">
+      <section className="bg-stone1 grain relative py-20 md:py-28">
         <div className="max-w-content mx-auto px-6 md:px-8">
           <div className="mb-16">
             <span className="eyebrow">Materials & Finishes</span>
@@ -125,7 +172,7 @@ export default function Process() {
       </section>
 
       {/* Craftsmanship & Technology */}
-      <section className="bg-stone1 grain relative py-20 md:py-28">
+      <section className="bg-paper py-20 md:py-28">
         <div className="max-w-content mx-auto px-6 md:px-8">
           <div className="mb-16">
             <span className="eyebrow">Craftsmanship & Technology</span>
@@ -190,29 +237,11 @@ export default function Process() {
             </div>
           </div>
 
-          <div className="mt-16 p-8 bg-paper rounded">
+          <div className="mt-16 p-8 bg-stone1 rounded">
             <p className="text-[15px] text-ink leading-relaxed">
               <span className="font-semibold">Modular Assembly Systems:</span> Every piece is engineered for precision assembly and future reconfiguration. Adjustable shelving, removable components, and standardized joinery mean your BERCO cabinetry grows and adapts with your life.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="bg-ink text-light py-20 md:py-28">
-        <div className="max-w-2xl mx-auto text-center px-6">
-          <h2 className="font-display text-4xl md:text-5xl leading-tight">
-            Begin your Berco<br />
-            <em className="italic">design journey.</em>
-          </h2>
-          <p className="mt-6 text-light/80 text-[15px] leading-relaxed">
-            A quiet conversation about your space, the way you live, and the cabinetry that would make it feel resolved.
-          </p>
-          <Link href="/contact" asChild>
-            <a className="inline-block mt-8 bg-paper text-ink px-8 py-3 text-[12px] tracking-widest2 uppercase font-semibold hover:bg-paper/90 transition-colors">
-              Start Your Design Consultation →
-            </a>
-          </Link>
         </div>
       </section>
     </div>
