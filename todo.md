@@ -97,3 +97,21 @@
 - [ ] Footer: remove unconfirmed Instagram, dead privacy/terms links
 - [ ] Desktop spacing: 140px sections, 72px header gap, 80px row gap, 620px text max-width
 - [ ] Capture 7 full-page screenshots at 1440px with images loaded
+
+
+---
+
+## Round Oppolia — Bulk Image Library Download
+
+- [ ] Crawl kitchen-cabinets index pages (paginated)
+- [ ] Crawl wardrobe index pages (paginated)
+- [ ] Crawl bathroom-vanities index pages (paginated)
+- [ ] Crawl whole-house-solution index pages (paginated)
+- [ ] Crawl interior-doors index pages (paginated)
+- [ ] Build master list of product detail URLs
+- [ ] Scrape each product page for gallery images and product name
+- [ ] Download images into client/public/oppolia/{kitchens,wardrobes,vanities,bathrooms,bedrooms,tv-units,laundry,other}/
+- [ ] Report counts per category
+- [ ] Curate 8 best per category, update products.json
+- [ ] Build + commit + push to GitHub
+- [ ] Verify Vercel deploy
