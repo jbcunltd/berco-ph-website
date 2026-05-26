@@ -59,7 +59,7 @@ export default function Wardrobes() {
             Tell us about your layout, materials, and how your kitchen will be used every day.
           </p>
           <Link href="/contact" asChild>
-            <a className="inline-block mt-6 sm:mt-8 bg-ink text-light px-6 sm:px-8 py-3 text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-ink/90 transition-colors">
+            <a className="inline-block mt-6 sm:mt-8 bg-ink text-light px-6 sm:px-8 py-3 text-xs sm:text-sm tracking-wide uppercase font-semibold hover:bg-ink/90 transition-colors">
               Start Your Design Consultation →
             </a>
           </Link>

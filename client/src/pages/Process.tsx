@@ -31,8 +31,8 @@ export default function Process() {
                 <div className="bg-stone1 aspect-square rounded flex items-center justify-center mb-4">
                   <span className="font-display text-3xl text-champagne">{step.num}</span>
                 </div>
-                <h3 className="font-display text-lg">{step.title}</h3>
-                <p className="text-[12px] text-body mt-2">{step.desc}</p>
+                <h3 className="font-display text-lg leading-tight">{step.title}</h3>
+                <p className="text-[13px] text-body mt-3 leading-relaxed">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -69,11 +69,11 @@ export default function Process() {
             ].map((section, i) => (
               <div key={i}>
                 <h3 className="font-display text-3xl mb-8">{section.title}</h3>
-                <ul className="space-y-4">
+                <ul className="space-y-5">
                   {section.items.map((item, j) => (
                     <li key={j} className="flex items-start gap-4">
                       <span className="text-champagne text-2xl leading-none">✓</span>
-                      <span className="text-[15px] text-ink">{item}</span>
+                      <span className="text-[15px] text-ink leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -142,21 +142,21 @@ export default function Process() {
                   <span className="text-champagne text-2xl leading-none">✓</span>
                   <div>
                     <p className="font-semibold text-ink">Soft-Close Systems</p>
-                    <p className="text-[13px] text-body mt-1">Blum and Hettich mechanisms ensure smooth, silent operation for decades.</p>
+                    <p className="text-[13px] text-body mt-2 leading-relaxed">Blum and Hettich mechanisms ensure smooth, silent operation for decades.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <span className="text-champagne text-2xl leading-none">✓</span>
                   <div>
                     <p className="font-semibold text-ink">Precision Drawer Systems</p>
-                    <p className="text-[13px] text-body mt-1">Full-extension slides with load capacity up to 50kg per drawer.</p>
+                    <p className="text-[13px] text-body mt-2 leading-relaxed">Full-extension slides with load capacity up to 50kg per drawer.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <span className="text-champagne text-2xl leading-none">✓</span>
                   <div>
                     <p className="font-semibold text-ink">Push-to-Open Technology</p>
-                    <p className="text-[13px] text-body mt-1">Integrated dampers and catch-free designs for minimalist aesthetics.</p>
+                    <p className="text-[13px] text-body mt-2 leading-relaxed">Integrated dampers and catch-free designs for minimalist aesthetics.</p>
                   </div>
                 </li>
               </ul>
@@ -169,21 +169,21 @@ export default function Process() {
                   <span className="text-champagne text-2xl leading-none">✓</span>
                   <div>
                     <p className="font-semibold text-ink">Moisture-Resistant Boards</p>
-                    <p className="text-[13px] text-body mt-1">Marine-grade plywood with anti-termite treatment, engineered for Philippine humidity.</p>
+                    <p className="text-[13px] text-body mt-2 leading-relaxed">Marine-grade plywood with anti-termite treatment, engineered for Philippine humidity.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <span className="text-champagne text-2xl leading-none">✓</span>
                   <div>
                     <p className="font-semibold text-ink">Precision Edge-Banding</p>
-                    <p className="text-[13px] text-body mt-1">PUR hot-melt adhesive and CNC-cut edges for seamless, durable finishes.</p>
+                    <p className="text-[13px] text-body mt-2 leading-relaxed">PUR hot-melt adhesive and CNC-cut edges for seamless, durable finishes.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
                   <span className="text-champagne text-2xl leading-none">✓</span>
                   <div>
                     <p className="font-semibold text-ink">Durable Finishes</p>
-                    <p className="text-[13px] text-body mt-1">Ten-coat lacquer, Fenix laminate, and premium veneers rated for 20+ years of daily use.</p>
+                    <p className="text-[13px] text-body mt-2 leading-relaxed">Ten-coat lacquer, Fenix laminate, and premium veneers selected for long-term daily use.</p>
                   </div>
                 </li>
               </ul>
