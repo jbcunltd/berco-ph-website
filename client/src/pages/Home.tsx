@@ -113,7 +113,7 @@ export default function Home() {
       <section className="relative bg-paper">
         {/* Mobile: stacked text-first */}
         <div className="md:hidden px-5 pt-10 pb-8 text-center">
-          <p className="text-[11px] tracking-[0.10em] uppercase text-mute mb-4">Bespoke Cabinetry · Manila</p>
+          <p className="text-[11px] tracking-[0.10em] uppercase text-mute mb-4">Bespoke Cabinetry · Philippines</p>
           <h1 className="text-4xl sm:text-5xl leading-tight mb-4 text-ink">Custom Cabinetry for <em className="italic">Philippine</em> Homes.</h1>
           <p className="text-sm leading-relaxed text-body mb-7 max-w-md mx-auto">Quiet, considered storage — kitchens, wardrobes, vanities, and refined spaces.</p>
           <div className="flex flex-col gap-3">
@@ -132,7 +132,7 @@ export default function Home() {
         <div className="hidden md:grid md:grid-cols-[0.9fr_1.1fr] md:min-h-[calc(100vh-80px)] md:items-stretch">
           <div className="relative bg-stone1 overflow-hidden image-crop-watermark"><img src={kitchenImage} alt="BERCO cabinetry" className="w-full h-full object-cover hero-image-warm" /></div>
           <div className="px-12 lg:px-20 py-20 flex flex-col justify-center text-left">
-            <p className="text-xs tracking-[0.10em] uppercase text-mute mb-6">Bespoke Cabinetry · Manila</p>
+            <p className="text-xs tracking-[0.10em] uppercase text-mute mb-6">Bespoke Cabinetry · Philippines</p>
             <h1 className="text-5xl lg:text-[58px] leading-[1.08] mb-6 text-ink max-w-[600px]">Custom Cabinetry for <em className="italic">Philippine</em> Homes.</h1>
             <p className="text-base leading-relaxed text-body mb-8 max-w-[560px]">Quiet, considered storage — kitchens, wardrobes, vanities, and refined spaces shaped around the way you live.</p>
             <div className="flex gap-5">
