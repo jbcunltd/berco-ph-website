@@ -1,63 +1,4 @@
 export default function Process() {
-  const processSteps = [
-    {
-      num: "01",
-      title: "Initial Consultation",
-      desc: "Studio visit or house call. We listen.",
-      image: "/manus-storage/consultation_b26d44a2.jpg",
-      alt: "Interior designer consultation with material samples",
-      details: ["Studio or house visit", "Detailed space assessment", "Material samples and mood board", "Initial design direction"],
-    },
-    {
-      num: "02",
-      title: "Site Visit & Measurements",
-      desc: "Measure, assess, understand the space.",
-      image: "/manus-storage/measurement_c90c0e11.jpg",
-      alt: "Measuring tape and floor plan for cabinetry design",
-      details: ["Precise measurements taken", "Floor plan documentation", "Site conditions assessed", "Technical specifications recorded"],
-    },
-    {
-      num: "03",
-      title: "Design Development",
-      desc: "Hand sketches + digital renderings.",
-      image: "/manus-storage/design_13c03912.jpg",
-      alt: "CAD drawings and interior design planning",
-      details: ["Hand-drawn sketches", "3D digital renderings", "Multiple design iterations", "Client approval rounds"],
-    },
-    {
-      num: "04",
-      title: "Materials & Finishes",
-      desc: "Select finishes, hardware, samples.",
-      image: "/manus-storage/materials_b4787294.jpg",
-      alt: "Premium wood samples and finish swatches for cabinetry",
-      details: ["Wood species selection", "Hardware finishes chosen", "Finish samples provided", "Final material approval"],
-    },
-    {
-      num: "05",
-      title: "Quotation & Approval",
-      desc: "Proposal and timeline confirmed.",
-      image: "/manus-storage/quotation_17e9c95f.jpg",
-      alt: "Design proposal and project documentation",
-      details: ["Detailed quotation prepared", "Project timeline outlined", "Specifications documented", "Contract and approval"],
-    },
-    {
-      num: "06",
-      title: "Fabrication",
-      desc: "Fabricated by our production team.",
-      image: "/manus-storage/fabrication_70eb2a91.jpg",
-      alt: "CNC woodworking and cabinet fabrication in workshop",
-      details: ["CNC precision cutting", "Cabinet assembly", "Quality control checks", "Hardware installation"],
-    },
-    {
-      num: "07",
-      title: "Delivery & Installation",
-      desc: "Dust-controlled, precise fit.",
-      image: "/manus-storage/installation_77c543e4.jpg",
-      alt: "Professional cabinet installation and fitting",
-      details: ["Dust-controlled delivery", "Professional installation", "Final adjustments", "After-sales support"],
-    },
-  ];
-
   return (
     <div className="w-full">
       {/* Hero */}
@@ -71,11 +12,19 @@ export default function Process() {
         </div>
       </section>
 
-      {/* Quick Timeline */}
+      {/* 7-Step Timeline Summary */}
       <section className="bg-paper py-20 md:py-28">
         <div className="max-w-content mx-auto px-6 md:px-8">
           <div className="grid md:grid-cols-7 gap-4 md:gap-2">
-            {processSteps.map((step, i) => (
+            {[
+              { num: "01", title: "Consultation", desc: "Studio visit or house call. We listen." },
+              { num: "02", title: "Site Visit", desc: "Measure, assess, understand the space." },
+              { num: "03", title: "3D Design", desc: "Hand sketches + digital renderings." },
+              { num: "04", title: "Materials", desc: "Select finishes, hardware, samples." },
+              { num: "05", title: "Quotation", desc: "Proposal and timeline confirmed." },
+              { num: "06", title: "Fabrication", desc: "Fabricated by our production team." },
+              { num: "07", title: "Installation", desc: "Dust-controlled, precise fit." },
+            ].map((step, i) => (
               <div key={i} className="text-center">
                 <div className="bg-stone1 aspect-square rounded flex items-center justify-center mb-4">
                   <span className="font-display text-3xl text-champagne">{step.num}</span>
@@ -88,44 +37,117 @@ export default function Process() {
         </div>
       </section>
 
-      {/* Visual Process Timeline */}
+      {/* Editorial Process Blocks */}
       <section className="bg-paper py-20 md:py-28">
         <div className="max-w-content mx-auto px-6 md:px-8">
           <div className="space-y-24 md:space-y-32">
-            {processSteps.map((step, i) => (
-              <div key={i} className={`grid md:grid-cols-2 gap-12 md:gap-16 items-center ${i % 2 === 1 ? "md:grid-flow-dense" : ""}`}>
-                {/* Image */}
-                <div className={`${i % 2 === 1 ? "md:col-start-2" : ""}`}>
-                  <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
-                    <img
-                      src={step.image}
-                      alt={step.alt}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className={`${i % 2 === 1 ? "md:col-start-1" : ""}`}>
-                  <div className="flex items-baseline gap-4 mb-6">
-                    <span className="font-display text-5xl md:text-6xl text-champagne/30">{step.num}</span>
-                    <div>
-                      <h3 className="font-display text-3xl md:text-4xl">{step.title}</h3>
-                      <p className="text-base md:text-lg text-body mt-2">{step.desc}</p>
-                    </div>
-                  </div>
-
-                  <ul className="space-y-3 mt-8">
-                    {step.details.map((detail, j) => (
-                      <li key={j} className="flex items-start gap-3">
-                        <span className="text-champagne text-xl leading-none mt-1">✓</span>
-                        <span className="text-[15px] text-ink leading-relaxed">{detail}</span>
-                      </li>
-                    ))}
-                  </ul>
+            {/* Block 1: Consultation & Measurement */}
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+              <div>
+                <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
+                  <img
+                    src="/manus-storage/consultation_b26d44a2.jpg"
+                    alt="Interior designer consultation with material samples"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
-            ))}
+              <div>
+                <h3 className="font-display text-3xl md:text-4xl mb-6">Consultation & Measurement</h3>
+                <p className="text-base md:text-lg text-body mb-8 leading-relaxed">
+                  We begin with a studio visit or house call. You tell us how you live, and we listen. We measure the space precisely, assess conditions, and understand your daily rhythms before we sketch anything.
+                </p>
+                <ul className="space-y-3">
+                  {["Initial studio or house visit", "Detailed space assessment", "Precise measurements recorded", "Material samples reviewed"].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="text-champagne text-xl leading-none mt-1">✓</span>
+                      <span className="text-[15px] text-ink leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Block 2: Design & Material Selection */}
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center md:grid-flow-dense">
+              <div className="md:col-start-2">
+                <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
+                  <img
+                    src="/manus-storage/materials_b4787294.jpg"
+                    alt="Premium wood samples and finish swatches for cabinetry"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="md:col-start-1">
+                <h3 className="font-display text-3xl md:text-4xl mb-6">Design & Material Selection</h3>
+                <p className="text-base md:text-lg text-body mb-8 leading-relaxed">
+                  Hand-drawn sketches become 3D renderings. We refine the design over multiple rounds, laying out material samples on the table so you can see and feel every choice. Finishes, hardware, and wood species are selected for both beauty and durability.
+                </p>
+                <ul className="space-y-3">
+                  {["Hand-drawn sketches", "3D digital renderings", "Material samples provided", "Multiple design iterations"].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="text-champagne text-xl leading-none mt-1">✓</span>
+                      <span className="text-[15px] text-ink leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Block 3: Production Coordination */}
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+              <div>
+                <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
+                  <img
+                    src="/manus-storage/fabrication_70eb2a91.jpg"
+                    alt="CNC woodworking and cabinet fabrication in workshop"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div>
+                <h3 className="font-display text-3xl md:text-4xl mb-6">Production Coordination</h3>
+                <p className="text-base md:text-lg text-body mb-8 leading-relaxed">
+                  Once approved, your cabinetry is fabricated by our production team using precision CNC cutting, European hardware, and quality control at every stage. Edge-banding is applied with PUR adhesive. Every joint is checked before delivery.
+                </p>
+                <ul className="space-y-3">
+                  {["CNC precision cutting", "European hardware installation", "Quality control checks", "Dust-controlled packaging"].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="text-champagne text-xl leading-none mt-1">✓</span>
+                      <span className="text-[15px] text-ink leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Block 4: Delivery & Installation */}
+            <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center md:grid-flow-dense">
+              <div className="md:col-start-2">
+                <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
+                  <img
+                    src="/manus-storage/installation_77c543e4.jpg"
+                    alt="Professional cabinet installation and fitting"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="md:col-start-1">
+                <h3 className="font-display text-3xl md:text-4xl mb-6">Delivery & Installation</h3>
+                <p className="text-base md:text-lg text-body mb-8 leading-relaxed">
+                  A small, dedicated team arrives for installation. The site is kept dust-controlled. Every cabinet is fitted with precision, adjusted for perfect alignment, and tested. We leave your space clean and your cabinetry ready to live in.
+                </p>
+                <ul className="space-y-3">
+                  {["Dust-controlled delivery", "Professional installation team", "Final adjustments and testing", "After-sales support provided"].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="text-champagne text-xl leading-none mt-1">✓</span>
+                      <span className="text-[15px] text-ink leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </section>
