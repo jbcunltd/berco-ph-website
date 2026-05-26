@@ -115,3 +115,16 @@
 - [ ] Curate 8 best per category, update products.json
 - [ ] Build + commit + push to GitHub
 - [ ] Verify Vercel deploy
+
+
+---
+
+## Round Vision-Validate — Fix Misplaced Images
+
+- [ ] Write vision classification script using BUILT_IN_FORGE_API (gpt-4.1-mini)
+- [ ] Classify every image in client/public/oppolia/ into: kitchen | wardrobe | vanity | bathroom | bedroom | tv-unit | laundry | other
+- [ ] Save classifications to manifest JSON
+- [ ] Re-curate 8 best per category, ONLY using images whose actual classification matches the target category
+- [ ] Update products.json with verified images
+- [ ] Build and push
+- [ ] Verify Vercel deploy and screenshot each category page
