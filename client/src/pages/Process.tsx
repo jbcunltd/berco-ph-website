@@ -2,7 +2,7 @@ export default function Process() {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="bg-stone1 py-16 md:py-24">
+      <section className="bg-paper py-16 md:py-24">
         <div className="max-w-content mx-auto px-6 md:px-8">
           <span className="eyebrow">Process & Materials</span>
           <h1 className="font-display text-5xl md:text-6xl mt-4 leading-tight">
@@ -131,7 +131,7 @@ export default function Process() {
       </section>
 
       {/* Materials */}
-      <section className="bg-stone1 grain relative py-20 md:py-28">
+      <section className="bg-paper grain relative py-20 md:py-28">
         <div className="max-w-content mx-auto px-6 md:px-8">
           <div className="mb-16">
             <span className="eyebrow">Materials & Finishes</span>
@@ -237,7 +237,7 @@ export default function Process() {
             </div>
           </div>
 
-          <div className="mt-16 p-8 bg-stone1 rounded">
+          <div className="mt-16 p-8 bg-paper rounded">
             <p className="text-[15px] text-ink leading-relaxed">
               <span className="font-semibold">Modular Assembly Systems:</span> Every piece is engineered for precision assembly and future reconfiguration. Adjustable shelving, removable components, and standardized joinery mean your BERCO cabinetry grows and adapts with your life.
             </p>

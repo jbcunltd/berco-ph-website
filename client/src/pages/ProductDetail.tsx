@@ -94,7 +94,7 @@ export default function ProductDetail() {
             <div>
               {/* Main image — Touch-swipeable */}
               <div
-                className="aspect-[4/5] bg-stone1 rounded overflow-hidden mb-4 sm:mb-6 image-crop-watermark cursor-grab active:cursor-grabbing"
+                className="aspect-[4/5] bg-paper rounded overflow-hidden mb-4 sm:mb-6 image-crop-watermark cursor-grab active:cursor-grabbing"
                 onTouchStart={handleTouchStart}
                 onTouchEnd={handleTouchEnd}
               >
@@ -179,7 +179,7 @@ export default function ProductDetail() {
                   </a>
                 </Link>
                 <Link href={`/${category}`} asChild>
-                  <a className="block w-full border border-ink text-ink py-4 sm:py-5 text-center text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-stone1 transition-colors rounded min-h-[48px] flex items-center justify-center">
+                  <a className="block w-full border border-ink text-ink py-4 sm:py-5 text-center text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-paper transition-colors rounded min-h-[48px] flex items-center justify-center">
                     ← Back to {categoryLabel}
                   </a>
                 </Link>
@@ -191,7 +191,7 @@ export default function ProductDetail() {
 
       {/* Related Products — Mobile-first */}
       {related.length > 0 && (
-        <section className="bg-stone1 py-mobile sm:py-mobile-lg md:py-mobile-xl">
+        <section className="bg-paper py-mobile sm:py-mobile-lg md:py-mobile-xl">
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl mb-6 sm:mb-8 md:mb-12">Explore More Designs</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">

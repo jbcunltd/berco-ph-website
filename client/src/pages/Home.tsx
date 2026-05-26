@@ -124,13 +124,13 @@ export default function Home() {
               <a className="border border-ink text-ink px-6 py-3.5 text-xs tracking-[0.10em] uppercase font-semibold hover:bg-ink hover:text-light transition-colors rounded">Explore Collections</a>
             </Link>
           </div>
-          <div className="relative h-72 bg-stone1 overflow-hidden image-crop-watermark mt-5">
+          <div className="relative h-72 bg-paper overflow-hidden image-crop-watermark mt-5">
             <img src={kitchenImage} alt="BERCO cabinetry" className="w-full h-full object-cover hero-image-warm" />
           </div>
         </div>
         {/* Desktop: 45/55 split, calm composition, one focal point */}
         <div className="hidden md:grid md:grid-cols-[0.9fr_1.1fr] md:h-[680px] md:items-stretch">
-          <div className="relative bg-stone1 overflow-hidden image-crop-watermark"><img src={kitchenImage} alt="BERCO cabinetry" className="w-full h-full object-cover hero-image-warm" /></div>
+          <div className="relative bg-paper overflow-hidden image-crop-watermark"><img src={kitchenImage} alt="BERCO cabinetry" className="w-full h-full object-cover hero-image-warm" /></div>
           <div className="px-12 lg:px-20 py-20 flex flex-col justify-center text-left">
             <p className="text-xs tracking-[0.10em] uppercase text-mute mb-6">Bespoke Cabinetry · Philippines</p>
             <h1 className="text-5xl lg:text-[58px] leading-[1.08] mb-6 text-ink max-w-[600px]">Custom Cabinetry for <em className="italic">Philippine</em> Homes.</h1>
@@ -172,7 +172,7 @@ export default function Home() {
       </section>
 
       {/* 3. COLLECTIONS */}
-      <section className="bg-ivory pt-16 sm:pt-20 md:pt-24 pb-16 sm:pb-20 md:pb-24 reveal">
+      <section className="bg-warm pt-16 sm:pt-20 md:pt-24 pb-16 sm:pb-20 md:pb-24 reveal">
         <div className="max-w-content mx-auto px-5 sm:px-6 md:px-8">
           <div className="mb-10 md:mb-16">
             <span className="eyebrow">Collections</span>
@@ -184,7 +184,7 @@ export default function Home() {
             {categories.map((cat, i) => (
               <Link key={cat.href} href={cat.href} asChild>
                 <a className="group cursor-pointer reveal block" style={{ transitionDelay: `${i * 0.1}s` }}>
-                  <div className="card-image-fixed bg-stone1 overflow-hidden image-crop-watermark mb-5">
+                  <div className="card-image-fixed bg-paper overflow-hidden image-crop-watermark mb-5">
                     <img src={cat.image} alt={cat.title} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
                   </div>
                   <h3 className="text-xl font-serif mb-2 text-ink">{cat.title}</h3>
@@ -266,7 +266,7 @@ export default function Home() {
       </section>
 
       {/* 5. DESIGN STUDIES */}
-      <section className="bg-ivory pt-16 sm:pt-20 md:pt-24 pb-14 sm:pb-20 md:pb-24 reveal">
+      <section className="bg-warm pt-16 sm:pt-20 md:pt-24 pb-14 sm:pb-20 md:pb-24 reveal">
         <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-8 md:mb-12">
             <div className="md:col-span-5">
@@ -287,7 +287,7 @@ export default function Home() {
             {designStudies.map((study, i) => (
               <Link key={study.title} href={study.href} asChild>
                 <a className="group cursor-pointer reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-                  <div className="aspect-[4/5] bg-stone1 overflow-hidden image-crop-watermark mb-4 sm:mb-5">
+                  <div className="aspect-[4/5] bg-paper overflow-hidden image-crop-watermark mb-4 sm:mb-5">
                     <img
                       src={study.image}
                       alt={study.title}
@@ -351,7 +351,7 @@ export default function Home() {
       {/* Skipping for now — can add if needed */}
 
       {/* 8. CONSULTATION CTA */}
-      <section className="bg-ivory pt-16 sm:pt-20 md:pt-24 pb-14 sm:pb-20 md:pb-24 reveal">
+      <section className="bg-warm pt-16 sm:pt-20 md:pt-24 pb-14 sm:pb-20 md:pb-24 reveal">
         <div className="max-w-editorial mx-auto px-4 sm:px-6 md:px-8 text-center">
           <h2 className="mb-6 sm:mb-8">The Heart of Your Home.</h2>
           <p className="text-body text-sm sm:text-base leading-relaxed mb-8">

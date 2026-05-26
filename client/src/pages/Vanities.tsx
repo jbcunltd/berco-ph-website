@@ -10,7 +10,7 @@ export default function Vanities() {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="bg-stone1 py-section-xl sm:py-section-lg md:py-section">
+      <section className="bg-paper py-section-xl sm:py-section-lg md:py-section">
         <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
           <span className="eyebrow">Bathroom Vanities</span>
           <h1 className="font-display text-3xl sm:text-4xl md:text-5xl mt-2 sm:mt-3 md:mt-4 leading-tight">
@@ -30,7 +30,7 @@ export default function Vanities() {
             {items.map((item, i) => (
               <Link key={i} href={`/vanities/${generateSlug(item.title)}`} asChild>
                 <a className="group block">
-                  <div className="aspect-[4/5] overflow-hidden bg-stone1 mb-4 sm:mb-5 md:mb-6 rounded image-crop-watermark">
+                  <div className="aspect-[4/5] overflow-hidden bg-paper mb-4 sm:mb-5 md:mb-6 rounded image-crop-watermark">
                     <img
                       src={item.gallery?.[0] || ""}
                       alt={item.title}
@@ -49,7 +49,7 @@ export default function Vanities() {
       </section>
 
       {/* CTA */}
-      <section className="bg-stone1 grain relative py-section-xl sm:py-section-lg md:py-section">
+      <section className="bg-paper grain relative py-section-xl sm:py-section-lg md:py-section">
         <div className="max-w-2xl mx-auto text-center px-4 sm:px-6">
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl leading-tight">
             Start with a design<br />

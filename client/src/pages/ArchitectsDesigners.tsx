@@ -84,7 +84,7 @@ export default function ArchitectsDesigners() {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="relative bg-stone1 overflow-hidden">
+      <section className="relative bg-paper overflow-hidden">
         <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8 py-section-xl sm:py-section-lg md:py-section">
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
             <div className="md:col-span-6 order-2 md:order-1">
@@ -147,7 +147,7 @@ export default function ArchitectsDesigners() {
       </section>
 
       {/* Services / capabilities */}
-      <section className="bg-ivory py-section-xl sm:py-section-lg md:py-section" data-animate="stagger">
+      <section className="bg-warm py-section-xl sm:py-section-lg md:py-section" data-animate="stagger">
         <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
           <div className="mb-8 md:mb-12">
             <span className="eyebrow">002 — What We Provide</span>
@@ -181,7 +181,7 @@ export default function ArchitectsDesigners() {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <div>
               {editorialA ? (
-                <div className="aspect-[4/5] bg-stone1 overflow-hidden image-crop-watermark mb-6">
+                <div className="aspect-[4/5] bg-paper overflow-hidden image-crop-watermark mb-6">
                   <img
                     src={editorialA}
                     alt="Architect-led residential cabinetry"
@@ -196,7 +196,7 @@ export default function ArchitectsDesigners() {
             </div>
             <div>
               {editorialB ? (
-                <div className="aspect-[4/5] bg-stone1 overflow-hidden image-crop-watermark mb-6">
+                <div className="aspect-[4/5] bg-paper overflow-hidden image-crop-watermark mb-6">
                   <img
                     src={editorialB}
                     alt="Developer and contractor cabinetry"
@@ -391,7 +391,7 @@ export default function ArchitectsDesigners() {
             </button>
 
             {submitted && (
-              <div className="bg-stone1 border border-bronze text-ink px-4 py-3 sm:py-4 rounded text-sm sm:text-base">
+              <div className="bg-paper border border-bronze text-ink px-4 py-3 sm:py-4 rounded text-sm sm:text-base">
                 ✓ Thank you. A member of the BERCO design team will be in touch within two working days.
               </div>
             )}

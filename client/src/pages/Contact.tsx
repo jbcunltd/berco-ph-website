@@ -49,7 +49,7 @@ export default function Contact() {
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="bg-stone1 py-section-xl sm:py-section-lg md:py-section">
+      <section className="bg-paper py-section-xl sm:py-section-lg md:py-section">
         <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
           <span className="eyebrow">Start Your Design Consultation</span>
           <h1 className="mt-4 leading-tight">
@@ -200,7 +200,7 @@ export default function Contact() {
                 </button>
 
                 {submitted && (
-                  <div className="bg-ivory border border-line text-ink px-4 py-3 sm:py-4 rounded text-sm sm:text-base">
+                  <div className="bg-warm border border-line text-ink px-4 py-3 sm:py-4 rounded text-sm sm:text-base">
                     <p className="font-semibold mb-1">✓ Thank you for reaching out.</p>
                     <p className="text-body">
                       Our team will review your inquiry and get in touch to guide you through the next step.
