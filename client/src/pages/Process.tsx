@@ -46,7 +46,7 @@ export default function Process() {
               <div>
                 <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
                   <img
-                    src="/manus-storage/consultation_b26d44a2.jpg"
+                    src="/consultation.jpg"
                     alt="Interior designer consultation with material samples"
                     className="w-full h-full object-cover"
                   />
@@ -73,7 +73,7 @@ export default function Process() {
               <div className="md:col-start-2">
                 <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
                   <img
-                    src="/manus-storage/materials_b4787294.jpg"
+                    src="/materials.jpg"
                     alt="Premium wood samples and finish swatches for cabinetry"
                     className="w-full h-full object-cover"
                   />
@@ -100,7 +100,7 @@ export default function Process() {
               <div>
                 <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
                   <img
-                    src="/manus-storage/fabrication_70eb2a91.jpg"
+                    src="/fabrication.jpg"
                     alt="CNC woodworking and cabinet fabrication in workshop"
                     className="w-full h-full object-cover"
                   />
@@ -127,7 +127,7 @@ export default function Process() {
               <div className="md:col-start-2">
                 <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
                   <img
-                    src="/manus-storage/installation_77c543e4.jpg"
+                    src="/installation.jpg"
                     alt="Professional cabinet installation and fitting"
                     className="w-full h-full object-cover"
                   />

@@ -89,8 +89,7 @@ export default function Footer() {
 
         <div className="border-t border-light/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[11px] tracking-widest2 uppercase text-light/40 gap-3">
           <span>© 2026 BERCO Cabinetry, Inc.</span>
-          <span>Crafted in the Philippines</span>
-          {/* TODO: Add Privacy, Terms, and Warranty policy pages before launch */}
+          {/* TODO: Add tagline or remove this space */}
         </div>
       </div>
     </footer>
