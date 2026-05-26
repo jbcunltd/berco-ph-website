@@ -9,38 +9,16 @@ export default function Process() {
             From Sketch to Installation.<br />
             <em className="italic">The BERCO Way.</em>
           </h1>
-        </div>
-      </section>
-
-      {/* 7-Step Timeline Summary */}
-      <section className="bg-paper py-8 md:py-12">
-        <div className="max-w-content mx-auto px-6 md:px-8">
-          <div className="grid md:grid-cols-7 gap-4 md:gap-2">
-            {[
-              { num: "01", title: "Consultation", desc: "Studio visit or house call. We listen." },
-              { num: "02", title: "Site Visit", desc: "Measure, assess, understand the space." },
-              { num: "03", title: "3D Design", desc: "Hand sketches + digital renderings." },
-              { num: "04", title: "Materials", desc: "Select finishes, hardware, samples." },
-              { num: "05", title: "Quotation", desc: "Proposal and timeline confirmed." },
-              { num: "06", title: "Fabrication", desc: "Fabricated by our production team." },
-              { num: "07", title: "Installation", desc: "Dust-controlled, precise fit." },
-            ].map((step, i) => (
-              <div key={i} className="text-center">
-                <div className="bg-stone1 aspect-square rounded flex items-center justify-center mb-4">
-                  <span className="font-display text-3xl text-champagne">{step.num}</span>
-                </div>
-                <h3 className="font-display text-lg leading-tight">{step.title}</h3>
-                <p className="text-[14px] text-body mt-3 leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
+          <p className="text-base md:text-lg text-body mt-8 max-w-2xl leading-relaxed">
+            A clear, guided process from first conversation to final fitting — designed to make custom cabinetry feel considered, organized, and easy to follow.
+          </p>
         </div>
       </section>
 
       {/* Editorial Process Blocks */}
-      <section className="bg-paper py-20 md:py-28">
+      <section className="bg-paper py-16 md:py-24">
         <div className="max-w-content mx-auto px-6 md:px-8">
-          <div className="space-y-24 md:space-y-32">
+          <div className="space-y-20 md:space-y-28">
             {/* Block 1: Consultation & Measurement */}
             <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
               <div>
