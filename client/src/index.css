@@ -306,6 +306,10 @@ button, a, input, select, textarea {
      IMAGE RULES: 90-100% opacity, warm dark overlay 12%, hover scale 1.03
      ============================================================================ */
 
+  /* WATERMARK ELIMINATION — Combined crop + mask approach.
+     Watermark sits at ~93-95% from top of source image.
+     Strategy: scale image to 125% height, anchor to top, so bottom 25% (incl. watermark)
+     is below visible area. Plus a solid mask covering bottom 15% as belt-and-braces. */
   .image-crop-watermark {
     overflow: hidden;
     position: relative;
@@ -313,77 +317,92 @@ button, a, input, select, textarea {
     background: #EDE7DD;
   }
 
-  /* Image enlarged to 114% height, anchored to top, bottom 14% cropped off */
   .image-crop-watermark > img {
-    width: 100%;
-    height: 114%;
-    display: block;
-    object-fit: cover;
-    object-position: center top;
-    opacity: 1;
-    transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1);
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 130% !important;
+    display: block !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+    opacity: 1 !important;
+    transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1) !important;
   }
 
-  /* Warm dark overlay: rgba(31,29,26,0.12) */
+  /* Warm dark overlay over entire image */
   .image-crop-watermark::before {
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(31, 29, 26, 0.12);
+    background: rgba(31, 29, 26, 0.10);
     pointer-events: none;
     z-index: 1;
   }
 
-  /* Safety gradient mask at bottom 6% */
+  /* Solid mask covering bottom 15% — guaranteed watermark coverage.
+     Top edge fades smoothly into image, bottom is fully opaque. */
   .image-crop-watermark::after {
     content: "";
     position: absolute;
     left: 0;
     right: 0;
     bottom: 0;
-    height: 6%;
+    height: 15%;
     background: linear-gradient(to bottom,
-      rgba(237, 231, 221, 0) 0%,
-      rgba(237, 231, 221, 0.3) 50%,
-      rgba(237, 231, 221, 0.7) 100%);
+      rgba(31, 29, 26, 0) 0%,
+      rgba(31, 29, 26, 0.15) 35%,
+      rgba(31, 29, 26, 0.45) 65%,
+      rgba(31, 29, 26, 0.75) 100%);
     pointer-events: none;
     z-index: 2;
   }
 
-  /* Hover scale 1.03 */
+  /* Hover scale 1.03 — applied to img while keeping crop */
   .group:hover .image-crop-watermark > img {
     transform: scale(1.03);
+    transform-origin: center top;
   }
 
   /* ============================================================================
      MOTION: Fade 0→1, translateY 12-24px, 0.6-0.9s, stagger 0.08-0.12s
      ============================================================================ */
 
+  /* Reveal animation — FAIL-SAFE.
+     Uses CSS animation with `forwards` fill so content is GUARANTEED to end at
+     opacity 1 / translateY 0 even if IntersectionObserver never fires.
+     The observer adds .is-visible to override default delay for staggered effect,
+     but a baseline animation runs after 1500ms regardless. */
   .reveal {
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.7s cubic-bezier(0.23, 1, 0.32, 1),
-                transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    animation: reveal-in 0.7s cubic-bezier(0.23, 1, 0.32, 1) 1.5s forwards;
   }
 
-  /* Force final state — no element should remain faded after animation */
+  /* When observer fires, run animation immediately */
   .reveal.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+    animation: reveal-in 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
   }
 
-  /* Stagger: each child gets +0.10s delay */
-  .reveal.is-visible ~ .reveal {
-    animation-delay: 0.1s;
+  @keyframes reveal-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
   }
 
-  /* Graceful degradation: if JS disabled, show content */
+  /* Reduced motion — show immediately */
   @media (prefers-reduced-motion: reduce) {
     .reveal {
       opacity: 1;
       transform: none;
-      transition: none;
+      animation: none;
     }
+  }
+
+  /* No-JS fallback — if observer script doesn't run, baseline animation still completes */
+  .no-js .reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
   }
 
   /* ============================================================================
