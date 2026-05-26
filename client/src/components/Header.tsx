@@ -23,18 +23,18 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
 
   return (
     <header className="sticky top-0 z-40 bg-paper border-b border-line">
-      <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8 py-3 flex items-center justify-between h-16">
+      <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/">
           <img
             src="/berco-logo.png"
             alt="Berco"
-            className="h-12 w-auto cursor-pointer"
+            className="h-7 sm:h-8 md:h-8 w-auto cursor-pointer object-contain"
           />
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8 h-16 items-center">
+        <nav className="hidden lg:flex items-center gap-8 h-full">
           {navItems.map((item: any) => (
             <Link key={item.href} href={item.href} asChild>
               <a
@@ -51,9 +51,9 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
         </nav>
 
         {/* CTA + Mobile Menu Toggle */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 h-full">
           <Link href="/contact" asChild>
-            <a className="hidden lg:inline-block text-xs tracking-[0.10em] uppercase bg-ink text-light px-4 py-2.5 font-semibold hover:bg-ink/90 transition-colors rounded">
+            <a className="hidden lg:inline-flex items-center text-xs tracking-[0.10em] uppercase bg-ink text-light px-4 py-2.5 font-semibold hover:bg-ink/90 transition-colors rounded h-10">
               Book Consultation
             </a>
           </Link>
