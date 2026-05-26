@@ -148,7 +148,7 @@ export default function Home() {
       </section>
 
       {/* 2. BRAND INTRO */}
-      <section className="bg-paper py-section-xl sm:py-section-lg md:py-section reveal">
+      <section className="bg-paper py-section-xl sm:py-section-lg md:py-section-lg reveal">
         <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
             <div className="md:col-span-4">
@@ -172,7 +172,7 @@ export default function Home() {
       </section>
 
       {/* 3. COLLECTIONS */}
-      <section className="bg-ivory py-section-mobile sm:py-section-tablet md:py-section reveal">
+      <section className="bg-ivory py-section-xl sm:py-section-lg md:py-section-lg reveal">
         <div className="max-w-content mx-auto px-5 sm:px-6 md:px-8">
           <div className="mb-10 md:mb-16">
             <span className="eyebrow">Collections</span>
@@ -198,7 +198,7 @@ export default function Home() {
       </section>
 
       {/* 4. WHY BERCO */}
-      <section className="bg-paper py-section-xl sm:py-section-lg md:py-section reveal">
+      <section className="bg-paper py-section-xl sm:py-section-lg md:py-section-lg reveal">
         <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-10 md:mb-16">
             <div className="md:col-span-5">
@@ -266,7 +266,7 @@ export default function Home() {
       </section>
 
       {/* 5. DESIGN STUDIES */}
-      <section className="bg-ivory py-section-xl sm:py-section-lg md:py-section reveal">
+      <section className="bg-ivory py-section-xl sm:py-section-lg md:py-section-lg reveal">
         <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 mb-8 md:mb-12">
             <div className="md:col-span-5">
@@ -311,7 +311,7 @@ export default function Home() {
       </section>
 
       {/* 6. MATERIALS & CRAFTSMANSHIP (Process Preview) */}
-      <section className="bg-paper py-section-xl sm:py-section-lg md:py-section reveal">
+      <section className="bg-paper py-section-xl sm:py-section-lg md:py-section-lg reveal">
         <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
           <div className="mb-8 md:mb-12">
             <span className="eyebrow">How BERCO Works</span>
@@ -351,7 +351,7 @@ export default function Home() {
       {/* Skipping for now — can add if needed */}
 
       {/* 8. CONSULTATION CTA */}
-      <section className="bg-ivory py-section-xl sm:py-section-lg md:py-section reveal">
+      <section className="bg-ivory py-section-xl sm:py-section-lg md:py-section-lg reveal">
         <div className="max-w-editorial mx-auto px-4 sm:px-6 md:px-8 text-center">
           <h2 className="mb-6 sm:mb-8">The Heart of Your Home.</h2>
           <p className="text-body text-sm sm:text-base leading-relaxed mb-8">
