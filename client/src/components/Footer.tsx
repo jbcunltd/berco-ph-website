@@ -14,30 +14,25 @@ export default function Footer() {
             <p className="mt-4 text-light/85 max-w-sm text-[14px] leading-relaxed">
               The Heart of Your Home. Bespoke cabinetry drawn, fabricated, and installed for Philippine homes — considered, restrained, and built to last.
             </p>
-            {/* Social links: kept Instagram only as placeholder. Houzz/Pinterest removed pending confirmation of active accounts. */}
-            <div className="mt-8 flex items-center gap-6 text-[11px] tracking-widest2 uppercase">
-              <a href="#" className="border-b border-paper/40 pb-1 hover:border-paper transition-colors" aria-label="Instagram (link to be confirmed)">
-                Instagram
-              </a>
-            </div>
+            {/* Social links removed pending confirmation of active accounts. */}
           </div>
 
           {/* Studio Info — placeholders marked TODO above */}
           <div className="md:col-span-3">
             <div className="text-[11px] tracking-widest2 uppercase text-light/60 mb-5">Studio</div>
-            <p className="text-[14px] leading-relaxed text-light/90">
+            <p className="text-[14px] leading-relaxed text-light/95">
               By appointment, Metro Manila<br />
               Address available on request
             </p>
-            <p className="mt-6 text-[14px] leading-relaxed text-light/90">
-              <a href="mailto:hello@bercoph.com" className="hover:text-light transition-colors">hello@bercoph.com</a>
+            <p className="mt-6 text-[14px] leading-relaxed text-light/95">
+              <a href="mailto:hello@bercoph.com" className="text-light/95 hover:text-light transition-colors">hello@bercoph.com</a>
             </p>
           </div>
 
           {/* Service Areas */}
           <div className="md:col-span-2">
             <div className="text-[11px] tracking-widest2 uppercase text-light/60 mb-5">Service Areas</div>
-            <ul className="space-y-2 text-[14px] text-light/90">
+            <ul className="space-y-2 text-[14px] text-light/95">
               <li>Metro Manila</li>
               <li>Tagaytay · Batangas</li>
               <li>Cebu · Bohol</li>

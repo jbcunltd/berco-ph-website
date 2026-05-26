@@ -52,11 +52,11 @@ export default function Wardrobes() {
       <section className="bg-stone1 grain relative py-section-xl sm:py-section-lg md:py-section">
         <div className="max-w-2xl mx-auto text-center px-4 sm:px-6">
           <h2 className="font-display text-2xl sm:text-3xl md:text-4xl leading-tight">
-            A wardrobe drawn<br />
-            <em className="italic">to how you dress.</em>
+            Start with a design<br />
+            <em className="italic">conversation.</em>
           </h2>
           <p className="mt-4 sm:mt-6 md:mt-8 text-body text-sm sm:text-base leading-relaxed">
-            Begin your Berco design journey with a conversation about layout, finishes, and the storage that quietly suits your life.
+            Tell us about your layout, materials, and how your kitchen will be used every day.
           </p>
           <Link href="/contact" asChild>
             <a className="inline-block mt-6 sm:mt-8 bg-ink text-light px-6 sm:px-8 py-3 text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-ink/90 transition-colors">

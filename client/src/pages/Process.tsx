@@ -23,9 +23,9 @@ export default function Process() {
               { num: "02", title: "Site Visit", desc: "Measure, assess, understand the space." },
               { num: "03", title: "3D Design", desc: "Hand sketches + digital renderings." },
               { num: "04", title: "Materials", desc: "Select finishes, hardware, samples." },
-              { num: "05", title: "Fabrication", desc: "Built in our Laguna atelier." },
+              { num: "05", title: "Fabrication", desc: "Fabricated by our production team." },
               { num: "06", title: "Installation", desc: "Dust-controlled, precise fit." },
-              { num: "07", title: "Warranty", desc: "10-year structural guarantee." },
+              { num: "07", title: "After-Sales Support", desc: "Warranty terms and service guidance provided per project scope." },
             ].map((step, i) => (
               <div key={i} className="text-center">
                 <div className="bg-stone1 aspect-square rounded flex items-center justify-center mb-4">
@@ -63,7 +63,7 @@ export default function Process() {
                   "Quality control checks",
                   "Dust-controlled delivery",
                   "Professional on-site installation",
-                  "10-year structural warranty",
+                  "After-sales support and warranty guidance",
                 ],
               },
             ].map((section, i) => (
