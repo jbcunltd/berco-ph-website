@@ -80,3 +80,20 @@
 - [ ] Collections gap 40-48px desktop, card image 340-380px
 - [ ] No 3 ideas above the fold; hero is one focal point
 - [ ] Playwright: wait for all images loaded before screenshot
+
+
+---
+
+## Round Final-3 — Launch Cleanup Pass
+
+- [ ] Audit and localize all displayed images (Home + categories + Design Studies)
+- [ ] Curate Kitchens to 6-9 cards with clean names + "Kitchen Design Direction" subtext
+- [ ] Curate Wardrobes to 6-9 cards with clean names + "Wardrobe Design Direction" subtext
+- [ ] Curate Vanities to 6-9 cards with clean names + "Vanity Design Direction" subtext
+- [ ] Why BERCO: 140-160px top padding, two-row layout, shorten copy, smaller numerals, bg shift
+- [ ] Process: remove "10-year warranty", "20+ years"; safer wording
+- [ ] Trade: more breathing room, dark section readable
+- [ ] Contact: TODO markers for placeholders, real email pattern, by-appointment note
+- [ ] Footer: remove unconfirmed Instagram, dead privacy/terms links
+- [ ] Desktop spacing: 140px sections, 72px header gap, 80px row gap, 620px text max-width
+- [ ] Capture 7 full-page screenshots at 1440px with images loaded
