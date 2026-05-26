@@ -46,8 +46,8 @@ export default function Process() {
               <div>
                 <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[400px]">
                   <img
-                    src="/consultation.jpg"
-                    alt="Interior designer consultation with material samples"
+                    src="/process-consultation-measurement.jpg"
+                    alt="Interior design consultation with cabinetry plans and material samples"
                     className="w-full h-full object-cover"
                   />
                 </div>
