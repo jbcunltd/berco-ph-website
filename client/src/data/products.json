@@ -574,5 +574,53 @@
     "gallery": [
       "/oppolia/bathrooms/lanxu-series-retro-oriental-style-walnut-interior-design-06.webp"
     ]
+  },
+  {
+    "id": "la1",
+    "title": "Organized Laundry Space",
+    "category": "laundry",
+    "gallery": [
+      "/oppolia/vanities/bathroom-cabinets-obv21-007-01.jpg"
+    ]
+  },
+  {
+    "id": "la2",
+    "title": "Modern Utility Room",
+    "category": "laundry",
+    "gallery": [
+      "/oppolia/vanities/bathroom-cabinets-plwy20104-01.jpg"
+    ]
+  },
+  {
+    "id": "la3",
+    "title": "Contemporary Laundry Design",
+    "category": "laundry",
+    "gallery": [
+      "/oppolia/bathrooms/contemporary-home-design-ob23-villa01-24.webp"
+    ]
+  },
+  {
+    "id": "la4",
+    "title": "Luxury Laundry Suite",
+    "category": "laundry",
+    "gallery": [
+      "/oppolia/bathrooms/minimalist-apartment-ob23-apart01-08.webp"
+    ]
+  },
+  {
+    "id": "la5",
+    "title": "Minimalist Laundry Storage",
+    "category": "laundry",
+    "gallery": [
+      "/oppolia/bathrooms/polyurethane-joinery-ob22-villa04-02.jpg"
+    ]
+  },
+  {
+    "id": "la6",
+    "title": "Family Laundry Room",
+    "category": "laundry",
+    "gallery": [
+      "/oppolia/vanities/bathroom-cabinets-obv21-007-05.jpg"
+    ]
   }
 ]
