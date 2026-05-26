@@ -115,11 +115,11 @@ small, .text-sm {
   font-weight: 400;
 }
 
-/* Eyebrow / label: 11-12px, letter-spacing 0.12-0.18em */
+/* Eyebrow / label: 11-12px, letter-spacing 0.10em (tightened per Jim's polish) */
 .eyebrow {
   display: block;
   font-size: 0.75rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.10em;
   text-transform: uppercase;
   color: #7A7368;
   margin-bottom: 0.75rem;
@@ -179,9 +179,9 @@ button, a, input, select, textarea {
   padding-right: max(1rem, env(safe-area-inset-right));
 }
 
-/* Letter spacing utility — reduced from 0.32em to 0.12em per Jim's rule */
+/* Letter spacing utility — 0.10em for readability-first luxury (Jim final polish) */
 .tracking-widest2 {
-  letter-spacing: 0.12em;
+  letter-spacing: 0.10em;
 }
 
 @layer base {
@@ -360,6 +360,28 @@ button, a, input, select, textarea {
   .group:hover .image-crop-watermark > img {
     transform: scale(1.03);
     transform-origin: center top;
+  }
+
+  /* Hero image: warmer, slightly more saturated — luxury home, not cold/muted */
+  .hero-image-warm {
+    filter: saturate(1.08) brightness(1.04) contrast(1.02);
+  }
+
+  /* Reduce warm dark overlay strength on hero specifically */
+  .image-crop-watermark.hero-image-container::before {
+    background: rgba(31, 29, 26, 0.06);
+  }
+
+  /* Standardize collection card image heights: 360-400px desktop */
+  .card-image-fixed {
+    aspect-ratio: auto;
+    height: 360px;
+  }
+  @media (min-width: 768px) {
+    .card-image-fixed { height: 380px; }
+  }
+  @media (min-width: 1024px) {
+    .card-image-fixed { height: 400px; }
   }
 
   /* ============================================================================

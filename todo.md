@@ -50,3 +50,19 @@
 - [ ] Wait for Vercel READY
 - [ ] curl-test all routes
 - [ ] Visual check live
+
+
+---
+
+## Round Final — Jim's 10 Polish Refinements (8/10 → target 9.5/10)
+
+- [ ] 1. Hero image warmer (reduce gray overlay, slight saturation lift via filter)
+- [ ] 2. Desktop hero text vertically centered, tighter CTA gap
+- [ ] 3. Mobile hero image closer to CTAs (less separation)
+- [ ] 4. Collections cards: consistent image heights 360-400px, aligned titles/desc
+- [ ] 5. Letter-spacing tightened on labels (0.10em max), nav, button text
+- [ ] 6. Sticky mobile CTA bottom padding on all pages (Explore, form buttons, footer)
+- [ ] 7. Studio copy update with practical second sentence
+- [ ] 8. Desktop collections card heights reduced (360-400px)
+- [ ] 9. Footer/contact: remove unconfirmed socials (Houzz/Pinterest), mark placeholders
+- [ ] 10. Logo confirmed BERCO (no change)

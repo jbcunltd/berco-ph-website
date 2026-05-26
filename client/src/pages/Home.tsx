@@ -109,38 +109,38 @@ export default function Home() {
 
   return (
     <div className="w-full">
-      {/* 1. HERO — Mobile-first 3-second clarity */}
+      {/* 1. HERO — Mobile-first, warm luxury */}
       <section className="relative bg-paper">
         {/* Mobile: stacked text-first */}
-        <div className="md:hidden px-5 py-12 text-center">
-          <p className="text-[11px] tracking-widest2 uppercase text-mute mb-4">Bespoke Cabinetry · Manila</p>
+        <div className="md:hidden px-5 pt-10 pb-8 text-center">
+          <p className="text-[11px] tracking-[0.10em] uppercase text-mute mb-4">Bespoke Cabinetry · Manila</p>
           <h1 className="text-4xl sm:text-5xl leading-tight mb-4 text-ink">Custom Cabinetry for <em className="italic">Philippine</em> Homes.</h1>
-          <p className="text-sm leading-relaxed text-body mb-8 max-w-md mx-auto">Quiet, considered storage — kitchens, wardrobes, vanities, and refined spaces.</p>
+          <p className="text-sm leading-relaxed text-body mb-7 max-w-md mx-auto">Quiet, considered storage — kitchens, wardrobes, vanities, and refined spaces.</p>
           <div className="flex flex-col gap-3">
             <Link href="/contact" asChild>
-              <a className="bg-ink text-light px-6 py-3.5 text-xs tracking-widest2 uppercase font-semibold hover:bg-ink/90 transition-colors rounded">Book a Design Consultation →</a>
+              <a className="bg-ink text-light px-6 py-3.5 text-xs tracking-[0.10em] uppercase font-semibold hover:bg-ink/90 transition-colors rounded">Book a Design Consultation →</a>
             </Link>
             <Link href="/kitchens" asChild>
-              <a className="border border-ink text-ink px-6 py-3.5 text-xs tracking-widest2 uppercase font-semibold hover:bg-ink hover:text-light transition-colors rounded">Explore Collections</a>
+              <a className="border border-ink text-ink px-6 py-3.5 text-xs tracking-[0.10em] uppercase font-semibold hover:bg-ink hover:text-light transition-colors rounded">Explore Collections</a>
             </Link>
           </div>
-          <div className="relative h-80 bg-stone1 overflow-hidden image-crop-watermark mt-8">
-            <img src={kitchenImage} alt="BERCO cabinetry" className="w-full h-full object-cover" />
+          <div className="relative h-72 bg-stone1 overflow-hidden image-crop-watermark mt-5">
+            <img src={kitchenImage} alt="BERCO cabinetry" className="w-full h-full object-cover hero-image-warm" />
           </div>
         </div>
-        {/* Desktop: side-by-side */}
-        <div className="hidden md:grid md:grid-cols-2 md:min-h-[70vh] md:items-center md:gap-12">
-          <div className="relative h-full bg-stone1 overflow-hidden image-crop-watermark"><img src={kitchenImage} alt="BERCO cabinetry" className="w-full h-full object-cover" /></div>
-          <div className="px-8 py-12 text-left">
-            <p className="text-xs tracking-widest2 uppercase text-mute mb-6">Bespoke Cabinetry · Manila</p>
-            <h1 className="text-5xl lg:text-6xl leading-tight mb-6 text-ink">Custom Cabinetry for <em className="italic">Philippine</em> Homes.</h1>
-            <p className="text-base leading-relaxed text-body mb-10 max-w-lg">Quiet, considered storage — kitchens, wardrobes, vanities, and refined spaces shaped around the way you live.</p>
-            <div className="flex gap-4">
+        {/* Desktop: side-by-side, image larger, text vertically centered */}
+        <div className="hidden md:grid md:grid-cols-[1.1fr_1fr] md:min-h-[68vh] md:items-stretch">
+          <div className="relative bg-stone1 overflow-hidden image-crop-watermark"><img src={kitchenImage} alt="BERCO cabinetry" className="w-full h-full object-cover hero-image-warm" /></div>
+          <div className="px-12 lg:px-16 py-12 flex flex-col justify-center text-left">
+            <p className="text-xs tracking-[0.10em] uppercase text-mute mb-5">Bespoke Cabinetry · Manila</p>
+            <h1 className="text-5xl lg:text-6xl leading-tight mb-5 text-ink">Custom Cabinetry for <em className="italic">Philippine</em> Homes.</h1>
+            <p className="text-base leading-relaxed text-body mb-7 max-w-lg">Quiet, considered storage — kitchens, wardrobes, vanities, and refined spaces shaped around the way you live.</p>
+            <div className="flex gap-3">
               <Link href="/contact" asChild>
-                <a className="bg-ink text-light px-8 py-3.5 text-sm tracking-widest2 uppercase font-semibold hover:bg-ink/90 transition-colors rounded">Book a Design Consultation →</a>
+                <a className="bg-ink text-light px-7 py-3.5 text-sm tracking-[0.10em] uppercase font-semibold hover:bg-ink/90 transition-colors rounded">Book a Design Consultation →</a>
               </Link>
               <Link href="/kitchens" asChild>
-                <a className="border border-ink text-ink px-8 py-3.5 text-sm tracking-widest2 uppercase font-semibold hover:bg-ink hover:text-light transition-colors rounded">Explore Collections</a>
+                <a className="border border-ink text-ink px-7 py-3.5 text-sm tracking-[0.10em] uppercase font-semibold hover:bg-ink hover:text-light transition-colors rounded">Explore Collections</a>
               </Link>
             </div>
           </div>
@@ -159,7 +159,7 @@ export default function Home() {
             </div>
             <div className="md:col-span-8">
               <p className="text-body leading-relaxed mb-4">
-                With restraint, proportion, and a reverence for the materials beneath the lacquer. Every interior begins with listening — understanding how you live before we design what you'll build.
+                With proportion, restraint, and practical storage planning — every cabinet is shaped around how the space is actually used. Each interior begins with listening, before any line is drawn.
               </p>
               <Link href="/process" asChild>
                 <a className="inline-block text-ink font-semibold text-sm uppercase tracking-widest2 hover:text-champagne transition-colors">
@@ -184,12 +184,12 @@ export default function Home() {
             {categories.map((cat, i) => (
               <Link key={cat.href} href={cat.href} asChild>
                 <a className="group cursor-pointer reveal block" style={{ transitionDelay: `${i * 0.1}s` }}>
-                  <div className="aspect-[4/5] bg-stone1 overflow-hidden image-crop-watermark mb-4">
+                  <div className="card-image-fixed bg-stone1 overflow-hidden image-crop-watermark mb-5">
                     <img src={cat.image} alt={cat.title} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
                   </div>
-                  <h3 className="text-lg sm:text-xl font-serif mb-3 text-ink">{cat.title}</h3>
-                  <p className="text-body text-sm sm:text-base leading-relaxed mb-4">{cat.description}</p>
-                  <span className="inline-block text-ink font-semibold text-xs uppercase tracking-widest2 hover:text-champagne transition-colors">Explore →</span>
+                  <h3 className="text-xl font-serif mb-2 text-ink">{cat.title}</h3>
+                  <p className="text-body text-sm leading-relaxed mb-3 min-h-[3rem]">{cat.description}</p>
+                  <span className="inline-block text-ink font-semibold text-xs uppercase tracking-[0.10em] hover:text-champagne transition-colors">Explore →</span>
                 </a>
               </Link>
             ))}
