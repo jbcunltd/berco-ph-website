@@ -13,7 +13,7 @@ export default function Process() {
       </section>
 
       {/* 7-Step Timeline Summary */}
-      <section className="bg-paper py-20 md:py-28">
+      <section className="bg-paper py-12 md:py-16">
         <div className="max-w-content mx-auto px-6 md:px-8">
           <div className="grid md:grid-cols-7 gap-4 md:gap-2">
             {[
