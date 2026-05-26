@@ -7,9 +7,11 @@ export default function Footer() {
         <div className="grid md:grid-cols-12 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-5">
-            <div className="font-display text-3xl font-semibold">
-              BERCO
-            </div>
+            <img
+              src="/manus-storage/berco-wordmark-light_ee29ac0e.png"
+              alt="Berco"
+              className="h-16 w-auto mb-6"
+            />
             <p className="mt-4 text-light/85 max-w-sm text-[14px] leading-relaxed">
               The Heart of Your Home. Bespoke cabinetry drawn, fabricated, and installed for Philippine homes — considered, restrained, and built to last.
             </p>

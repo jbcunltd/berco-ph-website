@@ -26,9 +26,11 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
       <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8 py-3 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/">
-          <span className="font-display text-2xl font-semibold tracking-tight cursor-pointer">
-            BERCO
-          </span>
+          <img
+            src="/manus-storage/berco-wordmark-dark_7cc529a7.png"
+            alt="Berco"
+            className="h-12 w-auto cursor-pointer"
+          />
         </Link>
 
         {/* Desktop Navigation */}
