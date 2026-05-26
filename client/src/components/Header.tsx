@@ -29,7 +29,8 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
           <img
             src="/berco-logo.png"
             alt="Berco"
-            className="h-7 sm:h-8 md:h-8 w-auto cursor-pointer object-contain"
+            className="max-h-10 sm:max-h-11 md:max-h-12 w-auto cursor-pointer object-contain flex-shrink-0"
+            style={{ maxWidth: '100px', height: 'auto' }}
           />
         </Link>
 

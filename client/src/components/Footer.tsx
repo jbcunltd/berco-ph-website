@@ -10,7 +10,8 @@ export default function Footer() {
             <img
               src="/berco-logo-white.png"
               alt="Berco"
-              className="h-16 w-auto mb-6"
+              className="max-h-20 w-auto mb-6 object-contain"
+              style={{ maxWidth: '140px' }}
             />
             <p className="mt-4 text-light/85 max-w-sm text-[14px] leading-relaxed">
               The Heart of Your Home. Bespoke cabinetry drawn, fabricated, and installed for Philippine homes — considered, restrained, and built to last.
