@@ -5,7 +5,7 @@ export default function Process() {
     <div className="w-full">
       {/* Hero */}
       <section className="bg-stone1 py-16 md:py-24">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-8">
+        <div className="max-w-content mx-auto px-6 md:px-8">
           <span className="eyebrow">Process & Materials</span>
           <h1 className="font-display text-5xl md:text-6xl mt-4 leading-tight">
             From Sketch to Installation.<br />
@@ -16,7 +16,7 @@ export default function Process() {
 
       {/* Timeline */}
       <section className="bg-paper py-20 md:py-28">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-8">
+        <div className="max-w-content mx-auto px-6 md:px-8">
           <div className="grid md:grid-cols-7 gap-4 md:gap-2">
             {[
               { num: "01", title: "Consultation", desc: "Studio visit or house call. We listen." },
@@ -29,10 +29,10 @@ export default function Process() {
             ].map((step, i) => (
               <div key={i} className="text-center">
                 <div className="bg-stone1 aspect-square rounded flex items-center justify-center mb-4">
-                  <span className="font-display text-3xl text-bronze">{step.num}</span>
+                  <span className="font-display text-3xl text-champagne">{step.num}</span>
                 </div>
                 <h3 className="font-display text-lg">{step.title}</h3>
-                <p className="text-[12px] text-mute mt-2">{step.desc}</p>
+                <p className="text-[12px] text-body mt-2">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -41,7 +41,7 @@ export default function Process() {
 
       {/* Process Details */}
       <section className="bg-stone1 grain relative py-20 md:py-28">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-8">
+        <div className="max-w-content mx-auto px-6 md:px-8">
           <div className="grid md:grid-cols-2 gap-16">
             {[
               {
@@ -72,7 +72,7 @@ export default function Process() {
                 <ul className="space-y-4">
                   {section.items.map((item, j) => (
                     <li key={j} className="flex items-start gap-4">
-                      <span className="text-bronze text-2xl leading-none">✓</span>
+                      <span className="text-champagne text-2xl leading-none">✓</span>
                       <span className="text-[15px] text-ink">{item}</span>
                     </li>
                   ))}
@@ -85,7 +85,7 @@ export default function Process() {
 
       {/* Materials */}
       <section className="bg-paper py-20 md:py-28">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-8">
+        <div className="max-w-content mx-auto px-6 md:px-8">
           <div className="mb-16">
             <span className="eyebrow">Materials & Finishes</span>
             <h2 className="font-display text-4xl md:text-5xl mt-4">
@@ -113,7 +113,7 @@ export default function Process() {
                 <h3 className="font-display text-2xl mb-6">{mat.title}</h3>
                 <ul className="space-y-3">
                   {mat.items.map((item, j) => (
-                    <li key={j} className="text-[14px] text-mute leading-relaxed">
+                    <li key={j} className="text-[14px] text-body leading-relaxed">
                       {item}
                     </li>
                   ))}
@@ -126,7 +126,7 @@ export default function Process() {
 
       {/* Craftsmanship & Technology */}
       <section className="bg-stone1 grain relative py-20 md:py-28">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-8">
+        <div className="max-w-content mx-auto px-6 md:px-8">
           <div className="mb-16">
             <span className="eyebrow">Craftsmanship & Technology</span>
             <h2 className="font-display text-4xl md:text-5xl mt-4">
@@ -139,24 +139,24 @@ export default function Process() {
               <h3 className="font-display text-2xl mb-8">Hardware & Mechanisms</h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-4">
-                  <span className="text-bronze text-2xl leading-none">✓</span>
+                  <span className="text-champagne text-2xl leading-none">✓</span>
                   <div>
                     <p className="font-semibold text-ink">Soft-Close Systems</p>
-                    <p className="text-[13px] text-mute mt-1">Blum and Hettich mechanisms ensure smooth, silent operation for decades.</p>
+                    <p className="text-[13px] text-body mt-1">Blum and Hettich mechanisms ensure smooth, silent operation for decades.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="text-bronze text-2xl leading-none">✓</span>
+                  <span className="text-champagne text-2xl leading-none">✓</span>
                   <div>
                     <p className="font-semibold text-ink">Precision Drawer Systems</p>
-                    <p className="text-[13px] text-mute mt-1">Full-extension slides with load capacity up to 50kg per drawer.</p>
+                    <p className="text-[13px] text-body mt-1">Full-extension slides with load capacity up to 50kg per drawer.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="text-bronze text-2xl leading-none">✓</span>
+                  <span className="text-champagne text-2xl leading-none">✓</span>
                   <div>
                     <p className="font-semibold text-ink">Push-to-Open Technology</p>
-                    <p className="text-[13px] text-mute mt-1">Integrated dampers and catch-free designs for minimalist aesthetics.</p>
+                    <p className="text-[13px] text-body mt-1">Integrated dampers and catch-free designs for minimalist aesthetics.</p>
                   </div>
                 </li>
               </ul>
@@ -166,24 +166,24 @@ export default function Process() {
               <h3 className="font-display text-2xl mb-8">Board & Finish Technology</h3>
               <ul className="space-y-4">
                 <li className="flex items-start gap-4">
-                  <span className="text-bronze text-2xl leading-none">✓</span>
+                  <span className="text-champagne text-2xl leading-none">✓</span>
                   <div>
                     <p className="font-semibold text-ink">Moisture-Resistant Boards</p>
-                    <p className="text-[13px] text-mute mt-1">Marine-grade plywood with anti-termite treatment, engineered for Philippine humidity.</p>
+                    <p className="text-[13px] text-body mt-1">Marine-grade plywood with anti-termite treatment, engineered for Philippine humidity.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="text-bronze text-2xl leading-none">✓</span>
+                  <span className="text-champagne text-2xl leading-none">✓</span>
                   <div>
                     <p className="font-semibold text-ink">Precision Edge-Banding</p>
-                    <p className="text-[13px] text-mute mt-1">PUR hot-melt adhesive and CNC-cut edges for seamless, durable finishes.</p>
+                    <p className="text-[13px] text-body mt-1">PUR hot-melt adhesive and CNC-cut edges for seamless, durable finishes.</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-4">
-                  <span className="text-bronze text-2xl leading-none">✓</span>
+                  <span className="text-champagne text-2xl leading-none">✓</span>
                   <div>
                     <p className="font-semibold text-ink">Durable Finishes</p>
-                    <p className="text-[13px] text-mute mt-1">Ten-coat lacquer, Fenix laminate, and premium veneers rated for 20+ years of daily use.</p>
+                    <p className="text-[13px] text-body mt-1">Ten-coat lacquer, Fenix laminate, and premium veneers rated for 20+ years of daily use.</p>
                   </div>
                 </li>
               </ul>
@@ -199,13 +199,13 @@ export default function Process() {
       </section>
 
       {/* CTA */}
-      <section className="bg-ink text-paper py-20 md:py-28">
+      <section className="bg-ink text-light py-20 md:py-28">
         <div className="max-w-2xl mx-auto text-center px-6">
           <h2 className="font-display text-4xl md:text-5xl leading-tight">
             Begin your Berco<br />
             <em className="italic">design journey.</em>
           </h2>
-          <p className="mt-6 text-paper/80 text-[15px] leading-relaxed">
+          <p className="mt-6 text-light/80 text-[15px] leading-relaxed">
             A quiet conversation about your space, the way you live, and the cabinetry that would make it feel resolved.
           </p>
           <Link href="/contact" asChild>

@@ -85,7 +85,7 @@ export default function ArchitectsDesigners() {
     <div className="w-full">
       {/* Hero */}
       <section className="relative bg-stone1 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 py-mobile sm:py-mobile-lg md:py-mobile-xl">
+        <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8 py-section-xl sm:py-section-lg md:py-section">
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
             <div className="md:col-span-6 order-2 md:order-1">
               <span className="eyebrow">For Architects &amp; Designers</span>
@@ -93,18 +93,18 @@ export default function ArchitectsDesigners() {
                 A cabinetry partner<br />
                 <em className="italic">for the design profession.</em>
               </h1>
-              <p className="mt-4 sm:mt-6 text-mute leading-relaxed text-sm sm:text-base max-w-xl">
+              <p className="mt-4 sm:mt-6 text-body leading-relaxed text-sm sm:text-base max-w-xl">
                 BERCO works alongside architects, interior designers, developers, and contractors as a discreet cabinetry and interior fit-out partner — drawing to your specifications, coordinating with your trades, and quoting against your schedule.
               </p>
               <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3">
                 <a
                   href="#collaborate"
-                  className="bg-ink text-paper px-6 sm:px-8 py-3 text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-ink/90 transition-colors text-center"
+                  className="bg-ink text-light px-6 sm:px-8 py-3 text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-ink/90 transition-colors text-center"
                 >
                   Start a Collaboration →
                 </a>
                 <Link href="/process" asChild>
-                  <a className="border border-ink text-ink px-6 sm:px-8 py-3 text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-ink hover:text-paper transition-colors text-center">
+                  <a className="border border-ink text-ink px-6 sm:px-8 py-3 text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-ink hover:text-light transition-colors text-center">
                     How We Work
                   </a>
                 </Link>
@@ -124,8 +124,8 @@ export default function ArchitectsDesigners() {
       </section>
 
       {/* Positioning paragraph */}
-      <section className="bg-paper py-mobile sm:py-mobile-lg md:py-mobile-xl" data-animate="fade-up">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+      <section className="bg-paper py-section-xl sm:py-section-lg md:py-section" data-animate="fade-up">
+        <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
           <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
             <div className="md:col-span-4">
               <span className="eyebrow">001 — Our Role</span>
@@ -135,10 +135,10 @@ export default function ArchitectsDesigners() {
               </h2>
             </div>
             <div className="md:col-span-8">
-              <p className="text-mute leading-relaxed mb-4">
+              <p className="text-body leading-relaxed mb-4">
                 We are most useful to design professionals who care how a project is detailed — and who would rather not chase their cabinetry supplier through every revision. BERCO holds the brief in confidence, draws to your plan, and presents work in the language your studio already uses.
               </p>
-              <p className="text-mute leading-relaxed">
+              <p className="text-body leading-relaxed">
                 Whether the project is a single residence, a family home in Tagaytay, a turn-over condominium, or a developer's model unit — the studio scales the level of involvement to suit the engagement. Quietly, on schedule, and to specification.
               </p>
             </div>
@@ -147,8 +147,8 @@ export default function ArchitectsDesigners() {
       </section>
 
       {/* Services / capabilities */}
-      <section className="bg-ivory py-mobile sm:py-mobile-lg md:py-mobile-xl" data-animate="stagger">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+      <section className="bg-ivory py-section-xl sm:py-section-lg md:py-section" data-animate="stagger">
+        <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
           <div className="mb-8 md:mb-12">
             <span className="eyebrow">002 — What We Provide</span>
             <h2 className="font-display mt-4 leading-tight">
@@ -159,9 +159,9 @@ export default function ArchitectsDesigners() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12" data-animate="stagger">
             {services.map((s) => (
               <div key={s.num} data-stagger-item>
-                <p className="text-xs uppercase tracking-widest2 text-bronze mb-3">{s.num}</p>
+                <p className="text-xs uppercase tracking-widest2 text-champagne mb-3">{s.num}</p>
                 <h3 className="font-display text-lg sm:text-xl mb-3 leading-tight">{s.title}</h3>
-                <p className="text-mute text-sm leading-relaxed">{s.desc}</p>
+                <p className="text-body text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
@@ -169,8 +169,8 @@ export default function ArchitectsDesigners() {
       </section>
 
       {/* Editorial split — Project Types */}
-      <section className="bg-paper py-mobile sm:py-mobile-lg md:py-mobile-xl" data-animate="fade-up">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+      <section className="bg-paper py-section-xl sm:py-section-lg md:py-section" data-animate="fade-up">
+        <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
           <div className="mb-8 md:mb-12">
             <span className="eyebrow">003 — Project Types</span>
             <h2 className="font-display mt-4 leading-tight">
@@ -190,7 +190,7 @@ export default function ArchitectsDesigners() {
                 </div>
               ) : null}
               <h3 className="font-display text-xl sm:text-2xl mb-3">Architects &amp; Interior Designers</h3>
-              <p className="text-mute leading-relaxed text-sm sm:text-base">
+              <p className="text-body leading-relaxed text-sm sm:text-base">
                 Bespoke residential and select hospitality work. We hold to your finish schedule, prepare shop drawings against your detail set, and present samples in a format you can put in front of a client without rework.
               </p>
             </div>
@@ -205,7 +205,7 @@ export default function ArchitectsDesigners() {
                 </div>
               ) : null}
               <h3 className="font-display text-xl sm:text-2xl mb-3">Developers &amp; Contractors</h3>
-              <p className="text-mute leading-relaxed text-sm sm:text-base">
+              <p className="text-body leading-relaxed text-sm sm:text-base">
                 Model-unit cabinetry, repeatable specifications for multi-unit developments, and phased delivery against site programme. Budget allowances and BOQ-friendly itemisation prepared on request.
               </p>
             </div>
@@ -214,11 +214,11 @@ export default function ArchitectsDesigners() {
       </section>
 
       {/* Engagement / process for trade */}
-      <section className="bg-ink text-paper py-mobile sm:py-mobile-lg md:py-mobile-xl" data-animate="fade-up">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
+      <section className="bg-ink text-light py-section-xl sm:py-section-lg md:py-section" data-animate="fade-up">
+        <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
           <div className="mb-8 md:mb-12">
-            <span className="eyebrow text-paper/60">004 — How We Engage</span>
-            <h2 className="font-display mt-4 leading-tight text-paper">
+            <span className="eyebrow text-light/60">004 — How We Engage</span>
+            <h2 className="font-display mt-4 leading-tight text-light">
               A discreet collaboration<br />
               <em className="italic">on your terms.</em>
             </h2>
@@ -233,8 +233,8 @@ export default function ArchitectsDesigners() {
             ].map((s) => (
               <div key={s.n}>
                 <p className="text-xs uppercase tracking-widest2 text-bronze2 mb-3">{s.n}</p>
-                <h4 className="font-display text-lg sm:text-xl mb-2 text-paper">{s.t}</h4>
-                <p className="text-paper/75 text-sm leading-relaxed">{s.d}</p>
+                <h4 className="font-display text-lg sm:text-xl mb-2 text-light">{s.t}</h4>
+                <p className="text-light/75 text-sm leading-relaxed">{s.d}</p>
               </div>
             ))}
           </div>
@@ -242,7 +242,7 @@ export default function ArchitectsDesigners() {
       </section>
 
       {/* Collaboration Form */}
-      <section id="collaborate" className="bg-paper py-mobile sm:py-mobile-lg md:py-mobile-xl">
+      <section id="collaborate" className="bg-paper py-section-xl sm:py-section-lg md:py-section">
         <div className="max-w-[1100px] mx-auto px-4 sm:px-6 md:px-8">
           <div className="mb-8 md:mb-12">
             <span className="eyebrow">005 — Collaboration Inquiry</span>
@@ -250,7 +250,7 @@ export default function ArchitectsDesigners() {
               Start a conversation<br />
               <em className="italic">about your project.</em>
             </h2>
-            <p className="mt-4 sm:mt-6 text-mute leading-relaxed text-sm sm:text-base max-w-2xl">
+            <p className="mt-4 sm:mt-6 text-body leading-relaxed text-sm sm:text-base max-w-2xl">
               Share a few details about the project and your studio. We'll respond within two working days — discreetly, and with the right person from the BERCO design team.
             </p>
           </div>
@@ -258,7 +258,7 @@ export default function ArchitectsDesigners() {
           <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-mute mb-2 sm:mb-3">
+                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
                   Your Name
                 </label>
                 <input
@@ -272,7 +272,7 @@ export default function ArchitectsDesigners() {
                 />
               </div>
               <div>
-                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-mute mb-2 sm:mb-3">
+                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
                   Studio / Firm
                 </label>
                 <input
@@ -288,7 +288,7 @@ export default function ArchitectsDesigners() {
 
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-mute mb-2 sm:mb-3">
+                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
                   Role
                 </label>
                 <select
@@ -306,7 +306,7 @@ export default function ArchitectsDesigners() {
                 </select>
               </div>
               <div>
-                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-mute mb-2 sm:mb-3">
+                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
                   Project Type
                 </label>
                 <select
@@ -327,7 +327,7 @@ export default function ArchitectsDesigners() {
 
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-mute mb-2 sm:mb-3">
+                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
                   Email
                 </label>
                 <input
@@ -341,7 +341,7 @@ export default function ArchitectsDesigners() {
                 />
               </div>
               <div>
-                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-mute mb-2 sm:mb-3">
+                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
                   Phone
                 </label>
                 <input
@@ -356,7 +356,7 @@ export default function ArchitectsDesigners() {
             </div>
 
             <div>
-              <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-mute mb-2 sm:mb-3">
+              <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
                 Project Location
               </label>
               <input
@@ -370,7 +370,7 @@ export default function ArchitectsDesigners() {
             </div>
 
             <div>
-              <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-mute mb-2 sm:mb-3">
+              <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
                 Project Brief
               </label>
               <textarea
@@ -385,7 +385,7 @@ export default function ArchitectsDesigners() {
 
             <button
               type="submit"
-              className="w-full sm:w-auto bg-ink text-paper px-8 py-4 sm:py-5 text-xs sm:text-sm tracking-widest2 uppercase font-semibold rounded hover:bg-ink/90 transition-colors min-h-[48px] inline-flex items-center justify-center"
+              className="w-full sm:w-auto bg-ink text-light px-8 py-4 sm:py-5 text-xs sm:text-sm tracking-widest2 uppercase font-semibold rounded hover:bg-ink/90 transition-colors min-h-[48px] inline-flex items-center justify-center"
             >
               Send Collaboration Inquiry →
             </button>
@@ -397,9 +397,9 @@ export default function ArchitectsDesigners() {
             )}
           </form>
 
-          <p className="mt-10 text-xs uppercase tracking-widest2 text-mute">
+          <p className="mt-10 text-xs uppercase tracking-widest2 text-body">
             For confidential discussions, please write to{" "}
-            <a href="mailto:trade@bercoph.com" className="text-ink hover:text-bronze transition-colors">
+            <a href="mailto:trade@bercoph.com" className="text-ink hover:text-champagne transition-colors">
               trade@bercoph.com
             </a>
           </p>

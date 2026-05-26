@@ -1,85 +1,32 @@
 import { useEffect } from 'react';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
 
 export const useScrollAnimations = () => {
   useEffect(() => {
-    // Fade-up animation for sections
-    gsap.utils.toArray<HTMLElement>('[data-animate="fade-up"]').forEach((element) => {
-      gsap.from(element, {
-        scrollTrigger: {
-          trigger: element,
-          start: 'top 80%',
-          end: 'top 50%',
-          scrub: false,
-          markers: false,
-        },
-        opacity: 0,
-        y: 40,
-        duration: 0.8,
-        ease: 'power2.out',
-      });
-    });
+    // Use IntersectionObserver to trigger CSS animations
+    // This ensures animations complete fully and don't get stuck mid-fade
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Add is-visible class to trigger CSS animation
+            entry.target.classList.add('is-visible');
+            // Once visible, stop observing (animation is permanent)
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of element is visible
+        rootMargin: '0px 0px -50px 0px', // Start animation a bit before fully visible
+      }
+    );
 
-    // Stagger animation for grid items
-    gsap.utils.toArray<HTMLElement>('[data-animate="stagger"]').forEach((container) => {
-      const items = container.querySelectorAll('[data-stagger-item]');
-      gsap.from(items, {
-        scrollTrigger: {
-          trigger: container,
-          start: 'top 75%',
-          end: 'top 50%',
-          scrub: false,
-          markers: false,
-        },
-        opacity: 0,
-        y: 30,
-        duration: 0.6,
-        stagger: 0.1,
-        ease: 'power2.out',
-      });
-    });
-
-    // Parallax animation for hero images
-    gsap.utils.toArray<HTMLElement>('[data-animate="parallax"]').forEach((element) => {
-      gsap.to(element, {
-        scrollTrigger: {
-          trigger: element,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: 1,
-          markers: false,
-        },
-        y: (_i: number, target: HTMLElement) => {
-          const st = ScrollTrigger.getById(target.id);
-          const progress = st && typeof (st as any).progress === "function" ? (st as any).progress() : 0;
-          return (1 - progress) * 100;
-        },
-        ease: 'none',
-      });
-    });
-
-    // Scale-in animation
-    gsap.utils.toArray<HTMLElement>('[data-animate="scale-in"]').forEach((element) => {
-      gsap.from(element, {
-        scrollTrigger: {
-          trigger: element,
-          start: 'top 85%',
-          end: 'top 60%',
-          scrub: false,
-          markers: false,
-        },
-        opacity: 0,
-        scale: 0.95,
-        duration: 0.7,
-        ease: 'power2.out',
-      });
-    });
+    // Observe all .reveal elements
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach((el) => observer.observe(el));
 
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      observer.disconnect();
     };
   }, []);
 };
