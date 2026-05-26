@@ -243,64 +243,62 @@ button, a, input, select, textarea {
      SPACING SCALE
      ============================================================================ */
 
-  /* Section padding: desktop 120px, medium 96px, compact 72px, mobile 56-72px */
-  .py-section-xl {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-  .py-section-lg {
-    padding-top: 4.5rem;
-    padding-bottom: 4.5rem;
-  }
-  .py-section {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+  /* SPACING DISCIPLINE (Jim's exact specs)
+     Mobile: 20-24px side, 56-72px section
+     Tablet: 32-40px side, 72-96px section
+     Desktop: 64-96px side, 96-120px section */
+
+  /* Section padding — vertical rhythm */
+  .py-section-mobile { padding-top: 3.5rem; padding-bottom: 3.5rem; }
+  .py-section-tablet { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+  .py-section { padding-top: 6rem; padding-bottom: 6rem; }
+  .py-section-lg { padding-top: 7.5rem; padding-bottom: 7.5rem; }
+
+  /* Vertical rhythm: breathing room before section headers */
+  .section-top-spacing { margin-top: 2rem; }
+
+  /* Side padding: mobile 20-24px */
+  .container, .max-w-content, .max-w-editorial, .max-w-wide {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
-  /* Side padding: mobile 20-24px, tablet 32-40px, desktop 64-96px */
+  /* Tablet: 32-40px side padding */
   @media (min-width: 640px) {
-    .container {
+    .container, .max-w-content, .max-w-editorial, .max-w-wide {
       padding-left: 2rem;
       padding-right: 2rem;
     }
   }
 
+  /* Desktop: 80px side padding (mid-range 64-96), adjusted section padding */
   @media (min-width: 1024px) {
-    .container {
-      padding-left: 4rem;
-      padding-right: 4rem;
-      max-width: 1280px;
+    .container, .max-w-content, .max-w-editorial, .max-w-wide {
+      padding-left: 5rem;
+      padding-right: 5rem;
+      max-width: 1200px;
     }
-    .py-section-xl {
-      padding-top: 4.5rem;
-      padding-bottom: 4.5rem;
-    }
-    .py-section-lg {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
-    .py-section {
-      padding-top: 7.5rem;
-      padding-bottom: 7.5rem;
-    }
+    .section-top-spacing { margin-top: 4rem; }
+    .py-section-mobile { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+    .py-section-tablet { padding-top: 6rem; padding-bottom: 6rem; }
+    .py-section { padding-top: 7.5rem; padding-bottom: 7.5rem; }
+    .py-section-lg { padding-top: 8rem; padding-bottom: 8rem; }
   }
 
-  /* Card grid gaps */
-  .gap-card-mobile {
-    gap: 1.5rem;
-  }
-  .gap-card-tablet {
-    gap: 1.75rem;
-  }
-  .gap-card-desktop {
-    gap: 2rem;
-  }
+  /* Card grid gaps: mobile 32px, tablet 28-32px, desktop 32-40px */
+  .gap-card-mobile { gap: 2rem; }
+  .gap-card-tablet { gap: 1.75rem; }
+  .gap-card-desktop { gap: 2.25rem; }
 
   @media (min-width: 768px) {
-    .gap-card-desktop {
-      gap: 2.5rem;
-    }
+    .gap-card-tablet { gap: 2rem; }
+    .gap-card-desktop { gap: 2.5rem; }
   }
+
+  /* Card image heights: 380-460px */
+  .card-image-height { height: 380px; }
+  @media (min-width: 768px) { .card-image-height { height: 420px; } }
+  @media (min-width: 1024px) { .card-image-height { height: 460px; } }
 
   /* ============================================================================
      IMAGE RULES: 90-100% opacity, warm dark overlay 12%, hover scale 1.03

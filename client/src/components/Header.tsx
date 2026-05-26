@@ -15,30 +15,30 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
     { label: "Home", href: "/" },
     { label: "Kitchens", href: "/kitchens" },
     { label: "Wardrobes", href: "/wardrobes" },
-    { label: "Vanities", href: "/vanities" },
-    { label: "For Architects", href: "/architects-designers" },
+    { label: "Vanities", href: "/vanities", tracking: "tracking-[0.08em]" },
+    { label: "Trade", href: "/architects-designers" },
     { label: "Process", href: "/process" },
     { label: "Contact", href: "/contact" },
   ];
 
   return (
     <header className="sticky top-0 z-40 bg-paper border-b border-line">
-      <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8 py-4 flex items-center justify-between">
+      <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8 py-3 flex items-center justify-between h-16">
         {/* Logo */}
         <Link href="/">
           <span className="font-display text-2xl font-semibold tracking-tight cursor-pointer">
-            BERCO<span className="text-bronze">.</span>PH
+            BERCO
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-6">
-          {navItems.map((item) => (
+        <nav className="hidden lg:flex items-center gap-8 h-16 items-center">
+          {navItems.map((item: any) => (
             <Link key={item.href} href={item.href} asChild>
               <a
-                className={`text-xs tracking-[0.10em] uppercase transition-colors ${
+                className={`text-xs ${item.tracking || "tracking-[0.10em]"} uppercase transition-colors ${
                   isActive(item.href)
-                    ? "text-ink font-semibold border-b border-ink pb-1"
+                    ? "text-ink font-semibold border-b-2 border-ink pb-1"
                     : "text-mute hover:text-ink"
                 }`}
               >

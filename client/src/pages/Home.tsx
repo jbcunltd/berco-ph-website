@@ -109,36 +109,40 @@ export default function Home() {
 
   return (
     <div className="w-full">
-      {/* 1. HERO */}
-      <section className="relative h-[50vh] sm:h-[60vh] md:h-[80vh] overflow-hidden bg-stone1 flex items-center justify-center">
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src={kitchenImage}
-            alt="BERCO bespoke kitchen — walnut and stone composition"
-            className="w-full h-[110%] object-cover object-top"
-          />
-        </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/40" />
-        <div className="relative z-10 text-center text-light px-4 sm:px-6 py-8">
-          <p className="text-xs sm:text-sm tracking-widest2 uppercase text-light/80">Bespoke Cabinetry · Manila</p>
-          <h1 className="mt-3 sm:mt-6 leading-tight">
-            Custom Cabinetry<br />
-            for <em className="italic">Philippine</em> Homes.
-          </h1>
-          <p className="mt-4 sm:mt-8 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto text-light/90">
-            Quiet, considered interiors — drawn by hand, joined by craftsmen, installed in the homes of those who live with intention.
-          </p>
-          <div className="mt-6 sm:mt-10 flex flex-col gap-3 sm:gap-4">
+      {/* 1. HERO — Mobile-first 3-second clarity */}
+      <section className="relative bg-paper">
+        {/* Mobile: stacked text-first */}
+        <div className="md:hidden px-5 py-12 text-center">
+          <p className="text-[11px] tracking-widest2 uppercase text-mute mb-4">Bespoke Cabinetry · Manila</p>
+          <h1 className="text-4xl sm:text-5xl leading-tight mb-4 text-ink">Custom Cabinetry for <em className="italic">Philippine</em> Homes.</h1>
+          <p className="text-sm leading-relaxed text-body mb-8 max-w-md mx-auto">Quiet, considered storage — kitchens, wardrobes, vanities, and refined spaces.</p>
+          <div className="flex flex-col gap-3">
             <Link href="/contact" asChild>
-              <a className="bg-light text-ink px-6 sm:px-8 py-3 text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-light/90 transition-colors w-full sm:w-auto inline-block">
-                Book a Design Consultation →
-              </a>
+              <a className="bg-ink text-light px-6 py-3.5 text-xs tracking-widest2 uppercase font-semibold hover:bg-ink/90 transition-colors rounded">Book a Design Consultation →</a>
             </Link>
             <Link href="/kitchens" asChild>
-              <a className="border border-light text-light px-6 sm:px-8 py-3 text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-light hover:text-ink transition-colors w-full sm:w-auto inline-block">
-                Explore Our Cabinetry Collections
-              </a>
+              <a className="border border-ink text-ink px-6 py-3.5 text-xs tracking-widest2 uppercase font-semibold hover:bg-ink hover:text-light transition-colors rounded">Explore Collections</a>
             </Link>
+          </div>
+          <div className="relative h-80 bg-stone1 overflow-hidden image-crop-watermark mt-8">
+            <img src={kitchenImage} alt="BERCO cabinetry" className="w-full h-full object-cover" />
+          </div>
+        </div>
+        {/* Desktop: side-by-side */}
+        <div className="hidden md:grid md:grid-cols-2 md:min-h-[70vh] md:items-center md:gap-12">
+          <div className="relative h-full bg-stone1 overflow-hidden image-crop-watermark"><img src={kitchenImage} alt="BERCO cabinetry" className="w-full h-full object-cover" /></div>
+          <div className="px-8 py-12 text-left">
+            <p className="text-xs tracking-widest2 uppercase text-mute mb-6">Bespoke Cabinetry · Manila</p>
+            <h1 className="text-5xl lg:text-6xl leading-tight mb-6 text-ink">Custom Cabinetry for <em className="italic">Philippine</em> Homes.</h1>
+            <p className="text-base leading-relaxed text-body mb-10 max-w-lg">Quiet, considered storage — kitchens, wardrobes, vanities, and refined spaces shaped around the way you live.</p>
+            <div className="flex gap-4">
+              <Link href="/contact" asChild>
+                <a className="bg-ink text-light px-8 py-3.5 text-sm tracking-widest2 uppercase font-semibold hover:bg-ink/90 transition-colors rounded">Book a Design Consultation →</a>
+              </Link>
+              <Link href="/kitchens" asChild>
+                <a className="border border-ink text-ink px-8 py-3.5 text-sm tracking-widest2 uppercase font-semibold hover:bg-ink hover:text-light transition-colors rounded">Explore Collections</a>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -167,32 +171,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. EXPLORE BY SPACE */}
-      <section className="bg-ivory py-section-xl sm:py-section-lg md:py-section reveal">
-        <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
-          <div className="mb-8 md:mb-12">
-            <span className="eyebrow">Explore by Space</span>
-            <h2 className="mt-4 leading-tight">
-              Bespoke, room by room.
-            </h2>
+      {/* 3. COLLECTIONS */}
+      <section className="bg-ivory py-section-mobile sm:py-section-tablet md:py-section reveal">
+        <div className="max-w-content mx-auto px-5 sm:px-6 md:px-8">
+          <div className="mb-10 md:mb-16">
+            <span className="eyebrow">Collections</span>
+            <h2 className="mt-4 leading-tight mb-4">Explore cabinetry by space</h2>
+            <p className="text-body leading-relaxed max-w-2xl">From kitchens and wardrobes to vanities, pantries, and wine storage — Berco creates cabinetry systems shaped around the way each room is used.</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-card-mobile sm:gap-card-tablet md:gap-card-desktop">
             {categories.map((cat, i) => (
               <Link key={cat.href} href={cat.href} asChild>
-                <a className="group cursor-pointer reveal" style={{ transitionDelay: `${i * 0.1}s` }}>
-                  <div className="aspect-[4/5] bg-stone1 overflow-hidden image-crop-watermark mb-4 sm:mb-6">
-                    <img
-                      src={cat.image}
-                      alt={cat.title}
-                      className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
-                    />
+                <a className="group cursor-pointer reveal block" style={{ transitionDelay: `${i * 0.1}s` }}>
+                  <div className="aspect-[4/5] bg-stone1 overflow-hidden image-crop-watermark mb-4">
+                    <img src={cat.image} alt={cat.title} className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700" />
                   </div>
-                  <h3 className="text-lg sm:text-xl mb-2">{cat.title}</h3>
+                  <h3 className="text-lg sm:text-xl font-serif mb-3 text-ink">{cat.title}</h3>
                   <p className="text-body text-sm sm:text-base leading-relaxed mb-4">{cat.description}</p>
-                  <span className="inline-block text-ink font-semibold text-xs sm:text-sm uppercase tracking-widest2 hover:text-champagne transition-colors">
-                    Explore →
-                  </span>
+                  <span className="inline-block text-ink font-semibold text-xs uppercase tracking-widest2 hover:text-champagne transition-colors">Explore →</span>
                 </a>
               </Link>
             ))}
@@ -207,8 +204,7 @@ export default function Home() {
             <div className="md:col-span-5">
               <span className="eyebrow">Why BERCO</span>
               <h2 className="mt-4 leading-tight">
-                Designed for how<br />
-                <em className="italic">we live here.</em>
+                Why choose Berco
               </h2>
             </div>
             <div className="md:col-span-7">
