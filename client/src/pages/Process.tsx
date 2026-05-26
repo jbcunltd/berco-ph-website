@@ -101,7 +101,7 @@ export default function Process() {
                 <div className="rounded overflow-hidden aspect-video md:aspect-auto md:h-[320px]">
                   <img
                     src="/process-production-coordination.jpg"
-                    alt="Cabinetry production coordination with CNC cutting and quality checks"
+                    alt="Precision cutting of cabinetry panel in workshop"
                     className="w-full h-full object-cover"
                   />
                 </div>
