@@ -53,7 +53,7 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-paper text-ink">
       <Header mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       
-      <main className="flex-1 pb-16 md:pb-0">
+      <main className="flex-1 pb-20 md:pb-0">
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/kitchens" component={Kitchens} />
