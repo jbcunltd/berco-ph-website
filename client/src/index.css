@@ -4,193 +4,219 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ============================================================================
-   JIM'S 15-RULE DESIGN SYSTEM
-   Real luxury: clarity, proportion, rich imagery, disciplined spacing, confidence.
+   BERCO PH — DESIGN SYSTEM (Single Source of Truth)
+   ----------------------------------------------------------------------------
+   To re-skin the entire site, edit values in this file ONLY.
+   No page should hard-code colors, spacing, font sizes, or breakpoints.
    ============================================================================ */
 
-@theme inline {
-  /* Color system */
-  --color-paper: #FAF8F3;
-  --color-ivory: #F7F3EA;
-  --color-warm: #EFE7DA;
-  --color-ink: #1F1D1A;
-  --color-body: #4A4640;
-  --color-mute: #7A7368;
-  --color-light: #F7F3EA;
-  --color-champagne: #B79A6B;
-  --color-line: #DDD5C8;
-  --color-forest: #3A4A3F;
-  --color-bronze: #7A5C3B;
-  --color-bronze2: #8E6E48;
-}
-
+/* ----------------------------------------------------------------------------
+   1. DESIGN TOKENS — CSS Custom Properties
+   ---------------------------------------------------------------------------- */
 :root {
-  --paper: #FAF8F3;
-  --ivory: #F7F3EA;
-  --warm: #EFE7DA;
-  --ink: #1F1D1A;
-  --body: #4A4640;
-  --mute: #7A7368;
-  --light: #F7F3EA;
-  --champagne: #B79A6B;
-  --line: #DDD5C8;
+  /* — Colors ——————————————————————————————————————————————————————————— */
+  --bg:            #FAF8F3;   /* page background (warm ivory) */
+  --bg-alt:        #F1EADF;   /* alternate section (warm taupe, used sparingly) */
+  --bg-elevated:   #FFFFFF;   /* cards/elevated surfaces (rare) */
+  --footer-bg:     #1F1D1A;   /* footer / dark sections */
+  --footer-text:   #F7F3EA;
+
+  --text:          #1F1D1A;   /* primary text */
+  --text-body:     #4A4640;   /* body copy */
+  --text-muted:    #7A7368;   /* labels, captions */
+  --text-on-dark:  #F7F3EA;
+
+  --accent:        #B79A6B;   /* champagne / brass */
+  --accent-dark:   #8E6E48;
+  --accent-soft:   #DDC9A6;
+
+  --line:          #DDD5C8;   /* hairlines, dividers */
+  --line-strong:   #BBB0A0;
+
+  /* — Spacing scale ——————————————————————————————————————————————————— */
+  --section-y-sm:  3.5rem;    /* 56px  — mobile compact */
+  --section-y-md:  5rem;      /* 80px  — mobile default */
+  --section-y-lg:  6rem;      /* 96px  — tablet default */
+  --section-y-xl:  8rem;      /* 128px — desktop default */
+  --section-y-xxl: 9rem;      /* 144px — feature sections */
+
+  --container-x-sm: 1.25rem;  /* 20px mobile */
+  --container-x-md: 2rem;     /* 32px tablet */
+  --container-x-lg: 5rem;     /* 80px desktop */
+
+  --grid-gap-sm:   2rem;      /* mobile cards */
+  --grid-gap-md:   2.25rem;
+  --grid-gap-lg:   3rem;      /* desktop cards */
+
+  --content-max:   1200px;
+  --narrow-max:    720px;
+  --wide-max:      1440px;
+
+  /* — Typography ————————————————————————————————————————————————————— */
+  --font-serif:    'Playfair Display', 'Cormorant Garamond', Georgia, serif;
+  --font-serif-2:  'Cormorant Garamond', Georgia, serif;
+  --font-sans:     'Inter', 'Outfit', ui-sans-serif, system-ui, sans-serif;
+
+  --fs-h1:    clamp(2.375rem, 8vw, 4.5rem);
+  --fs-h2:    clamp(1.875rem, 6vw, 3rem);
+  --fs-h3:    clamp(1.25rem,  4vw, 1.75rem);
+  --fs-h4:    clamp(1.125rem, 3vw, 1.5rem);
+  --fs-body:  clamp(1rem,     2vw, 1.125rem);
+  --fs-small: 0.875rem;
+  --fs-label: 0.75rem;
+  --fs-cta:   0.875rem;
+
+  --lh-tight:  1.05;
+  --lh-snug:   1.2;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.7;
+
+  --tracking-label: 0.10em;
+  --tracking-cta:   0.12em;
+
+  /* — Radii & Shadows ——————————————————————————————————————————————— */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+
+  --shadow-sm: 0 1px 2px rgba(31, 29, 26, 0.04);
+  --shadow-md: 0 4px 16px rgba(31, 29, 26, 0.06);
+  --shadow-lg: 0 12px 32px rgba(31, 29, 26, 0.08);
+
+  /* — Motion ——————————————————————————————————————————————————————— */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --transition-fast: 160ms var(--ease-out);
+  --transition: 240ms var(--ease-out);
+  --transition-slow: 500ms var(--ease-out);
+
+  /* — Legacy aliases (used by older components — keep until migration done) — */
+  --paper: var(--bg);
+  --ivory: var(--bg);
+  --warm:  var(--bg-alt);
+  --ink:   var(--text);
+  --body:  var(--text-body);
+  --mute:  var(--text-muted);
+  --light: var(--text-on-dark);
+  --champagne: var(--accent);
+  --bronze:    var(--accent-dark);
+  --bronze2:   var(--accent-dark);
   --forest: #3A4A3F;
-  --bronze: #7A5C3B;
-  --bronze2: #8E6E48;
 }
 
-html {
-  scroll-behavior: smooth;
+/* ----------------------------------------------------------------------------
+   2. TAILWIND THEME — Map tokens into utilities (bg-bg, text-text, py-section, …)
+   ---------------------------------------------------------------------------- */
+@theme inline {
+  /* Colors → bg-bg, text-text, border-line, etc. */
+  --color-bg:            var(--bg);
+  --color-bg-alt:        var(--bg-alt);
+  --color-bg-elevated:   var(--bg-elevated);
+  --color-footer-bg:     var(--footer-bg);
+  --color-text:          var(--text);
+  --color-text-body:     var(--text-body);
+  --color-text-muted:    var(--text-muted);
+  --color-text-on-dark:  var(--text-on-dark);
+  --color-accent:        var(--accent);
+  --color-accent-dark:   var(--accent-dark);
+  --color-accent-soft:   var(--accent-soft);
+  --color-line:          var(--line);
+  --color-line-strong:   var(--line-strong);
+
+  /* Legacy color aliases */
+  --color-paper:     var(--bg);
+  --color-ivory:     var(--bg);
+  --color-warm:      var(--bg-alt);
+  --color-ink:       var(--text);
+  --color-body:      var(--text-body);
+  --color-mute:      var(--text-muted);
+  --color-light:     var(--text-on-dark);
+  --color-champagne: var(--accent);
+  --color-bronze:    var(--accent-dark);
+  --color-bronze2:   var(--accent-dark);
+  --color-forest:    #3A4A3F;
+
+  /* Font families */
+  --font-serif: var(--font-serif);
+  --font-sans:  var(--font-sans);
+
+  /* Radii */
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
 }
+
+/* ----------------------------------------------------------------------------
+   3. BASE — Document, typography, focus, defaults
+   ---------------------------------------------------------------------------- */
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', 'Outfit', ui-sans-serif, system-ui, sans-serif;
-  background: #FAF8F3;
-  color: #4A4640;
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text-body);
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
 }
 
-/* ============================================================================
-   TYPOGRAPHY HIERARCHY
-   ============================================================================ */
-
-/* H1 — Hero heading: 56-72px desktop, 38-46px mobile, line-height 0.95-1.08 */
 h1 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: clamp(2.375rem, 8vw, 4.5rem);
+  font-family: var(--font-serif);
+  font-size: var(--fs-h1);
   font-weight: 400;
-  line-height: 1.05;
+  line-height: var(--lh-tight);
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
-  color: #1F1D1A;
+  color: var(--text);
 }
 
-/* H2 — Section heading: 38-48px desktop, 30-36px mobile */
 h2 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.875rem, 6vw, 3rem);
+  font-family: var(--font-serif-2);
+  font-size: var(--fs-h2);
   font-weight: 500;
-  line-height: 1.2;
+  line-height: var(--lh-snug);
   letter-spacing: -0.01em;
   margin-bottom: 1.25rem;
-  color: #1F1D1A;
+  color: var(--text);
 }
 
-/* H3 — Card/subsection heading */
 h3 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  font-family: var(--font-serif-2);
+  font-size: var(--fs-h3);
   font-weight: 600;
   line-height: 1.3;
   letter-spacing: -0.005em;
   margin-bottom: 1rem;
-  color: #1F1D1A;
+  color: var(--text);
 }
 
-/* H4 — Small heading */
 h4 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  font-family: var(--font-serif-2);
+  font-size: var(--fs-h4);
   font-weight: 600;
   line-height: 1.35;
-  letter-spacing: 0em;
   margin-bottom: 0.875rem;
-  color: #1F1D1A;
+  color: var(--text);
 }
 
-/* Body text: 16-18px, line-height 1.6-1.75 */
-p, body {
-  font-size: clamp(1rem, 2vw, 1.125rem);
-  line-height: 1.7;
-  font-weight: 400;
-  letter-spacing: 0.005em;
-  color: #4A4640;
+p {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--text-body);
 }
 
-/* Small text and captions */
 small, .text-sm {
-  font-size: clamp(0.875rem, 1.5vw, 1rem);
-  line-height: 1.5;
-  font-weight: 400;
+  font-size: var(--fs-small);
+  line-height: var(--lh-normal);
 }
 
-/* Eyebrow / label: 11-12px, letter-spacing 0.10em (tightened per Jim's polish) */
-.eyebrow {
-  display: block;
-  font-size: 0.75rem;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color: #7A7368;
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-  font-family: 'Inter', 'Outfit', sans-serif;
-}
-
-/* Caption text — lighter weight */
-.caption {
-  font-size: 0.8125rem;
-  line-height: 1.5;
-  font-weight: 500;
-  color: #7A7368;
-  letter-spacing: 0.01em;
-}
-
-/* Luxury Display Font */
-.font-display {
-  font-family: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-}
-
-/* Serif Headlines (Cormorant Garamond) */
-.font-serif {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 400;
-}
-
-/* Subtle paper grain */
-.grain::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(31, 29, 26, 0.04) 1px, transparent 1px);
-  background-size: 3px 3px;
-  mix-blend-mode: multiply;
-  pointer-events: none;
-  opacity: 0.3;
-}
-
-/* Hairline divider */
-.hairline {
-  height: 1px;
-  background: #DDD5C8;
-}
-
-/* Touch-friendly tap targets */
 button, a, input, select, textarea {
   min-height: 44px;
   min-width: 44px;
 }
 
-/* Mobile-safe padding */
-.mobile-safe {
-  padding-left: max(1rem, env(safe-area-inset-left));
-  padding-right: max(1rem, env(safe-area-inset-right));
-}
-
-/* Letter spacing utility — 0.10em for readability-first luxury (Jim final polish) */
-.tracking-widest2 {
-  letter-spacing: 0.10em;
-}
-
 @layer base {
-  * {
-    @apply border-line;
-  }
-  body {
-    @apply bg-paper text-body;
-  }
+  * { @apply border-line; }
+  body { @apply bg-bg text-text-body; }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -199,285 +225,301 @@ button, a, input, select, textarea {
   a[href],
   select:not(:disabled),
   input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
-    @apply cursor-pointer;
-  }
+  input[type="radio"]:not(:disabled) { @apply cursor-pointer; }
 }
 
+/* ----------------------------------------------------------------------------
+   4. LAYOUT PRIMITIVES — Section / Container helpers (consumed by JSX components)
+   ---------------------------------------------------------------------------- */
 @layer components {
-  /* ============================================================================
-     CONTAINER WIDTHS
-     ============================================================================ */
+  /* Section vertical padding — responsive, driven entirely by tokens */
+  .ds-section { padding-top: var(--section-y-md); padding-bottom: var(--section-y-md); }
+  .ds-section-sm { padding-top: var(--section-y-sm); padding-bottom: var(--section-y-sm); }
+  .ds-section-lg { padding-top: var(--section-y-md); padding-bottom: var(--section-y-md); }
+
+  @media (min-width: 768px) {
+    .ds-section { padding-top: var(--section-y-lg); padding-bottom: var(--section-y-lg); }
+    .ds-section-lg { padding-top: var(--section-y-xl); padding-bottom: var(--section-y-xl); }
+  }
+  @media (min-width: 1024px) {
+    .ds-section { padding-top: var(--section-y-xl); padding-bottom: var(--section-y-xl); }
+    .ds-section-lg { padding-top: var(--section-y-xxl); padding-bottom: var(--section-y-xxl); }
+  }
+
+  /* Container — horizontal padding + max-width */
+  .ds-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--content-max);
+    padding-left: var(--container-x-sm);
+    padding-right: var(--container-x-sm);
+  }
+  .ds-container-narrow { max-width: var(--narrow-max); }
+  .ds-container-wide   { max-width: var(--wide-max); }
+
+  @media (min-width: 640px) {
+    .ds-container, .ds-container-narrow, .ds-container-wide {
+      padding-left: var(--container-x-md);
+      padding-right: var(--container-x-md);
+    }
+  }
+  @media (min-width: 1024px) {
+    .ds-container, .ds-container-narrow, .ds-container-wide {
+      padding-left: var(--container-x-lg);
+      padding-right: var(--container-x-lg);
+    }
+  }
+
+  /* Grid gaps */
+  .ds-grid-gap { gap: var(--grid-gap-sm); }
+  @media (min-width: 768px) { .ds-grid-gap { gap: var(--grid-gap-md); } }
+  @media (min-width: 1024px) { .ds-grid-gap { gap: var(--grid-gap-lg); } }
+
+  /* Eyebrow / section label */
+  .ds-label {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-size: var(--fs-label);
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  /* Buttons */
+  .ds-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    padding: 0 1.75rem;
+    font-family: var(--font-sans);
+    font-size: var(--fs-cta);
+    font-weight: 600;
+    letter-spacing: var(--tracking-cta);
+    text-transform: uppercase;
+    border-radius: var(--radius-md);
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+    line-height: 1;
+  }
+  .ds-btn-primary { background: var(--text); color: var(--text-on-dark); }
+  .ds-btn-primary:hover { background: #2A2622; }
+  .ds-btn-secondary {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--text);
+  }
+  .ds-btn-secondary:hover { background: var(--text); color: var(--text-on-dark); }
+  .ds-btn-accent { background: var(--accent); color: var(--text-on-dark); }
+  .ds-btn-accent:hover { background: var(--accent-dark); }
+  .ds-btn-link {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--text); font-weight: 600;
+    text-decoration: underline; text-decoration-color: var(--line);
+    transition: color var(--transition);
+  }
+  .ds-btn-link:hover { color: var(--accent); }
+  .ds-btn:active { transform: scale(0.97); }
+
+  /* Card image (used by ProductCard) */
+  .ds-card-image {
+    overflow: hidden;
+    position: relative;
+    isolation: isolate;
+    background: var(--bg-alt);
+    border-radius: var(--radius-md);
+  }
+  .ds-card-image > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 700ms var(--ease-out);
+  }
+  .group:hover .ds-card-image > img { transform: scale(1.03); }
+
+  /* Inline link with arrow — used for "Explore →" / "Our Approach →" */
+  .ds-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-sans);
+    font-size: var(--fs-cta);
+    font-weight: 600;
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--text);
+    transition: color var(--transition);
+    min-height: auto;
+  }
+  .ds-link:hover { color: var(--accent); }
+
+  /* Hairline */
+  .hairline { height: 1px; background: var(--line); }
+
+  /* Legacy classes — kept so we don't break Home until full refactor */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: var(--container-x-sm);
+    padding-right: var(--container-x-sm);
   }
-
-  .max-w-content {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .max-w-editorial {
-    max-width: 720px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .max-w-wide {
-    max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
-
-  /* ============================================================================
-     SPACING SCALE
-     ============================================================================ */
-
-  /* SPACING DISCIPLINE (Jim's exact specs)
-     Mobile: 20-24px side, 56-72px section
-     Tablet: 32-40px side, 72-96px section
-     Desktop: 64-96px side, 96-120px section */
-
-  /* Section padding — vertical rhythm: reduced excessive spacing */
-  .py-section-mobile { padding-top: 2.5rem; padding-bottom: 2.5rem; }
-  .py-section-tablet { padding-top: 3.5rem; padding-bottom: 3.5rem; }
-  .py-section { padding-top: 5.5rem; padding-bottom: 5.5rem; }
-  .py-section-lg { padding-top: 6.5rem; padding-bottom: 6.5rem; }
-
-  /* Vertical rhythm: breathing room before section headers */
-  .section-top-spacing { margin-top: 2rem; }
-
-  /* Side padding: mobile 20-24px */
+  .max-w-content { max-width: var(--content-max); margin-left: auto; margin-right: auto; }
+  .max-w-editorial { max-width: var(--narrow-max); margin-left: auto; margin-right: auto; }
+  .max-w-wide { max-width: var(--wide-max); margin-left: auto; margin-right: auto; }
   .container, .max-w-content, .max-w-editorial, .max-w-wide {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: var(--container-x-sm);
+    padding-right: var(--container-x-sm);
   }
-
-  /* Tablet: 32-40px side padding */
   @media (min-width: 640px) {
     .container, .max-w-content, .max-w-editorial, .max-w-wide {
-      padding-left: 2rem;
-      padding-right: 2rem;
+      padding-left: var(--container-x-md);
+      padding-right: var(--container-x-md);
     }
   }
-
-  /* Desktop: 80px side padding (mid-range 64-96), adjusted section padding */
   @media (min-width: 1024px) {
     .container, .max-w-content, .max-w-editorial, .max-w-wide {
-      padding-left: 5rem;
-      padding-right: 5rem;
-      max-width: 1200px;
+      padding-left: var(--container-x-lg);
+      padding-right: var(--container-x-lg);
+      max-width: var(--content-max);
     }
-    .section-top-spacing { margin-top: 2.5rem; }
-    .py-section-mobile { padding-top: 3.5rem; padding-bottom: 3.5rem; }
-    .py-section-tablet { padding-top: 4.5rem; padding-bottom: 4.5rem; }
-    .py-section { padding-top: 6.5rem; padding-bottom: 6.5rem; }
-    .py-section-lg { padding-top: 7.5rem; padding-bottom: 7.5rem; }
   }
 
-  /* Card grid gaps: mobile 32px, tablet 28-32px, desktop 40-48px for breathing */
-  .gap-card-mobile { gap: 2rem; }
-  .gap-card-tablet { gap: 1.75rem; }
-  .gap-card-desktop { gap: 2.5rem; }
-
-  @media (min-width: 768px) {
-    .gap-card-tablet { gap: 2rem; }
-    .gap-card-desktop { gap: 2.75rem; }
-  }
+  .py-section-mobile { padding-top: var(--section-y-sm); padding-bottom: var(--section-y-sm); }
+  .py-section-tablet { padding-top: var(--section-y-md); padding-bottom: var(--section-y-md); }
+  .py-section        { padding-top: var(--section-y-lg); padding-bottom: var(--section-y-lg); }
+  .py-section-lg     { padding-top: var(--section-y-xl); padding-bottom: var(--section-y-xl); }
+  .py-section-xl     { padding-top: var(--section-y-sm); padding-bottom: var(--section-y-sm); }
   @media (min-width: 1024px) {
-    .gap-card-desktop { gap: 3rem; }
+    .py-section        { padding-top: var(--section-y-xl); padding-bottom: var(--section-y-xl); }
+    .py-section-lg     { padding-top: var(--section-y-xxl); padding-bottom: var(--section-y-xxl); }
   }
 
-  /* Card image heights: 340-380px for editorial feature block feel */
+  .gap-card-mobile  { gap: var(--grid-gap-sm); }
+  .gap-card-tablet  { gap: var(--grid-gap-sm); }
+  .gap-card-desktop { gap: var(--grid-gap-md); }
+  @media (min-width: 768px) { .gap-card-tablet { gap: var(--grid-gap-md); } .gap-card-desktop { gap: var(--grid-gap-md); } }
+  @media (min-width: 1024px) { .gap-card-desktop { gap: var(--grid-gap-lg); } }
+
   .card-image-fixed { height: 340px; }
-  @media (min-width: 768px) { .card-image-fixed { height: 360px; } }
-  @media (min-width: 1024px) { .card-image-fixed { height: 380px; } }
+  @media (min-width: 768px) { .card-image-fixed { height: 380px; } }
+  @media (min-width: 1024px) { .card-image-fixed { height: 400px; } }
 
-  /* ============================================================================
-     IMAGE RULES: 90-100% opacity, warm dark overlay 12%, hover scale 1.03
-     ============================================================================ */
+  .eyebrow {
+    display: block;
+    font-size: var(--fs-label);
+    letter-spacing: var(--tracking-label);
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+    font-family: var(--font-sans);
+  }
 
-  /* WATERMARK ELIMINATION — Combined crop + mask approach.
-     Watermark sits at ~93-95% from top of source image.
-     Strategy: scale image to 125% height, anchor to top, so bottom 25% (incl. watermark)
-     is below visible area. Plus a solid mask covering bottom 15% as belt-and-braces. */
+  .caption {
+    font-size: 0.8125rem;
+    line-height: var(--lh-normal);
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
+  }
+
+  .font-display { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.01em; }
+  .font-serif   { font-family: var(--font-serif-2); font-weight: 400; }
+
+  .tracking-widest2 { letter-spacing: var(--tracking-label); }
+
+  /* Buttons (legacy class names mapped to ds-btn behaviour) */
+  .btn-primary {
+    background: var(--text); color: var(--text-on-dark);
+    padding: 0.75rem 2rem;
+    font-size: var(--fs-cta); font-weight: 600;
+    letter-spacing: var(--tracking-cta); text-transform: uppercase;
+    border-radius: var(--radius-md);
+    transition: background var(--transition);
+  }
+  .btn-primary:hover { background: #2A2622; }
+  .btn-secondary {
+    background: transparent; color: var(--text); border: 1px solid var(--text);
+    padding: 0.75rem 2rem;
+    font-size: var(--fs-cta); font-weight: 600;
+    letter-spacing: var(--tracking-cta); text-transform: uppercase;
+    border-radius: var(--radius-md);
+    transition: background var(--transition), color var(--transition);
+  }
+  .btn-secondary:hover { background: var(--text); color: var(--text-on-dark); }
+  .link-arrow {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    color: var(--text); font-weight: 600;
+    text-decoration: underline; text-decoration-color: var(--line);
+    transition: color var(--transition);
+  }
+  .link-arrow:hover { color: var(--accent); }
+
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(31, 29, 26, 0.04) 1px, transparent 1px);
+    background-size: 3px 3px;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
+  .mobile-safe {
+    padding-left: max(1rem, env(safe-area-inset-left));
+    padding-right: max(1rem, env(safe-area-inset-right));
+  }
+
+  .flex { min-height: 0; min-width: 0; }
+
+  /* Image card watermark variant (legacy) — keep working */
   .image-crop-watermark {
     overflow: hidden;
     position: relative;
     isolation: isolate;
-    background: #EDE7DD;
+    background: var(--bg-alt);
   }
-
   .image-crop-watermark > img {
     position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 130% !important;
+    top: 0 !important; left: 0 !important;
+    width: 100% !important; height: 130% !important;
     display: block !important;
     object-fit: cover !important;
     object-position: center top !important;
     opacity: 1 !important;
-    transition: transform 700ms cubic-bezier(0.23, 1, 0.32, 1) !important;
+    transition: transform 700ms var(--ease-out) !important;
   }
-
-  /* Warm dark overlay over entire image */
   .image-crop-watermark::before {
-    content: "";
-    position: absolute;
-    inset: 0;
+    content: ""; position: absolute; inset: 0;
     background: rgba(31, 29, 26, 0.10);
-    pointer-events: none;
-    z-index: 1;
+    pointer-events: none; z-index: 1;
   }
-
-  /* Solid mask covering bottom 15% — guaranteed watermark coverage.
-     Top edge fades smoothly into image, bottom is fully opaque. */
   .image-crop-watermark::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    height: 15%;
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 15%;
     background: linear-gradient(to bottom,
       rgba(31, 29, 26, 0) 0%,
       rgba(31, 29, 26, 0.15) 35%,
       rgba(31, 29, 26, 0.45) 65%,
       rgba(31, 29, 26, 0.75) 100%);
-    pointer-events: none;
-    z-index: 2;
+    pointer-events: none; z-index: 2;
   }
+  .group:hover .image-crop-watermark > img { transform: scale(1.03); transform-origin: center top; }
+  .hero-image-warm { filter: saturate(1.08) brightness(1.04) contrast(1.02); }
+  .image-crop-watermark.hero-image-container::before { background: rgba(31, 29, 26, 0.06); }
 
-  /* Hover scale 1.03 — applied to img while keeping crop */
-  .group:hover .image-crop-watermark > img {
-    transform: scale(1.03);
-    transform-origin: center top;
-  }
-
-  /* Hero image: warmer, slightly more saturated — luxury home, not cold/muted */
-  .hero-image-warm {
-    filter: saturate(1.08) brightness(1.04) contrast(1.02);
-  }
-
-  /* Reduce warm dark overlay strength on hero specifically */
-  .image-crop-watermark.hero-image-container::before {
-    background: rgba(31, 29, 26, 0.06);
-  }
-
-  /* Standardize collection card image heights: 360-400px desktop */
-  .card-image-fixed {
-    aspect-ratio: auto;
-    height: 360px;
-  }
-  @media (min-width: 768px) {
-    .card-image-fixed { height: 380px; }
-  }
-  @media (min-width: 1024px) {
-    .card-image-fixed { height: 400px; }
-  }
-
-  /* ============================================================================
-     MOTION: Fade 0→1, translateY 12-24px, 0.6-0.9s, stagger 0.08-0.12s
-     ============================================================================ */
-
-  /* Reveal animation — FAIL-SAFE.
-     Uses CSS animation with `forwards` fill so content is GUARANTEED to end at
-     opacity 1 / translateY 0 even if IntersectionObserver never fires.
-     The observer adds .is-visible to override default delay for staggered effect,
-     but a baseline animation runs after 1500ms regardless. */
-  .reveal {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: reveal-in 0.7s cubic-bezier(0.23, 1, 0.32, 1) 1.5s forwards;
-  }
-
-  /* When observer fires, run animation immediately */
-  .reveal.is-visible {
-    animation: reveal-in 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
-  }
-
+  /* Reveal animation */
+  .reveal { opacity: 0; transform: translateY(20px); animation: reveal-in 0.7s var(--ease-out) 1.5s forwards; }
+  .reveal.is-visible { animation: reveal-in 0.7s var(--ease-out) forwards; }
   @keyframes reveal-in {
     from { opacity: 0; transform: translateY(20px); }
     to   { opacity: 1; transform: translateY(0); }
   }
-
-  /* Reduced motion — show immediately */
   @media (prefers-reduced-motion: reduce) {
-    .reveal {
-      opacity: 1;
-      transform: none;
-      animation: none;
-    }
+    .reveal { opacity: 1; transform: none; animation: none; }
   }
-
-  /* No-JS fallback — if observer script doesn't run, baseline animation still completes */
-  .no-js .reveal {
-    opacity: 1;
-    transform: none;
-    animation: none;
-  }
-
-  /* ============================================================================
-     BUTTON STYLES
-     ============================================================================ */
-
-  /* Primary: filled dark charcoal or champagne */
-  .btn-primary {
-    background: #1F1D1A;
-    color: #F7F3EA;
-    padding: 0.75rem 2rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border-radius: 0.375rem;
-    transition: background 300ms ease-out;
-  }
-  .btn-primary:hover {
-    background: #2A2622;
-  }
-
-  /* Secondary: thin border */
-  .btn-secondary {
-    background: transparent;
-    color: #1F1D1A;
-    border: 1px solid #1F1D1A;
-    padding: 0.75rem 2rem;
-    font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    border-radius: 0.375rem;
-    transition: background 300ms ease-out, color 300ms ease-out;
-  }
-  .btn-secondary:hover {
-    background: #1F1D1A;
-    color: #F7F3EA;
-  }
-
-  /* Text link with arrow */
-  .link-arrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #1F1D1A;
-    font-weight: 600;
-    text-decoration: underline;
-    text-decoration-color: #DDD5C8;
-    transition: color 300ms ease-out;
-  }
-  .link-arrow:hover {
-    color: #B79A6B;
-  }
+  .no-js .reveal { opacity: 1; transform: none; animation: none; }
 }

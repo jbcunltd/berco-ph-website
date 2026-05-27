@@ -1,17 +1,18 @@
 import { Link } from "wouter";
+import Section from "../components/layout/Section";
+import Container from "../components/layout/Container";
+import CTAButton from "../components/layout/CTAButton";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen flex items-center justify-center px-6">
-      <div className="text-center">
-        <h1 className="font-display text-6xl mb-4">404</h1>
-        <p className="text-mute text-[15px] mb-8">The page you're looking for doesn't exist.</p>
+    <Section variant="default" size="lg" className="min-h-[60vh] flex items-center">
+      <Container className="text-center">
+        <h1 className="mb-4">404</h1>
+        <p className="text-text-muted mb-8">The page you're looking for doesn't exist.</p>
         <Link href="/" asChild>
-          <a className="inline-block bg-ink text-paper px-8 py-3 text-[12px] tracking-widest2 uppercase font-semibold hover:bg-ink/90 transition-colors">
-            Back to Home
-          </a>
+          <CTAButton variant="primary">Back to Home</CTAButton>
         </Link>
-      </div>
-    </div>
+      </Container>
+    </Section>
   );
 }

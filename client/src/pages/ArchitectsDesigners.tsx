@@ -1,410 +1,267 @@
 import { useState } from "react";
 import { Link } from "wouter";
-import { useScrollAnimations } from "../hooks/useScrollAnimations";
 import products from "../data/products.json";
+import Section from "../components/layout/Section";
+import Container from "../components/layout/Container";
+import SectionHeading from "../components/layout/SectionHeading";
+import CTAButton from "../components/layout/CTAButton";
+
+const fieldBase =
+  "w-full px-4 py-3 sm:py-4 border border-line bg-bg rounded-md text-base text-text " +
+  "placeholder:text-text-muted focus:outline-none focus:border-text transition-colors min-h-[44px]";
+const labelBase =
+  "block text-xs tracking-widest2 uppercase text-text-muted mb-2 sm:mb-3 font-semibold";
+
+const SERVICES = [
+  { num: "i.",  title: "Custom sizing & non-standard geometry", desc: "We work from your drawings, not a fixed catalogue. Bulkheads, angled walls, columns, and full-height runs are drawn to your plan — to the millimetre." },
+  { num: "ii.", title: "Material coordination",                desc: "Finishes specified against your wider scheme — stone, flooring, paint, hardware. Cuttings and samples delivered ahead of approvals so the palette reads as one." },
+  { num: "iii.",title: "Project-based quotation",              desc: "Itemised quotations against drawings, with clear allowances for hardware, surfaces, and site conditions. Suitable for FF&E packages and BOQ alignment." },
+  { num: "iv.", title: "Site coordination",                    desc: "A single point of contact through measurement, sequencing, and installation. We coordinate with your general contractor, electrical, and stone suppliers." },
+  { num: "v.",  title: "Developer & contractor support",       desc: "Showroom and model-unit cabinetry, repeatable specifications for multi-unit projects, and phased delivery aligned with site programme." },
+  { num: "vi.", title: "Documentation that travels",           desc: "Shop drawings, finish schedules, and installation details prepared to a standard your project team can issue, review, and archive." },
+];
+
+const ENGAGEMENT = [
+  { n: "i.",  t: "Brief",   d: "A first conversation — scope, drawings, palette, programme." },
+  { n: "ii.", t: "Quote",   d: "Itemised project-based quotation against your set, with allowances clearly marked." },
+  { n: "iii.",t: "Detail",  d: "Shop drawings, finish schedules, and samples — reviewed alongside your team." },
+  { n: "iv.", t: "Deliver", d: "Fabrication in our Laguna atelier, dust-controlled installation, and a single point of contact through handover." },
+];
 
 export default function ArchitectsDesigners() {
-  useScrollAnimations();
-
   const [formData, setFormData] = useState({
-    name: "",
-    firm: "",
-    role: "Architect",
-    email: "",
-    phone: "",
-    projectType: "Residential",
-    location: "",
-    message: "",
+    name: "", firm: "", role: "Architect", email: "", phone: "",
+    projectType: "Residential", location: "", message: "",
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
+  };
+  const onSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); setSubmitted(true); setTimeout(() => setSubmitted(false), 4000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
-  };
-
-  // Pull one premium image for the hero
   const heroImage =
-    products.find(
-      (p) => p.category === "kitchens" && p.gallery?.[0] && p.title.toLowerCase().includes("curved")
-    )?.gallery?.[0] ||
-    products.find((p) => p.category === "kitchens")?.gallery?.[0] ||
-    "";
-
-  // Two secondary editorial images
+    products.find((p: any) => p.category === "kitchens")?.gallery?.[0] || "";
   const editorialA =
-    products.find(
-      (p) => p.category === "wardrobes" && p.title.toLowerCase().includes("walk in closet")
-    )?.gallery?.[0] || "";
+    products.find((p: any) => p.category === "wardrobes")?.gallery?.[0] || "";
   const editorialB =
-    products.find((p) => p.category === "vanities" && p.title.toLowerCase().includes("floating"))
-      ?.gallery?.[0] || "";
-
-  const services = [
-    {
-      num: "i.",
-      title: "Custom sizing & non-standard geometry",
-      desc: "We work from your drawings, not a fixed catalogue. Bulkheads, angled walls, columns, and full-height runs are drawn to your plan — to the millimetre.",
-    },
-    {
-      num: "ii.",
-      title: "Material coordination",
-      desc: "Finishes specified against your wider scheme — stone, flooring, paint, hardware. Cuttings and samples delivered ahead of approvals so the palette reads as one.",
-    },
-    {
-      num: "iii.",
-      title: "Project-based quotation",
-      desc: "Itemised quotations against drawings, with clear allowances for hardware, surfaces, and site conditions. Suitable for FF&E packages and BOQ alignment.",
-    },
-    {
-      num: "iv.",
-      title: "Site coordination",
-      desc: "A single point of contact through measurement, sequencing, and installation. We coordinate with your general contractor, electrical, and stone suppliers.",
-    },
-    {
-      num: "v.",
-      title: "Developer & contractor support",
-      desc: "Showroom and model-unit cabinetry, repeatable specifications for multi-unit projects, and phased delivery aligned with site programme.",
-    },
-    {
-      num: "vi.",
-      title: "Documentation that travels",
-      desc: "Shop drawings, finish schedules, and installation details prepared to a standard your project team can issue, review, and archive.",
-    },
-  ];
+    products.find((p: any) => p.category === "vanities")?.gallery?.[0] || "";
 
   return (
     <div className="w-full">
       {/* Hero */}
-      <section className="relative bg-paper overflow-hidden">
-        <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8 py-section-xl sm:py-section-lg md:py-section">
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-center">
+      <Section variant="default" size="md">
+        <Container>
+          <div className="grid md:grid-cols-12 gap-10 md:gap-14 items-center">
             <div className="md:col-span-6 order-2 md:order-1">
-              <span className="eyebrow">For Architects &amp; Designers</span>
-              <h1 className="font-display mt-3 sm:mt-4 leading-tight">
+              <span className="ds-label">For Architects &amp; Designers</span>
+              <h1 className="mt-3 sm:mt-4">
                 A cabinetry partner<br />
                 <em className="italic">for the design profession.</em>
               </h1>
-              <p className="mt-4 sm:mt-6 text-body leading-relaxed text-sm sm:text-base max-w-xl">
+              <p className="mt-6 text-text-body leading-relaxed max-w-xl">
                 BERCO works alongside architects, interior designers, developers, and contractors as a discreet cabinetry and interior fit-out partner — drawing to your specifications, coordinating with your trades, and quoting against your schedule.
               </p>
-              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3">
-                <a
-                  href="#collaborate"
-                  className="bg-ink text-light px-6 sm:px-8 py-3 text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-ink/90 transition-colors text-center"
-                >
-                  Start a Collaboration →
-                </a>
+              <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                <CTAButton href="#collaborate" variant="primary">Start a Collaboration →</CTAButton>
                 <Link href="/process" asChild>
-                  <a className="border border-ink text-ink px-6 sm:px-8 py-3 text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-ink hover:text-light transition-colors text-center">
-                    How We Work
-                  </a>
+                  <CTAButton variant="secondary">How We Work</CTAButton>
                 </Link>
               </div>
             </div>
             <div className="md:col-span-6 order-1 md:order-2">
-              <div className="aspect-[4/5] bg-stone2 overflow-hidden image-crop-watermark">
-                <img
-                  src={heroImage}
-                  alt="BERCO cabinetry — architectural composition"
-                  className="w-full h-full object-cover"
-                />
+              <div className="ds-card-image aspect-[4/5]">
+                <img src={heroImage} alt="BERCO cabinetry — architectural composition" />
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Positioning paragraph */}
-      <section className="bg-paper py-section-xl sm:py-section-lg md:py-section" data-animate="fade-up">
-        <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
-          <div className="grid md:grid-cols-12 gap-8 md:gap-12 items-start">
+      {/* Positioning */}
+      <Section variant="default" size="sm">
+        <Container>
+          <div className="grid md:grid-cols-12 gap-10 items-start">
             <div className="md:col-span-4">
-              <span className="eyebrow">001 — Our Role</span>
-              <h2 className="font-display mt-4 leading-tight">
-                Behind your<br />
-                <em className="italic">drawings.</em>
-              </h2>
+              <SectionHeading
+                label="001 — Our Role"
+                title="Behind your"
+                titleItalic="drawings."
+              />
             </div>
-            <div className="md:col-span-8">
-              <p className="text-body leading-relaxed mb-4">
+            <div className="md:col-span-8 space-y-4">
+              <p className="text-text-body leading-relaxed">
                 We are most useful to design professionals who care how a project is detailed — and who would rather not chase their cabinetry supplier through every revision. BERCO holds the brief in confidence, draws to your plan, and presents work in the language your studio already uses.
               </p>
-              <p className="text-body leading-relaxed">
+              <p className="text-text-body leading-relaxed">
                 Whether the project is a single residence, a family home in Tagaytay, a turn-over condominium, or a developer's model unit — the studio scales the level of involvement to suit the engagement. Quietly, on schedule, and to specification.
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Services / capabilities */}
-      <section className="bg-warm py-section-xl sm:py-section-lg md:py-section" data-animate="stagger">
-        <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
-          <div className="mb-8 md:mb-12">
-            <span className="eyebrow">002 — What We Provide</span>
-            <h2 className="font-display mt-4 leading-tight">
-              Drawn, specified, delivered.
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12" data-animate="stagger">
-            {services.map((s) => (
-              <div key={s.num} data-stagger-item>
-                <p className="text-xs uppercase tracking-widest2 text-champagne mb-3">{s.num}</p>
-                <h3 className="font-display text-lg sm:text-xl mb-3 leading-tight">{s.title}</h3>
-                <p className="text-body text-sm leading-relaxed">{s.desc}</p>
+      {/* Services */}
+      <Section variant="alt" size="md">
+        <Container>
+          <SectionHeading
+            label="002 — What We Provide"
+            title="Drawn, specified, delivered."
+            className="mb-10 md:mb-14"
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ds-grid-gap">
+            {SERVICES.map((s) => (
+              <div key={s.num}>
+                <p className="text-xs uppercase tracking-widest2 text-accent mb-3 font-semibold">{s.num}</p>
+                <h3 className="text-lg sm:text-xl mb-3 leading-tight">{s.title}</h3>
+                <p className="text-text-body text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Editorial split — Project Types */}
-      <section className="bg-paper py-section-xl sm:py-section-lg md:py-section" data-animate="fade-up">
-        <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
-          <div className="mb-8 md:mb-12">
-            <span className="eyebrow">003 — Project Types</span>
-            <h2 className="font-display mt-4 leading-tight">
-              Studios we work with.
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12">
+      {/* Editorial Split */}
+      <Section variant="default" size="md">
+        <Container>
+          <SectionHeading
+            label="003 — Project Types"
+            title="Studios we work with."
+            className="mb-10 md:mb-14"
+          />
+          <div className="grid md:grid-cols-2 gap-10 md:gap-14">
             <div>
-              {editorialA ? (
-                <div className="aspect-[4/5] bg-paper overflow-hidden image-crop-watermark mb-6">
-                  <img
-                    src={editorialA}
-                    alt="Architect-led residential cabinetry"
-                    className="w-full h-full object-cover"
-                  />
+              {editorialA && (
+                <div className="ds-card-image aspect-[4/5] mb-6">
+                  <img src={editorialA} alt="Architect-led residential cabinetry" />
                 </div>
-              ) : null}
-              <h3 className="font-display text-xl sm:text-2xl mb-3">Architects &amp; Interior Designers</h3>
-              <p className="text-body leading-relaxed text-sm sm:text-base">
+              )}
+              <h3 className="mb-3">Architects &amp; Interior Designers</h3>
+              <p className="text-text-body leading-relaxed">
                 Bespoke residential and select hospitality work. We hold to your finish schedule, prepare shop drawings against your detail set, and present samples in a format you can put in front of a client without rework.
               </p>
             </div>
             <div>
-              {editorialB ? (
-                <div className="aspect-[4/5] bg-paper overflow-hidden image-crop-watermark mb-6">
-                  <img
-                    src={editorialB}
-                    alt="Developer and contractor cabinetry"
-                    className="w-full h-full object-cover"
-                  />
+              {editorialB && (
+                <div className="ds-card-image aspect-[4/5] mb-6">
+                  <img src={editorialB} alt="Developer and contractor cabinetry" />
                 </div>
-              ) : null}
-              <h3 className="font-display text-xl sm:text-2xl mb-3">Developers &amp; Contractors</h3>
-              <p className="text-body leading-relaxed text-sm sm:text-base">
+              )}
+              <h3 className="mb-3">Developers &amp; Contractors</h3>
+              <p className="text-text-body leading-relaxed">
                 Model-unit cabinetry, repeatable specifications for multi-unit developments, and phased delivery against site programme. Budget allowances and BOQ-friendly itemisation prepared on request.
               </p>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Engagement / process for trade */}
-      <section className="bg-ink text-light py-section-xl sm:py-section-lg md:py-section" data-animate="fade-up">
-        <div className="max-w-content mx-auto px-4 sm:px-6 md:px-8">
-          <div className="mb-8 md:mb-12">
-            <span className="eyebrow text-light/60">004 — How We Engage</span>
-            <h2 className="font-display mt-4 leading-tight text-light">
+      {/* Engagement */}
+      <Section variant="dark" size="md">
+        <Container>
+          <div className="mb-10 md:mb-14">
+            <span className="ds-label text-text-on-dark/60">004 — How We Engage</span>
+            <h2 className="mt-3 text-text-on-dark">
               A discreet collaboration<br />
               <em className="italic">on your terms.</em>
             </h2>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10">
-            {[
-              { n: "i.", t: "Brief", d: "A first conversation — scope, drawings, palette, programme." },
-              { n: "ii.", t: "Quote", d: "Itemised project-based quotation against your set, with allowances clearly marked." },
-              { n: "iii.", t: "Detail", d: "Shop drawings, finish schedules, and samples — reviewed alongside your team." },
-              { n: "iv.", t: "Deliver", d: "Fabrication in our Laguna atelier, dust-controlled installation, and a single point of contact through handover." },
-            ].map((s) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 ds-grid-gap">
+            {ENGAGEMENT.map((s) => (
               <div key={s.n}>
-                <p className="text-xs uppercase tracking-widest2 text-bronze2 mb-3">{s.n}</p>
-                <h4 className="font-display text-lg sm:text-xl mb-2 text-light">{s.t}</h4>
-                <p className="text-light/75 text-sm leading-relaxed">{s.d}</p>
+                <p className="text-xs uppercase tracking-widest2 text-accent mb-3 font-semibold">{s.n}</p>
+                <h4 className="text-text-on-dark mb-2">{s.t}</h4>
+                <p className="text-text-on-dark/70 text-sm leading-relaxed">{s.d}</p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Collaboration Form */}
-      <section id="collaborate" className="bg-paper py-section-xl sm:py-section-lg md:py-section">
-        <div className="max-w-[1100px] mx-auto px-4 sm:px-6 md:px-8">
-          <div className="mb-8 md:mb-12">
-            <span className="eyebrow">005 — Collaboration Inquiry</span>
-            <h2 className="font-display mt-4 leading-tight">
-              Start a conversation<br />
-              <em className="italic">about your project.</em>
-            </h2>
-            <p className="mt-4 sm:mt-6 text-body leading-relaxed text-sm sm:text-base max-w-2xl">
-              Share a few details about the project and your studio. We'll respond within two working days — discreetly, and with the right person from the BERCO design team.
-            </p>
-          </div>
+      <Section variant="default" size="md" id="collaborate">
+        <Container width="narrow">
+          <SectionHeading
+            label="005 — Collaboration Inquiry"
+            title="Start a conversation"
+            titleItalic="about your project."
+            intro="Share a few details about the project and your studio. We'll respond within two working days — discreetly, and with the right person from the BERCO design team."
+            className="mb-10 md:mb-14"
+          />
 
-          <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
+          <form onSubmit={onSubmit} className="space-y-6 sm:space-y-8">
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
-                  Your Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  required
-                  placeholder="Maria Santos"
-                  className="w-full px-4 py-3 sm:py-4 border border-line rounded focus:outline-none focus:border-ink transition-colors text-base min-h-[44px] bg-paper"
-                />
+                <label className={labelBase}>Your Name</label>
+                <input type="text" name="name" value={formData.name} onChange={onChange} required placeholder="Maria Santos" className={fieldBase} />
               </div>
               <div>
-                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
-                  Studio / Firm
-                </label>
-                <input
-                  type="text"
-                  name="firm"
-                  value={formData.firm}
-                  onChange={handleChange}
-                  placeholder="Santos &amp; Partners"
-                  className="w-full px-4 py-3 sm:py-4 border border-line rounded focus:outline-none focus:border-ink transition-colors text-base min-h-[44px] bg-paper"
-                />
+                <label className={labelBase}>Studio / Firm</label>
+                <input type="text" name="firm" value={formData.firm} onChange={onChange} placeholder="Santos & Partners" className={fieldBase} />
               </div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
-                  Role
-                </label>
-                <select
-                  name="role"
-                  value={formData.role}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 sm:py-4 border border-line rounded focus:outline-none focus:border-ink transition-colors text-base min-h-[44px] bg-paper"
-                >
-                  <option>Architect</option>
-                  <option>Interior Designer</option>
-                  <option>Developer</option>
-                  <option>Contractor / GC</option>
-                  <option>Project Manager</option>
-                  <option>Other</option>
+                <label className={labelBase}>Role</label>
+                <select name="role" value={formData.role} onChange={onChange} className={fieldBase}>
+                  {["Architect","Interior Designer","Developer","Contractor / GC","Project Manager","Other"].map(o=>
+                    <option key={o}>{o}</option>)}
                 </select>
               </div>
               <div>
-                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
-                  Project Type
-                </label>
-                <select
-                  name="projectType"
-                  value={formData.projectType}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 sm:py-4 border border-line rounded focus:outline-none focus:border-ink transition-colors text-base min-h-[44px] bg-paper"
-                >
-                  <option>Residential — Single Family</option>
-                  <option>Residential — Condominium</option>
-                  <option>Multi-Unit Development</option>
-                  <option>Model Unit / Showroom</option>
-                  <option>Hospitality</option>
-                  <option>Other</option>
+                <label className={labelBase}>Project Type</label>
+                <select name="projectType" value={formData.projectType} onChange={onChange} className={fieldBase}>
+                  {["Residential — Single Family","Residential — Condominium","Multi-Unit Development","Model Unit / Showroom","Hospitality","Other"].map(o=>
+                    <option key={o}>{o}</option>)}
                 </select>
               </div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
               <div>
-                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="studio@firm.com"
-                  className="w-full px-4 py-3 sm:py-4 border border-line rounded focus:outline-none focus:border-ink transition-colors text-base min-h-[44px] bg-paper"
-                />
+                <label className={labelBase}>Email</label>
+                <input type="email" name="email" value={formData.email} onChange={onChange} required placeholder="studio@firm.com" className={fieldBase} />
               </div>
               <div>
-                <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="+63 917 ___ ____"
-                  className="w-full px-4 py-3 sm:py-4 border border-line rounded focus:outline-none focus:border-ink transition-colors text-base min-h-[44px] bg-paper"
-                />
+                <label className={labelBase}>Phone</label>
+                <input type="tel" name="phone" value={formData.phone} onChange={onChange} placeholder="+63 917 ___ ____" className={fieldBase} />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
-                Project Location
-              </label>
-              <input
-                type="text"
-                name="location"
-                value={formData.location}
-                onChange={handleChange}
-                placeholder="Forbes Park, Makati / Tagaytay / Cebu"
-                className="w-full px-4 py-3 sm:py-4 border border-line rounded focus:outline-none focus:border-ink transition-colors text-base min-h-[44px] bg-paper"
-              />
+              <label className={labelBase}>Project Location</label>
+              <input type="text" name="location" value={formData.location} onChange={onChange} placeholder="Forbes Park, Makati / Tagaytay / Cebu" className={fieldBase} />
             </div>
 
             <div>
-              <label className="block text-xs sm:text-sm tracking-widest2 uppercase text-body mb-2 sm:mb-3">
-                Project Brief
-              </label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                rows={6}
+              <label className={labelBase}>Project Brief</label>
+              <textarea name="message" value={formData.message} onChange={onChange} rows={6}
                 placeholder="Scope, drawings status, programme, and the rooms you'd like BERCO to consider."
-                className="w-full px-4 py-3 sm:py-4 border border-line rounded focus:outline-none focus:border-ink transition-colors resize-none text-base bg-paper"
-              />
+                className={`${fieldBase} resize-none`} />
             </div>
 
-            <button
-              type="submit"
-              className="w-full sm:w-auto bg-ink text-light px-8 py-4 sm:py-5 text-xs sm:text-sm tracking-widest2 uppercase font-semibold rounded hover:bg-ink/90 transition-colors min-h-[48px] inline-flex items-center justify-center"
-            >
+            <button type="submit" className="ds-btn ds-btn-primary">
               Send Collaboration Inquiry →
             </button>
 
             {submitted && (
-              <div className="bg-paper border border-bronze text-ink px-4 py-3 sm:py-4 rounded text-sm sm:text-base">
+              <div className="bg-bg-alt border border-line text-text px-4 py-4 rounded-md">
                 ✓ Thank you. A member of the BERCO design team will be in touch within two working days.
               </div>
             )}
           </form>
 
-          <p className="mt-10 text-xs uppercase tracking-widest2 text-body">
+          <p className="mt-10 text-xs uppercase tracking-widest2 text-text-body">
             For confidential discussions, please write to{" "}
-            <a href="mailto:trade@bercoph.com" className="text-ink hover:text-champagne transition-colors">
+            <a href="mailto:trade@bercoph.com" className="text-text font-semibold hover:text-accent transition-colors">
               trade@bercoph.com
             </a>
           </p>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </div>
   );
 }

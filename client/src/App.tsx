@@ -50,7 +50,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-paper text-ink">
+    <div className="min-h-screen flex flex-col bg-bg text-text">
       <Header mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       
       <main className="flex-1 pb-20 md:pb-0">

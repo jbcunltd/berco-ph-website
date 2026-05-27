@@ -128,3 +128,27 @@
 - [ ] Update products.json with verified images
 - [ ] Build and push
 - [ ] Verify Vercel deploy and screenshot each category page
+
+
+---
+
+## Round Design System — Centralization
+
+- [ ] Audit existing CSS vars, Tailwind config, and per-page styles for inconsistencies
+- [ ] Consolidate tokens in `client/src/index.css` as single source of truth
+  - [ ] Colors: --bg, --bg-alt, --text, --text-muted, --accent, --accent-dark, --footer-bg, --footer-text, --line
+  - [ ] Spacing: --section-y-sm/md/lg, --container-x, --grid-gap
+  - [ ] Typography: families, h1/h2/h3, body, label, CTA sizes + line-heights
+  - [ ] Radius, shadows, transitions, max-widths
+- [ ] Map tokens into Tailwind `@theme` (bg-bg, bg-bg-alt, text-text, text-accent, etc.)
+- [ ] Build `client/src/components/layout/` primitives:
+  - [ ] Section (bg variant: default | alt | dark; size: sm | md | lg)
+  - [ ] Container (width: default | narrow | wide)
+  - [ ] PageHero (eyebrow + title + intro)
+  - [ ] SectionHeading (label + h2)
+  - [ ] CTAButton (primary | secondary | link)
+  - [ ] ProductGrid + ProductCard
+- [ ] Refactor pages: Home, all 7 category pages, Process, Contact, Architects, ProductDetail, NotFound
+- [ ] Verify Header + Footer pull from tokens
+- [ ] Build + push + Vercel verify
+- [ ] Visual audit all pages for consistency

@@ -1,127 +1,110 @@
 import { useState } from "react";
 import { Link, useRoute } from "wouter";
 import products from "../data/products.json";
+import Section from "../components/layout/Section";
+import Container from "../components/layout/Container";
+import CTAButton from "../components/layout/CTAButton";
+import { ProductCard } from "../components/layout/ProductGrid";
+
+const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+const CATEGORY_LABELS: Record<string, string> = {
+  kitchens: "Kitchens",
+  bedrooms: "Bedrooms",
+  wardrobes: "Wardrobes",
+  bathrooms: "Bathrooms",
+  vanities: "Vanities",
+  "tv-units": "TV & Living",
+  laundry: "Laundry",
+};
 
 export default function ProductDetail() {
-  const [route, params] = useRoute("/:category/:slug");
+  const [route, params] = useRoute("/:category/:slugParam");
   const [selectedImageIdx, setSelectedImageIdx] = useState(0);
   const [touchStart, setTouchStart] = useState(0);
-  
-  if (!route) return null;
 
-  const { category, slug } = params as { category: string; slug: string };
-  
-  const generateSlug = (title: string) => 
-    title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-  
+  if (!route) return null;
+  const { category, slugParam } = params as { category: string; slugParam: string };
+
   const product = products.find(
-    (p) => p.category === category && generateSlug(p.title) === slug
+    (p: any) => p.category === category && slug(p.title) === slugParam
   );
 
   if (!product) {
     return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center px-4">
-          <h1 className="font-display text-2xl sm:text-3xl md:text-4xl mb-4">Product Not Found</h1>
+      <Section variant="default" size="md">
+        <Container className="text-center">
+          <h1>Product Not Found</h1>
           <Link href={`/${category}`} asChild>
-            <a className="text-bronze hover:underline text-sm sm:text-base">← Back to {category}</a>
+            <CTAButton variant="link">← Back to {category}</CTAButton>
           </Link>
-        </div>
-      </div>
+        </Container>
+      </Section>
     );
   }
 
   const gallery = product.gallery || [];
   const currentImage = gallery[selectedImageIdx] || gallery[0];
-  
-  // Related products from same category
   const related = products
-    .filter((p) => p.category === category && p.title !== product.title)
+    .filter((p: any) => p.category === category && p.title !== product.title)
     .slice(0, 3);
+  const categoryLabel = CATEGORY_LABELS[category] || category;
 
-  const categoryLabel = {
-    kitchens: "Kitchens",
-    bedrooms: "Bedrooms",
-    wardrobes: "Wardrobes",
-    bathrooms: "Bathrooms",
-    vanities: "Vanities",
-    "tv-units": "TV & Living",
-    laundry: "Laundry",
-  }[category] || category;
-
-  // Touch swipe handler for gallery
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStart(e.touches[0].clientX);
-  };
-
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    const touchEnd = e.changedTouches[0].clientX;
-    const diff = touchStart - touchEnd;
-    
+  const onTouchStart = (e: React.TouchEvent) => setTouchStart(e.touches[0].clientX);
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStart - e.changedTouches[0].clientX;
     if (Math.abs(diff) > 50) {
-      if (diff > 0 && selectedImageIdx < gallery.length - 1) {
-        setSelectedImageIdx(selectedImageIdx + 1);
-      } else if (diff < 0 && selectedImageIdx > 0) {
-        setSelectedImageIdx(selectedImageIdx - 1);
-      }
+      if (diff > 0 && selectedImageIdx < gallery.length - 1) setSelectedImageIdx(selectedImageIdx + 1);
+      else if (diff < 0 && selectedImageIdx > 0) setSelectedImageIdx(selectedImageIdx - 1);
     }
   };
 
   return (
     <div className="w-full">
-      {/* Breadcrumb — Mobile-first */}
-      <div className="bg-paper border-b border-stone2 py-3 sm:py-4 md:py-6">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-mute overflow-x-auto">
+      {/* Breadcrumb */}
+      <div className="bg-bg border-b border-line py-3 sm:py-4">
+        <Container>
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-text-muted overflow-x-auto">
             <Link href="/" asChild>
-              <a className="hover:text-ink transition-colors whitespace-nowrap">Home</a>
+              <a className="hover:text-text transition-colors whitespace-nowrap">Home</a>
             </Link>
-            <span className="text-mute">/</span>
+            <span>/</span>
             <Link href={`/${category}`} asChild>
-              <a className="hover:text-ink transition-colors whitespace-nowrap">{categoryLabel}</a>
+              <a className="hover:text-text transition-colors whitespace-nowrap">{categoryLabel}</a>
             </Link>
-            <span className="text-mute">/</span>
-            <span className="text-ink truncate">{product.title}</span>
+            <span>/</span>
+            <span className="text-text truncate">{product.title}</span>
           </div>
-        </div>
+        </Container>
       </div>
 
-      {/* Product Hero + Gallery — Mobile: stacked, Desktop: side-by-side */}
-      <section className="bg-paper py-mobile sm:py-mobile-lg md:py-mobile-xl">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
-          <div className="grid md:grid-cols-2 gap-6 md:gap-12 items-start">
-            {/* Gallery — Mobile-first: full width, swipeable */}
+      {/* Product Hero + Gallery */}
+      <Section variant="default" size="md">
+        <Container>
+          <div className="grid md:grid-cols-2 gap-8 md:gap-14 items-start">
             <div>
-              {/* Main image — Touch-swipeable */}
               <div
-                className="aspect-[4/5] bg-paper rounded overflow-hidden mb-4 sm:mb-6 image-crop-watermark cursor-grab active:cursor-grabbing"
-                onTouchStart={handleTouchStart}
-                onTouchEnd={handleTouchEnd}
+                className="ds-card-image aspect-[4/5] mb-4 sm:mb-6 cursor-grab active:cursor-grabbing"
+                onTouchStart={onTouchStart}
+                onTouchEnd={onTouchEnd}
               >
-                <img
-                  src={currentImage}
-                  alt={product.title}
-                  className="w-full h-full object-cover"
-                  draggable={false}
-                />
+                <img src={currentImage} alt={product.title} draggable={false} />
               </div>
 
-              {/* Image counter on mobile */}
               {gallery.length > 1 && (
-                <p className="text-xs text-mute text-center mb-3 md:hidden">
+                <p className="text-xs text-text-muted text-center mb-3 md:hidden">
                   {selectedImageIdx + 1} / {gallery.length}
                 </p>
               )}
 
-              {/* Thumbnail grid — Mobile: 4 cols, Desktop: 4 cols */}
               {gallery.length > 1 && (
                 <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-4 gap-2 sm:gap-3">
-                  {gallery.slice(0, 8).map((img, i) => (
+                  {gallery.slice(0, 8).map((img: string, i: number) => (
                     <button
                       key={i}
                       onClick={() => setSelectedImageIdx(i)}
-                      className={`aspect-square rounded overflow-hidden border-2 transition-all min-h-[60px] sm:min-h-[80px] ${
-                        selectedImageIdx === i ? "border-ink" : "border-stone2"
+                      className={`aspect-square rounded-md overflow-hidden border-2 transition-all min-h-[60px] sm:min-h-[80px] ${
+                        selectedImageIdx === i ? "border-text" : "border-line"
                       }`}
                       aria-label={`View image ${i + 1}`}
                     >
@@ -132,105 +115,66 @@ export default function ProductDetail() {
               )}
             </div>
 
-            {/* Details — Mobile-first stacked */}
             <div>
-              <div className="mb-6 sm:mb-8">
-                <span className="eyebrow">{categoryLabel}</span>
-                <h1 className="font-display text-2xl sm:text-3xl md:text-4xl mt-3 sm:mt-4 leading-tight mb-4 sm:mb-6">
-                  {product.title}
-                </h1>
-                <p className="text-sm sm:text-base leading-relaxed text-ink mb-6 sm:mb-8">
-                  {product.description}
-                </p>
-              </div>
+              <span className="ds-label">{categoryLabel}</span>
+              <h1 className="mt-3 mb-5">{product.title}</h1>
+              <p className="text-text-body leading-relaxed mb-8">{product.description}</p>
 
-              {/* Materials & Features */}
-              <div className="mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-stone2">
-                <h3 className="font-display text-base sm:text-lg mb-4">Craftsmanship</h3>
-                <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-mute">
-                  <li className="flex gap-3">
-                    <span className="text-bronze flex-shrink-0">✓</span>
-                    <span>Premium materials & finishes</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-bronze flex-shrink-0">✓</span>
-                    <span>Soft-close mechanisms (Blum / Hettich)</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-bronze flex-shrink-0">✓</span>
-                    <span>Moisture-resistant board technology</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-bronze flex-shrink-0">✓</span>
-                    <span>Precision edge-banding & CNC machining</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-bronze flex-shrink-0">✓</span>
-                    <span>Modular assembly systems</span>
-                  </li>
+              <div className="pb-8 mb-8 border-b border-line">
+                <h3 className="mb-4">Craftsmanship</h3>
+                <ul className="space-y-3 text-text-body">
+                  {[
+                    "Premium materials & finishes",
+                    "Soft-close mechanisms (Blum / Hettich)",
+                    "Moisture-resistant board technology",
+                    "Precision edge-banding & CNC machining",
+                    "Modular assembly systems",
+                  ].map((item) => (
+                    <li key={item} className="flex gap-3">
+                      <span className="text-accent flex-shrink-0">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
-              {/* CTA — Full width, large touch targets */}
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-3">
                 <Link href="/contact" asChild>
-                  <a className="block w-full bg-ink text-paper py-4 sm:py-5 text-center text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-ink/90 transition-colors rounded min-h-[48px] flex items-center justify-center">
-                    Inquire About This Design
-                  </a>
+                  <CTAButton variant="primary" className="w-full">Inquire About This Design</CTAButton>
                 </Link>
                 <Link href={`/${category}`} asChild>
-                  <a className="block w-full border border-ink text-ink py-4 sm:py-5 text-center text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-paper transition-colors rounded min-h-[48px] flex items-center justify-center">
-                    ← Back to {categoryLabel}
-                  </a>
+                  <CTAButton variant="secondary" className="w-full">← Back to {categoryLabel}</CTAButton>
                 </Link>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {/* Related Products — Mobile-first */}
       {related.length > 0 && (
-        <section className="bg-paper py-mobile sm:py-mobile-lg md:py-mobile-xl">
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
-            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl mb-6 sm:mb-8 md:mb-12">Explore More Designs</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-              {related.map((item, i) => (
-                <Link key={i} href={`/${item.category}/${generateSlug(item.title)}`} asChild>
-                  <a className="group block">
-                    <div className="aspect-[4/5] overflow-hidden bg-paper mb-4 sm:mb-5 md:mb-6 rounded image-crop-watermark">
-                      <img
-                        src={item.gallery?.[0]}
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <h3 className="font-display text-base sm:text-lg line-clamp-2">{item.title}</h3>
-                    <p className="text-xs sm:text-sm text-mute mt-2 line-clamp-2">{item.description?.split("\n")[0]}</p>
-                  </a>
-                </Link>
+        <Section variant="alt" size="md">
+          <Container>
+            <h2 className="mb-10">Explore More Designs</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ds-grid-gap">
+              {related.map((item: any, i: number) => (
+                <ProductCard key={i} item={item} hrefPrefix={`/${item.category}`} />
               ))}
             </div>
-          </div>
-        </section>
+          </Container>
+        </Section>
       )}
 
-      {/* Process CTA — Mobile-first */}
-      <section className="bg-paper py-mobile sm:py-mobile-lg md:py-mobile-xl">
-        <div className="max-w-2xl mx-auto text-center px-4 sm:px-6">
-          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl leading-tight mb-4 sm:mb-6 md:mb-8">
-            How We Design
-          </h2>
-          <p className="text-sm sm:text-base text-mute leading-relaxed mb-6 sm:mb-8">
+      <Section variant="default" size="md">
+        <Container width="narrow" className="text-center">
+          <h2 className="mb-5">How We Design</h2>
+          <p className="text-text-body leading-relaxed mb-8 max-w-xl mx-auto">
             From your first consultation to installation, we guide you through every step. Discover our process.
           </p>
           <Link href="/process" asChild>
-            <a className="inline-block bg-ink text-paper px-6 sm:px-8 py-3 sm:py-4 text-xs sm:text-sm tracking-widest2 uppercase font-semibold hover:bg-ink/90 transition-colors rounded min-h-[44px] flex items-center justify-center">
-              View Our Process →
-            </a>
+            <CTAButton variant="primary">View Our Process →</CTAButton>
           </Link>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </div>
   );
 }
