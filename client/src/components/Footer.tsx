@@ -69,7 +69,7 @@ export default function Footer() {
                   { href: "/", label: "Home" },
                   { href: "/kitchens", label: "Kitchens" },
                   { href: "/wardrobes", label: "Wardrobes" },
-                  { href: "/architects-designers", label: "For Architects & Designers" },
+                  { href: "/for-designers", label: "For Architects & Designers" },
                   { href: "/process", label: "Process & Materials" },
                   { href: "/contact", label: "Start a Consultation" },
                 ].map((l) => (

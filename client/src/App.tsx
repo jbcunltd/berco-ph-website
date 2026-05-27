@@ -1,4 +1,4 @@
-import { Route, Switch } from "wouter";
+import { Route, Switch, useLocation } from "wouter";
 import { useState, useEffect } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
@@ -24,6 +24,11 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -53,7 +58,7 @@ export default function App() {
     <div className="min-h-screen flex flex-col bg-bg text-text">
       <Header mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
       
-      <main className="flex-1 pb-20 md:pb-0">
+      <main className="flex-1 pb-20 md:pb-0" key={location}>
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/kitchens" component={Kitchens} />
@@ -63,6 +68,7 @@ export default function App() {
           <Route path="/vanities" component={Vanities} />
           <Route path="/tv-units" component={TVUnits} />
           <Route path="/laundry" component={Laundry} />
+          <Route path="/for-designers" component={ArchitectsDesigners} />
           <Route path="/architects-designers" component={ArchitectsDesigners} />
           <Route path="/process" component={Process} />
           <Route path="/contact" component={Contact} />
