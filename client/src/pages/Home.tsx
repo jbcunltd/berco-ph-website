@@ -65,7 +65,8 @@ export default function Home() {
       {/* HERO */}
       <Section variant="default" size="sm" className="!pt-0 !pb-0">
         {/* Mobile */}
-        <div className="md:hidden px-5 pt-10 pb-8 text-center">
+        <div className="md:hidden pt-10 pb-8 text-center">
+          <Container>
           <span className="ds-label">Bespoke Cabinetry · Philippines</span>
           <h1 className="mt-4 mb-4">
             Custom Cabinetry for <em className="italic">Philippine</em> Homes.
@@ -81,16 +82,18 @@ export default function Home() {
               <CTAButton variant="secondary" className="w-full">Explore Collections</CTAButton>
             </Link>
           </div>
-          <div className="ds-card-image h-72">
-            <img src={kitchenImage} alt="BERCO cabinetry" />
-          </div>
+            <div className="ds-card-image h-72">
+              <img src={kitchenImage} alt="BERCO cabinetry" />
+            </div>
+          </Container>
         </div>
         {/* Desktop */}
         <div className="hidden md:grid md:grid-cols-[0.9fr_1.1fr] md:h-[680px] md:items-stretch">
           <div className="ds-card-image rounded-none">
             <img src={kitchenImage} alt="BERCO cabinetry" />
           </div>
-          <div className="px-12 lg:px-20 py-20 flex flex-col justify-center bg-bg">
+          <div className="py-20 flex flex-col justify-center bg-bg">
+            <Container className="h-full flex flex-col justify-center">
             <span className="ds-label mb-6">Bespoke Cabinetry · Philippines</span>
             <h1 className="mb-6 max-w-[600px]">
               Custom Cabinetry for <em className="italic">Philippine</em> Homes.
@@ -98,14 +101,15 @@ export default function Home() {
             <p className="text-text-body leading-relaxed mb-8 max-w-[560px]">
               Quiet, considered storage — kitchens, wardrobes, vanities, and refined spaces shaped around the way you live.
             </p>
-            <div className="flex gap-4">
-              <Link href="/contact" asChild>
-                <CTAButton variant="primary">Book a Design Consultation →</CTAButton>
-              </Link>
-              <Link href="/kitchens" asChild>
-                <CTAButton variant="secondary">Explore Collections</CTAButton>
-              </Link>
-            </div>
+              <div className="flex gap-4">
+                <Link href="/contact" asChild>
+                  <CTAButton variant="primary">Book a Design Consultation →</CTAButton>
+                </Link>
+                <Link href="/kitchens" asChild>
+                  <CTAButton variant="secondary">Explore Collections</CTAButton>
+                </Link>
+              </div>
+            </Container>
           </div>
         </div>
       </Section>
