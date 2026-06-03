@@ -22,7 +22,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
   const isActive = (path: string) => location === path;
 
   const navLinkClass = (active: boolean) =>
-    `text-xs tracking-widest2 uppercase font-semibold transition-colors ${
+    `text-xs tracking-wider uppercase font-semibold transition-colors leading-none ${
       active ? "text-text border-b-2 border-text pb-1" : "text-text-muted hover:text-text"
     }`;
 
@@ -39,17 +39,17 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8 h-full">
+          <nav className="hidden lg:flex items-center gap-6 h-full">
             {NAV_ITEMS.map((item) => (
               <Link key={item.href} href={item.href} asChild>
-                <a className={navLinkClass(isActive(item.href))}>{item.label}</a>
+                <a className={`${navLinkClass(isActive(item.href))} whitespace-nowrap`}>{item.label}</a>
               </Link>
             ))}
           </nav>
 
           <div className="flex items-center gap-3 h-full">
             <Link href="/contact" asChild>
-              <a className="hidden lg:inline-flex ds-btn ds-btn-primary !h-10 !px-5">
+              <a className="hidden lg:inline-flex ds-btn ds-btn-primary !h-full !px-5 !py-0">
                 Book Consultation
               </a>
             </Link>
