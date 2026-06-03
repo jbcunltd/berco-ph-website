@@ -1,5 +1,7 @@
-import { Link, useLocation } from "wouter";
-import Container from "./layout/Container";
+import { useState } from 'react';
+import { Link, useLocation } from 'wouter';
+import { Menu, X } from 'lucide-react';
+import Container from './layout/Container';
 
 interface HeaderProps {
   mobileMenuOpen: boolean;
@@ -7,14 +9,14 @@ interface HeaderProps {
 }
 
 const NAV_ITEMS = [
-  { label: "Home", href: "/" },
-  { label: "Kitchens", href: "/kitchens" },
-  { label: "Wardrobes", href: "/wardrobes" },
-  { label: "Vanities", href: "/vanities" },
-  { label: "For Designers", href: "/for-designers" },
-  { label: "About", href: "/about" },
-  { label: "Process", href: "/process" },
-  { label: "Contact", href: "/contact" },
+  { label: 'Home', href: '/' },
+  { label: 'Kitchens', href: '/kitchens' },
+  { label: 'Wardrobes', href: '/wardrobes' },
+  { label: 'Vanities', href: '/vanities' },
+  { label: 'For Designers', href: '/for-designers' },
+  { label: 'About', href: '/about' },
+  { label: 'Process', href: '/process' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProps) {
@@ -23,69 +25,104 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
 
   const navLinkClass = (active: boolean) =>
     `text-xs tracking-wider uppercase font-semibold transition-colors leading-none ${
-      active ? "text-text border-b-2 border-text pb-1" : "text-text-muted hover:text-text"
+      active ? 'text-text border-b-2 border-text pb-1' : 'text-text-muted hover:text-text'
     }`;
 
   return (
     <header className="sticky top-0 z-40 bg-bg border-b border-line">
+      {/* Utility bar — phone number + info */}
+      <div className="hidden lg:block border-b border-line bg-bg py-2">
+        <Container>
+          <div className="flex justify-end items-center gap-6">
+            <a href="tel:+639178000730" className="text-xs text-text-muted hover:text-text transition-colors">
+              +63 917 800 0730
+            </a>
+            <span className="text-xs text-line">•</span>
+            <a href="mailto:sales@bercohome.com" className="text-xs text-text-muted hover:text-text transition-colors">
+              sales@bercohome.com
+            </a>
+          </div>
+        </Container>
+      </div>
+
+      {/* Main header bar */}
       <Container>
-        <div className="flex items-center justify-between h-16">
-          <Link href="/">
-            <img
-              src="/berco-logo.png"
-              alt="Berco"
-              className="max-h-10 sm:max-h-11 md:max-h-12 w-auto cursor-pointer object-contain flex-shrink-0"
-              style={{ maxWidth: "100px", height: "auto" }}
-            />
+        <div className="flex items-center justify-between h-16 lg:h-14">
+          {/* Logo + tagline left */}
+          <Link href="/" asChild>
+            <a className="flex items-center gap-3 flex-shrink-0 group">
+              <img
+                src="/berco-logo.png"
+                alt="Berco"
+                className="max-h-10 sm:max-h-11 md:max-h-12 w-auto cursor-pointer object-contain"
+                style={{ maxWidth: '100px', height: 'auto' }}
+              />
+              <span className="hidden sm:block text-xs tracking-widest uppercase font-semibold text-text-muted group-hover:text-text transition-colors leading-tight">
+                The Heart<br />of Your Home
+              </span>
+            </a>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-6 h-full">
+          {/* Nav links + CTA right (desktop) */}
+          <nav className="hidden lg:flex items-center gap-8 h-full">
             {NAV_ITEMS.map((item) => (
               <Link key={item.href} href={item.href} asChild>
                 <a className={`${navLinkClass(isActive(item.href))} whitespace-nowrap`}>{item.label}</a>
               </Link>
             ))}
-          </nav>
-
-          <div className="flex items-center gap-3 h-full">
+            
+            {/* CTA as subtle text link */}
             <Link href="/contact" asChild>
-              <a className="hidden lg:inline-flex ds-btn ds-btn-primary !h-full !px-5 !py-0">
+              <a className="text-xs tracking-wider uppercase font-semibold text-text-muted hover:text-accent transition-colors leading-none whitespace-nowrap">
                 Book Consultation
               </a>
             </Link>
+          </nav>
 
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden flex flex-col gap-1.5 p-2"
-              aria-label="Toggle navigation"
-            >
-              <div className={`w-5 h-0.5 bg-text transition-all ${mobileMenuOpen ? "rotate-45 translate-y-2" : ""}`} />
-              <div className={`w-5 h-0.5 bg-text transition-all ${mobileMenuOpen ? "opacity-0" : ""}`} />
-              <div className={`w-5 h-0.5 bg-text transition-all ${mobileMenuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-            </button>
-          </div>
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="lg:hidden flex flex-col gap-1.5 p-2"
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="w-5 h-5 text-text" />
+            ) : (
+              <Menu className="w-5 h-5 text-text" />
+            )}
+          </button>
         </div>
       </Container>
 
+      {/* Mobile menu */}
       {mobileMenuOpen && (
-        <nav className="lg:hidden bg-bg border-t border-line">
+        <div className="lg:hidden border-t border-line bg-bg">
           <Container>
-            <div className="py-4 space-y-2">
+            <nav className="flex flex-col gap-4 py-4">
               {NAV_ITEMS.map((item) => (
                 <Link key={item.href} href={item.href} asChild>
-                  <a onClick={() => setMobileMenuOpen(false)} className={`block py-2.5 ${navLinkClass(isActive(item.href))}`}>
+                  <a
+                    className={`text-sm font-semibold transition-colors ${
+                      isActive(item.href) ? 'text-text' : 'text-text-muted hover:text-text'
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
                     {item.label}
                   </a>
                 </Link>
               ))}
+              
               <Link href="/contact" asChild>
-                <a onClick={() => setMobileMenuOpen(false)} className="ds-btn ds-btn-primary w-full mt-4">
+                <a
+                  className="ds-btn ds-btn-secondary w-full mt-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Book Consultation
                 </a>
               </Link>
-            </div>
+            </nav>
           </Container>
-        </nav>
+        </div>
       )}
     </header>
   );

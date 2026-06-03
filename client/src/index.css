@@ -320,6 +320,26 @@ button, a, input, select, textarea {
     transition: color var(--transition);
   }
   .ds-btn-link:hover { color: var(--accent); }
+  
+  /* Nav CTA - refined, subtle, integrated with nav */
+  .ds-btn-nav {
+    height: auto;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--text);
+    border-radius: var(--radius-sm);
+    transition: background var(--transition), color var(--transition), border-color var(--transition);
+  }
+  .ds-btn-nav:hover {
+    background: var(--text);
+    color: var(--text-on-dark);
+  }
+  
   .ds-btn:active { transform: scale(0.97); }
 
   /* Card image (used by ProductCard) */
