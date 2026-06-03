@@ -321,11 +321,11 @@ button, a, input, select, textarea {
   }
   .ds-btn-link:hover { color: var(--accent); }
   
-  /* Nav CTA - refined, subtle, integrated with nav */
-  .ds-btn-nav {
+  /* Nav CTA button - small, refined, subtle */
+  .ds-btn-nav-cta {
     height: auto;
-    padding: 0.5rem 1rem;
-    font-size: 0.75rem;
+    padding: 0.4rem 0.875rem;
+    font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.10em;
     text-transform: uppercase;
@@ -334,11 +334,16 @@ button, a, input, select, textarea {
     border: 1px solid var(--text);
     border-radius: var(--radius-sm);
     transition: background var(--transition), color var(--transition), border-color var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
   }
-  .ds-btn-nav:hover {
+  .ds-btn-nav-cta:hover {
     background: var(--text);
     color: var(--text-on-dark);
   }
+  .ds-btn-nav-cta:active { transform: scale(0.97); }
   
   .ds-btn:active { transform: scale(0.97); }
 
