@@ -31,7 +31,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
   return (
     <header className="sticky top-0 z-40 bg-bg border-b border-line">
       <Container>
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 py-0">
           {/* Logo left */}
           <Link href="/" asChild>
             <a className="flex-shrink-0 flex items-center">
@@ -45,10 +45,10 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
           </Link>
 
           {/* Nav links center (desktop) */}
-          <nav className="hidden lg:flex items-center gap-6 h-full flex-1 justify-center">
+          <nav className="hidden lg:flex items-center justify-center gap-6 flex-1">
             {NAV_ITEMS.map((item) => (
               <Link key={item.href} href={item.href} asChild>
-                <a className={`${navLinkClass(isActive(item.href))} whitespace-nowrap`}>
+                <a className={`${navLinkClass(isActive(item.href))} whitespace-nowrap flex items-center`}>
                   {item.label}
                 </a>
               </Link>
@@ -57,7 +57,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
 
           {/* CTA button right (desktop) */}
           <Link href="/contact" asChild>
-            <a className="hidden lg:inline-flex ds-btn-nav-cta ml-auto">
+            <a className="hidden lg:inline-flex items-center ds-btn-nav-cta ml-auto">
               Book Consultation
             </a>
           </Link>
@@ -65,7 +65,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden flex flex-col gap-1.5 p-2 ml-auto"
+            className="lg:hidden flex items-center justify-center flex-col gap-1.5 p-2 ml-auto"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
