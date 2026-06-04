@@ -16,6 +16,7 @@ import Process from "./pages/Process";
 import Contact from "./pages/Contact";
 import ArchitectsDesigners from "./pages/ArchitectsDesigners";
 import About from "./pages/About";
+import Demo from "./pages/Demo";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -74,6 +75,7 @@ export default function App() {
           <Route path="/about" component={About} />
           <Route path="/process" component={Process} />
           <Route path="/contact" component={Contact} />
+          <Route path="/demo" component={Demo} />
           <Route path="/:category/:slug" component={ProductDetail} />
           <Route component={NotFound} />
         </Switch>
