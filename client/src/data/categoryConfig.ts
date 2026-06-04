@@ -82,4 +82,13 @@ export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
     ctaCopy:
       "Tell us about your laundry space — how you wash, dry, and store every day.",
   },
+  "aluminum-doors-windows": {
+    slug: "aluminum-doors-windows",
+    href: "/aluminum-doors-windows",
+    eyebrow: "Aluminum Doors & Windows",
+    title: "Durable, Secure,",
+    titleItalic: "and Aesthetically Pleasing.",
+    intro: "Premium aluminum doors and windows, combining durability, security, and modern aesthetics. Designed to enhance natural light and provide superior insulation.",
+    ctaCopy: "Tell us about your project and specific requirements for aluminum doors and windows.",
+  },
 };

@@ -11,6 +11,7 @@ import Bathrooms from "./pages/Bathrooms";
 import Vanities from "./pages/Vanities";
 import TVUnits from "./pages/TVUnits";
 import Laundry from "./pages/Laundry";
+import AluminumDoorsWindows from "./pages/AluminumDoorsWindows";
 import CompleteHomeInteriors from "./pages/CompleteHomeInteriors";
 import Collection2026 from "./pages/Collection2026";
 import ProductDetail from "./pages/ProductDetail";
@@ -71,6 +72,7 @@ export default function App() {
           <Route path="/vanities" component={Vanities} />
           <Route path="/tv-units" component={TVUnits} />
           <Route path="/laundry" component={Laundry} />
+          <Route path="/aluminum-doors-windows" component={AluminumDoorsWindows} />
           <Route path="/complete-home-interiors" component={CompleteHomeInteriors} />
           <Route path="/2026-collection" component={Collection2026} />
           <Route path="/for-designers" component={ArchitectsDesigners} />

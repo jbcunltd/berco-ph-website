@@ -5,42 +5,37 @@ import CTAButton from "../components/layout/CTAButton";
 
 const LOOKBOOK = [
   {
-    name: "Alice",
-    mood: "Utopian minimalism in warm architectural whites.",
-    image: "/oppolia/tv-units/alice-modern-minimalist-utopian-style-whole-home-interior-design-ob24ap04-01.webp",
+    name: "Minimalist",
+    mood: "Discover the latest trends in Minimalist design.",
+    image: "/oppolia/bathrooms/minimalist-elegance-red-and-beige-whole-house-design-ob25ap02-01.webp"
   },
   {
-    name: "Como",
-    mood: "Beige and walnut, tailored for calm premium residences.",
-    image: "/oppolia/tv-units/como-series-modern-beige-and-walnut-whole-house-design-01.webp",
+    name: "Monet",
+    mood: "Discover the latest trends in Monet design.",
+    image: "/oppolia/bathrooms/monet-series-serene-modern-elegance-green-whole-house-design-ob25ap03-01.webp"
   },
   {
-    name: "Cybel",
-    mood: "Modern whole-home interiors with clean architectural rhythm.",
-    image: "/oppolia/tv-units/cybel-series-modern-whole-house-interior-design-ob24ap09-01.webp",
+    name: "Monica",
+    mood: "Discover the latest trends in Monica design.",
+    image: "/oppolia/bathrooms/monica-series-scandinavian-modern-green-whole-house-design-ob25ap01-01.webp"
   },
   {
-    name: "Erian",
-    mood: "Elegant minimalism with soft contrast and refined storage walls.",
-    image: "/oppolia/tv-units/erian-series-elegant-minimalist-whole-house-interior-design-ob24ap07-02.webp",
+    name: "Renaut",
+    mood: "Discover the latest trends in Renaut design.",
+    image: "/oppolia/bathrooms/renaut-series-natural-wood-whole-house-design-ob25ap04-01.webp"
   },
   {
-    name: "Huaqi",
-    mood: "Quiet luxury in layered neutrals, stone, and timber tones.",
-    image: "/oppolia/tv-units/huaqi-series-elegant-interior-design-04.webp",
-  },
-  {
-    name: "Lanxu",
-    mood: "Retro-oriental walnut interiors with atmospheric depth.",
-    image: "/oppolia/tv-units/lanxu-series-retro-oriental-style-walnut-interior-design-03.webp",
-  },
+    name: "Puffy",
+    mood: "Discover the latest trends in Puffy design.",
+    image: "/oppolia/kitchens/puffy-series-neutral-color-closed-concept-kitchen-obk25l04-01.webp"
+  }
 ];
 
 const FEATURED = [
-  "/oppolia/kitchens/como-series-modern-minimalist-semi-open-kitche-02.webp",
-  "/oppolia/tv-units/huaqi-series-elegant-interior-design-01.webp",
-  "/oppolia/tv-units/lanxu-series-retro-oriental-style-walnut-interior-design-05.webp",
-  "/oppolia/bathrooms/cybel-series-modern-whole-house-interior-design-ob24ap09-03.webp",
+  "/oppolia/bathrooms/minimalist-elegance-red-and-beige-whole-house-design-ob25ap02-01.webp",
+  "/oppolia/bathrooms/minimalist-elegance-red-and-beige-whole-house-design-ob25ap02-02.webp",
+  "/oppolia/bathrooms/minimalist-elegance-red-and-beige-whole-house-design-ob25ap02-03.webp",
+  "/oppolia/bathrooms/minimalist-elegance-red-and-beige-whole-house-design-ob25ap02-04.webp"
 ];
 
 export default function Collection2026() {

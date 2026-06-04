@@ -4,26 +4,26 @@ import Container from "../components/layout/Container";
 import CTAButton from "../components/layout/CTAButton";
 
 const HERO_IMAGES = [
-  "/oppolia/tv-units/como-series-modern-beige-and-walnut-whole-house-design-01.webp",
-  "/oppolia/kitchens/alice-modern-minimalist-utopian-style-whole-home-interior-design-ob24ap04-09.webp",
-  "/oppolia/bedrooms/como-series-modern-beige-and-walnut-whole-house-design-03.webp",
+  "/oppolia/bathrooms/alice-modern-minimalist-utopian-style-whole-home-interior-design-ob24ap04-01.webp",
+  "/oppolia/bathrooms/alice-modern-minimalist-utopian-style-whole-home-interior-design-ob24ap04-03.webp",
+  "/oppolia/bathrooms/alice-modern-minimalist-utopian-style-whole-home-interior-design-ob24ap04-04.webp",
 ];
 
 const PACKAGES = [
   {
-    title: "Apartment Composition",
-    copy: "A coordinated design language for compact city homes: kitchen, bedroom storage, vanity, TV wall, and laundry cabinetry drawn as one calm interior story.",
-    image: "/oppolia/tv-units/alice-modern-minimalist-utopian-style-whole-home-interior-design-ob24ap04-03.webp",
+    title: "Alice Whole Home Package",
+    copy: "A coordinated design language for your home, featuring the Alice series across multiple spaces.",
+    image: "/oppolia/bathrooms/alice-modern-minimalist-utopian-style-whole-home-interior-design-ob24ap04-01.webp"
   },
   {
-    title: "Family Residence",
-    copy: "Full-home planning for families who want every room to feel intentional, from the kitchen island to wardrobes, study walls, media storage, and bathrooms.",
-    image: "/oppolia/tv-units/como-series-modern-beige-and-walnut-whole-house-design-08.webp",
+    title: "Como Whole Home Package",
+    copy: "A coordinated design language for your home, featuring the Como series across multiple spaces.",
+    image: "/oppolia/bathrooms/como-series-modern-beige-and-walnut-whole-house-design-01.webp"
   },
   {
-    title: "Villa & Premium Home",
-    copy: "An elevated whole-house package with layered materials, architectural proportions, and cabinetry systems that create continuity across every living space.",
-    image: "/oppolia/tv-units/huaqi-series-elegant-interior-design-01.webp",
+    title: "Contemporary Whole Home Package",
+    copy: "A coordinated design language for your home, featuring the Contemporary series across multiple spaces.",
+    image: "/oppolia/bathrooms/contemporary-home-design-ob23-villa01-01.webp"
   },
 ];
 

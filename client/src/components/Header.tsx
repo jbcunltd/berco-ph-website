@@ -16,7 +16,9 @@ const PRODUCT_ITEMS = [
   { label: 'Bedrooms', href: '/bedrooms', description: 'Rest spaces with integrated storage' },
   { label: 'TV & Living', href: '/tv-units', description: 'Media walls, display storage, and living compositions' },
   { label: 'Laundry', href: '/laundry', description: 'Utility spaces designed with quiet precision' },
+  { label: 'Aluminum Doors & Windows', href: '/aluminum-doors-windows', description: 'Durable, secure, and aesthetically pleasing aluminum solutions' },
   { label: 'Complete Home Interiors', href: '/complete-home-interiors', description: 'Coordinated whole-home design packages' },
+  { label: '2026 Collection', href: '/2026-collection', description: 'Curated selection of newest and most premium designs' },
 ];
 
 const TOP_NAV_ITEMS = [
@@ -171,11 +173,7 @@ export default function Header({ mobileMenuOpen, setMobileMenuOpen }: HeaderProp
                         </a>
                       </Link>
                     ))}
-                    <Link href="/2026-collection" asChild>
-                      <a className="py-2 text-sm text-accent font-semibold" onClick={closeMobileMenu}>
-                        2026 Collection
-                      </a>
-                    </Link>
+
                   </div>
                 )}
               </div>
