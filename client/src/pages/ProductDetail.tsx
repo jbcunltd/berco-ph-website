@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useRoute } from "wouter";
 import products from "../data/products.json";
 import Section from "../components/layout/Section";
@@ -20,8 +19,6 @@ const CATEGORY_LABELS: Record<string, string> = {
 
 export default function ProductDetail() {
   const [route, params] = useRoute("/:category/:slugParam");
-  const [selectedImageIdx, setSelectedImageIdx] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
 
   if (!route) return null;
   const { category, slugParam } = params as { category: string; slugParam: string };
@@ -44,24 +41,14 @@ export default function ProductDetail() {
   }
 
   const gallery = product.gallery || [];
-  const currentImage = gallery[selectedImageIdx] || gallery[0];
+  const heroImage = gallery[0];
   const related = products
     .filter((p: any) => p.category === category && p.title !== product.title)
     .slice(0, 3);
   const categoryLabel = CATEGORY_LABELS[category] || category;
 
-  const onTouchStart = (e: React.TouchEvent) => setTouchStart(e.touches[0].clientX);
-  const onTouchEnd = (e: React.TouchEvent) => {
-    const diff = touchStart - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) {
-      if (diff > 0 && selectedImageIdx < gallery.length - 1) setSelectedImageIdx(selectedImageIdx + 1);
-      else if (diff < 0 && selectedImageIdx > 0) setSelectedImageIdx(selectedImageIdx - 1);
-    }
-  };
-
   return (
     <div className="w-full">
-      {/* Breadcrumb */}
       <div className="bg-bg border-b border-line py-3 sm:py-4">
         <Container>
           <div className="flex items-center gap-2 text-xs sm:text-sm text-text-muted overflow-x-auto">
@@ -78,81 +65,81 @@ export default function ProductDetail() {
         </Container>
       </div>
 
-      {/* Product Hero + Gallery */}
       <Section variant="default" size="md">
         <Container>
-          <div className="grid md:grid-cols-2 gap-8 md:gap-14 items-start">
-            <div>
-              <div
-                className="ds-card-image aspect-[4/5] mb-4 sm:mb-6 cursor-grab active:cursor-grabbing"
-                onTouchStart={onTouchStart}
-                onTouchEnd={onTouchEnd}
-              >
-                <img src={currentImage} alt={product.title} draggable={false} />
-              </div>
+          <div className="max-w-5xl mx-auto text-center mb-10 sm:mb-14">
+            <span className="ds-label">{categoryLabel}</span>
+            <h1 className="mt-4 mb-5">{product.title}</h1>
+            <p className="text-text-body leading-relaxed text-lg max-w-3xl mx-auto">
+              {product.description}
+            </p>
+          </div>
+        </Container>
 
-              {gallery.length > 1 && (
-                <p className="text-xs text-text-muted text-center mb-3 md:hidden">
-                  {selectedImageIdx + 1} / {gallery.length}
-                </p>
-              )}
+        {heroImage && (
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1500px] mx-auto ds-card-image aspect-[16/10] md:aspect-[16/8]">
+              <img src={heroImage} alt={product.title} />
+            </div>
+          </div>
+        )}
+      </Section>
 
-              {gallery.length > 1 && (
-                <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-4 gap-2 sm:gap-3">
-                  {gallery.slice(0, 8).map((img: string, i: number) => (
-                    <button
-                      key={i}
-                      onClick={() => setSelectedImageIdx(i)}
-                      className={`aspect-square rounded-md overflow-hidden border-2 transition-all min-h-[60px] sm:min-h-[80px] ${
-                        selectedImageIdx === i ? "border-text" : "border-line"
-                      }`}
-                      aria-label={`View image ${i + 1}`}
-                    >
-                      <img src={img} alt={`View ${i + 1}`} className="w-full h-full object-cover" />
-                    </button>
-                  ))}
+      {gallery.length > 1 && (
+        <Section variant="default" size="sm">
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1500px] mx-auto space-y-5 sm:space-y-8">
+              {gallery.slice(1).map((img: string, index: number) => (
+                <div key={img} className={`ds-card-image ${index % 3 === 0 ? "aspect-[16/9]" : "aspect-[16/10]"}`}>
+                  <img src={img} alt={`${product.title} gallery ${index + 2}`} />
                 </div>
-              )}
+              ))}
             </div>
+          </div>
+        </Section>
+      )}
 
+      <Section variant="alt" size="md">
+        <Container>
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
             <div>
-              <span className="ds-label">{categoryLabel}</span>
-              <h1 className="mt-3 mb-5">{product.title}</h1>
-              <p className="text-text-body leading-relaxed mb-8">{product.description}</p>
-
-              <div className="pb-8 mb-8 border-b border-line">
-                <h3 className="mb-4">Craftsmanship</h3>
-                <ul className="space-y-3 text-text-body">
-                  {[
-                    "Premium materials & finishes",
-                    "Soft-close mechanisms (Blum / Hettich)",
-                    "Moisture-resistant board technology",
-                    "Precision edge-banding & CNC machining",
-                    "Modular assembly systems",
-                  ].map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="text-accent flex-shrink-0">✓</span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="space-y-3">
-                <Link href="/contact" asChild>
-                  <CTAButton variant="primary" className="w-full">Inquire About This Design</CTAButton>
-                </Link>
-                <Link href={`/${category}`} asChild>
-                  <CTAButton variant="secondary" className="w-full">← Back to {categoryLabel}</CTAButton>
-                </Link>
-              </div>
+              <span className="ds-label">Design Notes</span>
+              <h2 className="mt-4 mb-5">Large-format imagery, refined details, and cabinetry made for daily life.</h2>
+              <p className="text-text-body leading-relaxed text-lg">
+                This design can be adapted to your exact floor plan, material preferences, storage needs, and finish palette. BERCO’s team coordinates proportions, hardware, surfaces, and installation details so the final interior feels architectural, personal, and complete.
+              </p>
             </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              {[
+                "Premium materials & finishes",
+                "Soft-close mechanisms (Blum / Hettich)",
+                "Moisture-resistant board technology",
+                "Precision edge-banding & CNC machining",
+                "Modular assembly systems",
+                "Coordinated whole-home palettes",
+              ].map((item) => (
+                <div key={item} className="bg-bg border border-line p-5">
+                  <span className="text-accent flex-shrink-0">✓</span>
+                  <p className="mt-3 text-text-body leading-relaxed">{item}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-12 grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
+            <Link href="/contact" asChild>
+              <CTAButton variant="primary" className="w-full">Inquire About This Design</CTAButton>
+            </Link>
+            <Link href={`/${category}`} asChild>
+              <CTAButton variant="secondary" className="w-full">← Back to {categoryLabel}</CTAButton>
+            </Link>
           </div>
         </Container>
       </Section>
 
       {related.length > 0 && (
-        <Section variant="alt" size="md">
+        <Section variant="default" size="md">
           <Container>
             <h2 className="mb-10">Explore More Designs</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 ds-grid-gap">
@@ -164,7 +151,7 @@ export default function ProductDetail() {
         </Section>
       )}
 
-      <Section variant="default" size="md">
+      <Section variant="alt" size="md">
         <Container width="narrow" className="text-center">
           <h2 className="mb-5">How We Design</h2>
           <p className="text-text-body leading-relaxed mb-8 max-w-xl mx-auto">
