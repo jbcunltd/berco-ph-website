@@ -9,12 +9,9 @@ interface HeaderProps {
 }
 
 const PRODUCT_ITEMS = [
-  { label: 'Kitchens', href: '/kitchens', description: 'Islands, sculleries, and galley kitchens' },
-  { label: 'Wardrobes', href: '/wardrobes', description: 'Walk-ins, sliding doors, and dressing rooms' },
-  { label: 'Vanities', href: '/vanities', description: 'Floating, freestanding, and built-in vanities' },
-  { label: 'Bathrooms', href: '/bathrooms', description: 'Spa-inspired cabinetry and full bathroom suites' },
-  { label: 'Bedrooms', href: '/bedrooms', description: 'Rest spaces with integrated storage' },
-  { label: 'TV & Living', href: '/tv-units', description: 'Media walls, display storage, and living compositions' },
+  { label: 'Kitchen Cabinets', href: '/kitchens', description: 'Islands, sculleries, and galley kitchens' },
+  { label: 'Wardrobes & Closets', href: '/wardrobes', description: 'Walk-ins, sliding doors, and dressing rooms' },
+  { label: 'Bathroom Vanities', href: '/vanities', description: 'Floating, freestanding, and built-in vanities' },
   { label: 'Aluminum Doors & Windows', href: '/aluminum-doors-windows', description: 'Durable, secure, and aesthetically pleasing aluminum solutions' },
   { label: 'Complete Home Interiors', href: '/complete-home-interiors', description: 'Coordinated whole-home design packages' },
   { label: '2026 Collection', href: '/2026-collection', description: 'Curated selection of newest and most premium designs' },

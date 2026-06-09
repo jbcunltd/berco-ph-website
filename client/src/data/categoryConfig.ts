@@ -60,17 +60,6 @@ export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
     ctaCopy:
       "Tell us about your bedroom, how you sleep, and how your room should feel.",
   },
-  "tv-units": {
-    slug: "tv-units",
-    href: "/tv-units",
-    eyebrow: "TV & Living Cabinets",
-    title: "Media Walls &",
-    titleItalic: "Living Compositions.",
-    intro:
-      "TV units, bar cabinets, and media storage that anchor the living room — composed with restraint, finished to last, and quiet about the technology they hold.",
-    ctaCopy:
-      "Tell us about your living room, the technology you hold, and how the room should feel at rest.",
-  },
   "aluminum-doors-windows": {
     slug: "aluminum-doors-windows",
     href: "/aluminum-doors-windows",
