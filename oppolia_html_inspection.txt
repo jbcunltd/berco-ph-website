@@ -1,0 +1,63 @@
+URL: https://www.oppoliahome.com/product/custom-casement-window-eow100b/
+HTML length: 420068
+TITLE: Custom Grey Casement Window EOW100B | OPPOLIA
+
+SELECTOR h1: 1
+TEXT: Custom Grey Casement Window EOW100B
+IMGS: []
+LINKS: []
+SELECTOR .product_title: 1
+TEXT: Custom Grey Casement Window EOW100B
+IMGS: []
+LINKS: []
+SELECTOR .summary: 0
+SELECTOR .woocommerce-product-gallery: 0
+SELECTOR .woocommerce-product-gallery__wrapper: 0
+SELECTOR .woocommerce-tabs: 1
+TEXT: Description Custom Casement Window Our custom casement windows feature a modern slim frame for a minimalist yet stunning outlook. The colors and styles are various, including grey, black, white, and wood effect finishes. The casement windows can easily complement any home decor style. The quality aluminum, glass, and glue material ensure the windows can endure sun, wind, and rain for many years. And the aluminum frame and double-glazed glass are easy to keep clean with a tight wipe. Applicable s
+IMGS: [{'src': 'https://www.oppoliahome.com/wp-content/uploads/2022/09/custom-grey-casement-window-eow100b.jpg', 'alt': 'Custom Grey Casement Window'}]
+LINKS: ['#tab-description']
+SELECTOR #tab-description: 1
+TEXT: Custom Casement Window Our custom casement windows feature a modern slim frame for a minimalist yet stunning outlook. The colors and styles are various, including grey, black, white, and wood effect finishes. The casement windows can easily complement any home decor style. The quality aluminum, glass, and glue material ensure the windows can endure sun, wind, and rain for many years. And the aluminum frame and double-glazed glass are easy to keep clean with a tight wipe. Applicable scenarios: va
+IMGS: [{'src': 'https://www.oppoliahome.com/wp-content/uploads/2022/09/custom-grey-casement-window-eow100b.jpg', 'alt': 'Custom Grey Casement Window'}]
+LINKS: []
+SELECTOR .product_meta: 0
+SELECTOR .entry-summary: 0
+SELECTOR .entry-content: 1
+TEXT: Custom Casement Window Our custom casement windows feature a modern slim frame for a minimalist yet stunning outlook. The colors and styles are various, including grey, black, white, and wood effect finishes. The casement windows can easily complement any home decor style. The quality aluminum, glass, and glue material ensure the windows can endure sun, wind, and rain for many years. And the aluminum frame and double-glazed glass are easy to keep clean with a tight wipe. Applicable scenarios: va
+IMGS: [{'src': 'https://www.oppoliahome.com/wp-content/uploads/2022/09/custom-grey-casement-window-eow100b.jpg', 'alt': 'Custom Grey Casement Window'}]
+LINKS: []
+
+--------------------------------------------------------------------------------
+
+URL: https://www.oppoliahome.com/product/aluminium-door-na18005/
+HTML length: 417700
+TITLE: Aluminium Folding Door with Glass NA18005 | OPPOLIA
+
+SELECTOR h1: 1
+TEXT: Aluminium Folding Door with Glass NA18005
+IMGS: []
+LINKS: []
+SELECTOR .product_title: 1
+TEXT: Aluminium Folding Door with Glass NA18005
+IMGS: []
+LINKS: []
+SELECTOR .summary: 0
+SELECTOR .woocommerce-product-gallery: 0
+SELECTOR .woocommerce-product-gallery__wrapper: 0
+SELECTOR .woocommerce-tabs: 1
+TEXT: Description ● Frame width: 88mm; main material wall thickness: 2.0mm; ● Optional opening methods: 330, 431, 550, 633 and other folding opening forms, can bring light; ● Adopt double stainless steel track, four stainless steel pulley block, strong product carrying capacity, smooth and durable opening; ● Adopt anti-pinch structure design, will not cause personal injury to users; ● Two structures of high rail or flat rail can be selected as required, to meet the requirements of high performance and
+IMGS: [{'src': 'https://www.oppoliahome.com/wp-content/uploads/2021/02/folding-window-na18005-1-1.jpg'}]
+LINKS: ['#tab-description']
+SELECTOR #tab-description: 1
+TEXT: ● Frame width: 88mm; main material wall thickness: 2.0mm; ● Optional opening methods: 330, 431, 550, 633 and other folding opening forms, can bring light; ● Adopt double stainless steel track, four stainless steel pulley block, strong product carrying capacity, smooth and durable opening; ● Adopt anti-pinch structure design, will not cause personal injury to users; ● Two structures of high rail or flat rail can be selected as required, to meet the requirements of high performance and barrier-fre
+IMGS: [{'src': 'https://www.oppoliahome.com/wp-content/uploads/2021/02/folding-window-na18005-1-1.jpg'}]
+LINKS: []
+SELECTOR .product_meta: 0
+SELECTOR .entry-summary: 0
+SELECTOR .entry-content: 1
+TEXT: ● Frame width: 88mm; main material wall thickness: 2.0mm; ● Optional opening methods: 330, 431, 550, 633 and other folding opening forms, can bring light; ● Adopt double stainless steel track, four stainless steel pulley block, strong product carrying capacity, smooth and durable opening; ● Adopt anti-pinch structure design, will not cause personal injury to users; ● Two structures of high rail or flat rail can be selected as required, to meet the requirements of high performance and barrier-fre
+IMGS: [{'src': 'https://www.oppoliahome.com/wp-content/uploads/2021/02/folding-window-na18005-1-1.jpg'}]
+LINKS: []
+
+--------------------------------------------------------------------------------
