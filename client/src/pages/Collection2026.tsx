@@ -7,35 +7,35 @@ const LOOKBOOK = [
   {
     name: "Minimalist",
     mood: "Discover the latest trends in Minimalist design.",
-    image: "/oppolia/bathrooms/minimalist-elegance-red-and-beige-whole-house-design-ob25ap02-01.webp"
+    image: "/berco/complete-home-interiors/minimalist-red-beige-collection-01.webp"
   },
   {
     name: "Monet",
     mood: "Discover the latest trends in Monet design.",
-    image: "/oppolia/bathrooms/monet-series-serene-modern-elegance-green-whole-house-design-ob25ap03-01.webp"
+    image: "/berco/bathrooms/monet-serene-modern-elegance-green-whole-home-collection-01.webp"
   },
   {
     name: "Monica",
     mood: "Discover the latest trends in Monica design.",
-    image: "/oppolia/bathrooms/monica-series-scandinavian-modern-green-whole-house-design-ob25ap01-01.webp"
+    image: "/berco/bathrooms/monica-scandinavian-modern-green-whole-home-collection-01.webp"
   },
   {
     name: "Renaut",
     mood: "Discover the latest trends in Renaut design.",
-    image: "/oppolia/bathrooms/renaut-series-natural-wood-whole-house-design-ob25ap04-01.webp"
+    image: "/berco/bathrooms/renaut-natural-wood-whole-home-collection-01.webp"
   },
   {
     name: "Puffy",
     mood: "Discover the latest trends in Puffy design.",
-    image: "/oppolia/kitchens/puffy-series-neutral-color-closed-concept-kitchen-obk25l04-01.webp"
+    image: "/berco/kitchens/puffy-closed-concept-kitchen-suite-01.webp"
   }
 ];
 
 const FEATURED = [
-  "/oppolia/bathrooms/minimalist-elegance-red-and-beige-whole-house-design-ob25ap02-01.webp",
-  "/oppolia/bathrooms/minimalist-elegance-red-and-beige-whole-house-design-ob25ap02-02.webp",
-  "/oppolia/bathrooms/minimalist-elegance-red-and-beige-whole-house-design-ob25ap02-03.webp",
-  "/oppolia/bathrooms/minimalist-elegance-red-and-beige-whole-house-design-ob25ap02-04.webp"
+  "/berco/complete-home-interiors/minimalist-red-beige-collection-01.webp",
+  "/berco/complete-home-interiors/minimalist-red-beige-collection-02.webp",
+  "/berco/complete-home-interiors/minimalist-red-beige-collection-03.webp",
+  "/berco/complete-home-interiors/minimalist-red-beige-collection-04.webp"
 ];
 
 export default function Collection2026() {

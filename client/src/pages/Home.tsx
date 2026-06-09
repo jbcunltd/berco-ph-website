@@ -24,7 +24,6 @@ const CATEGORIES = [
   { title: "Bathrooms",  description: "Spa-inspired vanities and storage — moisture-resistant boards, beautifully finished.", category: "bathrooms", href: "/bathrooms" },
   { title: "Vanities",   description: "Floating and freestanding — stone, lacquer, and natural wood finishes.", category: "vanities", href: "/vanities" },
   { title: "TV & Living",description: "Media walls, bar cabinets, and accent storage — entertainment spaces composed with restraint.", category: "tv-units", href: "/tv-units" },
-  { title: "Laundry",    description: "Utility spaces, beautifully organized — quiet storage that works as hard as you do.", category: "laundry", href: "/laundry" },
 ];
 
 const WHY_BERCO = [

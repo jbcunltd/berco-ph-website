@@ -15,7 +15,6 @@ const PRODUCT_ITEMS = [
   { label: 'Bathrooms', href: '/bathrooms', description: 'Spa-inspired cabinetry and full bathroom suites' },
   { label: 'Bedrooms', href: '/bedrooms', description: 'Rest spaces with integrated storage' },
   { label: 'TV & Living', href: '/tv-units', description: 'Media walls, display storage, and living compositions' },
-  { label: 'Laundry', href: '/laundry', description: 'Utility spaces designed with quiet precision' },
   { label: 'Aluminum Doors & Windows', href: '/aluminum-doors-windows', description: 'Durable, secure, and aesthetically pleasing aluminum solutions' },
   { label: 'Complete Home Interiors', href: '/complete-home-interiors', description: 'Coordinated whole-home design packages' },
   { label: '2026 Collection', href: '/2026-collection', description: 'Curated selection of newest and most premium designs' },

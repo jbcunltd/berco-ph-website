@@ -71,7 +71,7 @@ export default function Contact() {
                 <div>
                   <label className={labelBase}>Space Type</label>
                   <select name="spaceType" value={formData.spaceType} onChange={handleChange} className={fieldBase}>
-                    {["Kitchen","Wardrobe","Walk-in Closet","Bathroom Vanity","TV & Living","Laundry","Whole Home","Other"].map(o=>
+                    {["Kitchen","Wardrobe","Walk-in Closet","Bathroom Vanity","TV & Living"," ","Whole Home","Other"].map(o=>
                       <option key={o}>{o}</option>)}
                   </select>
                 </div>

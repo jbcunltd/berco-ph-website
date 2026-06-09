@@ -71,17 +71,6 @@ export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
     ctaCopy:
       "Tell us about your living room, the technology you hold, and how the room should feel at rest.",
   },
-  laundry: {
-    slug: "laundry",
-    href: "/laundry",
-    eyebrow: "Laundry Rooms",
-    title: "Utility Spaces,",
-    titleItalic: "Quietly Organised.",
-    intro:
-      "Laundry storage drawn with the same care as the rest of the house — durable finishes, intelligent layout, and a room that finally feels intentional.",
-    ctaCopy:
-      "Tell us about your laundry space — how you wash, dry, and store every day.",
-  },
   "aluminum-doors-windows": {
     slug: "aluminum-doors-windows",
     href: "/aluminum-doors-windows",

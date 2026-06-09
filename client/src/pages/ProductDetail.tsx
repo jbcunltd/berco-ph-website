@@ -14,7 +14,6 @@ const CATEGORY_LABELS: Record<string, string> = {
   bathrooms: "Bathrooms",
   vanities: "Vanities",
   "tv-units": "TV & Living",
-  laundry: "Laundry",
 };
 
 export default function ProductDetail() {

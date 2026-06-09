@@ -4,26 +4,26 @@ import Container from "../components/layout/Container";
 import CTAButton from "../components/layout/CTAButton";
 
 const HERO_IMAGES = [
-  "/oppolia/bathrooms/alice-modern-minimalist-utopian-style-whole-home-interior-design-ob24ap04-01.webp",
-  "/oppolia/bathrooms/alice-modern-minimalist-utopian-style-whole-home-interior-design-ob24ap04-03.webp",
-  "/oppolia/bathrooms/alice-modern-minimalist-utopian-style-whole-home-interior-design-ob24ap04-04.webp",
+  "/berco/bathrooms/alice-collection-bath-suite-01.webp",
+  "/berco/bathrooms/alice-collection-bath-suite-02.webp",
+  "/berco/bathrooms/alice-collection-bath-suite-03.webp",
 ];
 
 const PACKAGES = [
   {
     title: "Alice Whole Home Package",
     copy: "A coordinated design language for your home, featuring the Alice series across multiple spaces.",
-    image: "/oppolia/bathrooms/alice-modern-minimalist-utopian-style-whole-home-interior-design-ob24ap04-01.webp"
+    image: "/berco/bathrooms/alice-collection-bath-suite-01.webp"
   },
   {
     title: "Como Whole Home Package",
     copy: "A coordinated design language for your home, featuring the Como series across multiple spaces.",
-    image: "/oppolia/bathrooms/como-series-modern-beige-and-walnut-whole-house-design-01.webp"
+    image: "/berco/bathrooms/como-modern-beige-and-walnut-whole-home-collection-01.webp"
   },
   {
     title: "Contemporary Whole Home Package",
     copy: "A coordinated design language for your home, featuring the Contemporary series across multiple spaces.",
-    image: "/oppolia/bathrooms/contemporary-home-design-ob23-villa01-01.webp"
+    image: "/berco/bathrooms/contemporary-home-bath-suite-01.webp"
   },
 ];
 
@@ -33,7 +33,6 @@ const INCLUSIONS = [
   "Bathroom vanities and storage",
   "TV walls, display cabinets, and living room storage",
   "Bedroom cabinetry and headboard walls",
-  "Laundry, utility, and service storage",
 ];
 
 export default function CompleteHomeInteriors() {
@@ -48,7 +47,7 @@ export default function CompleteHomeInteriors() {
                 One home, <em className="italic">one composed design language.</em>
               </h1>
               <p className="text-text-body leading-relaxed text-lg max-w-xl">
-                BERCO creates coordinated full-home interiors where the kitchen, wardrobes, vanities, TV units, bedrooms, and utility spaces are designed together — not as separate rooms, but as one refined architectural story.
+                BERCO creates coordinated full-home interiors where the kitchen, wardrobes, vanities, TV units, bedrooms, and supporting storage spaces are designed together — not as separate rooms, but as one refined architectural story.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <Link href="/contact" asChild>
