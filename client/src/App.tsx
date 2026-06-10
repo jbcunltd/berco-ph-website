@@ -5,6 +5,7 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Home from "./pages/Home";
 import Kitchens from "./pages/Kitchens";
+import KitchenAccessories from "./pages/KitchenAccessories";
 import Bedrooms from "./pages/Bedrooms";
 import Wardrobes from "./pages/Wardrobes";
 import Bathrooms from "./pages/Bathrooms";
@@ -64,6 +65,7 @@ export default function App() {
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/kitchens" component={Kitchens} />
+          <Route path="/kitchen-accessories" component={KitchenAccessories} />
           <Route path="/bedrooms" component={Bedrooms} />
           <Route path="/wardrobes" component={Wardrobes} />
           <Route path="/bathrooms" component={Bathrooms} />

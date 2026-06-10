@@ -9,6 +9,7 @@ const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(
 
 const CATEGORY_LABELS: Record<string, string> = {
   kitchens: "Kitchens",
+  "kitchen-accessories": "Kitchen Accessories",
   bedrooms: "Bedrooms",
   wardrobes: "Wardrobes",
   bathrooms: "Bathrooms",

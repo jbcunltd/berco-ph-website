@@ -10,6 +10,7 @@ interface HeaderProps {
 
 const PRODUCT_ITEMS = [
   { label: 'Kitchen Cabinets', href: '/kitchens', description: 'Islands, sculleries, and galley kitchens' },
+  { label: 'Kitchen Accessories', href: '/kitchen-accessories', description: 'Pull-outs, pantry systems, corner storage, and drawer organization' },
   { label: 'Wardrobes & Closets', href: '/wardrobes', description: 'Walk-ins, sliding doors, and dressing rooms' },
   { label: 'Bathroom Vanities', href: '/vanities', description: 'Floating, freestanding, and built-in vanities' },
   { label: 'Aluminum Doors & Windows', href: '/aluminum-doors-windows', description: 'Durable, secure, and aesthetically pleasing aluminum solutions' },

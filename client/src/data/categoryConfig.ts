@@ -16,6 +16,17 @@ export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
     ctaCopy:
       "Tell us about your layout, materials, and how your kitchen will be used every day.",
   },
+  "kitchen-accessories": {
+    slug: "kitchen-accessories",
+    href: "/kitchen-accessories",
+    eyebrow: "Kitchen Accessories",
+    title: "Smart Storage,",
+    titleItalic: "Quietly Integrated.",
+    intro:
+      "Premium pull-out baskets, pantry systems, corner mechanisms, drawer dividers, and under-sink organizers selected for BERCO custom kitchens. Designed to make everyday cooking cleaner, calmer, and more beautifully organized.",
+    ctaCopy:
+      "Tell us which cabinet zones need better storage, and BERCO will specify accessories around your kitchen layout.",
+  },
   wardrobes: {
     slug: "wardrobes",
     href: "/wardrobes",
