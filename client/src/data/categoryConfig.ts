@@ -80,4 +80,26 @@ export const CATEGORY_CONFIG: Record<string, CategoryConfig> = {
     intro: "Premium aluminum doors and windows, combining durability, security, and modern aesthetics. Designed to enhance natural light and provide superior insulation.",
     ctaCopy: "Tell us about your project and specific requirements for aluminum doors and windows.",
   },
+  "complete-home-interiors": {
+    slug: "complete-home-interiors",
+    href: "/complete-home-interiors",
+    eyebrow: "Complete Home Interiors",
+    title: "Whole-Home Coordination,",
+    titleItalic: "Room by Room.",
+    intro:
+      "Curated collections that bring cohesion across your entire home. Kitchen, bedroom, bathroom, and living spaces designed to work together. Premium materials, unified aesthetics, and Philippine craftsmanship throughout.",
+    ctaCopy:
+      "Tell us about your home and how you'd like every room to feel connected.",
+  },
+  "2026-collection": {
+    slug: "2026-collection",
+    href: "/2026-collection",
+    eyebrow: "2026 Collection",
+    title: "The Newest,",
+    titleItalic: "The Most Premium.",
+    intro:
+      "A curated selection of BERCO's latest designs and most sought-after premium collections. Featuring the finest materials, innovative storage solutions, and contemporary aesthetics that define luxury living.",
+    ctaCopy:
+      "Explore the latest innovations in home cabinetry and design.",
+  },
 };
