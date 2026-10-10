@@ -4,7 +4,21 @@
   "outputDirectory": "dist/public",
   "installCommand": "pnpm install --no-frozen-lockfile",
   "framework": null,
-  "rewrites": [
-    { "source": "/((?!assets/|.*\\.(?:js|css|png|jpg|jpeg|svg|ico|webp|gif|woff2?|ttf|otf|map|json|txt|xml)).*)", "destination": "/index.html" }
+  "redirects": [
+    { "source": "/kitchens", "destination": "https://www.bercohome.com/collections/kitchens", "permanent": true },
+    { "source": "/wardrobes", "destination": "https://www.bercohome.com/collections/wardrobes", "permanent": true },
+    { "source": "/bedrooms", "destination": "https://www.bercohome.com/collections/bedrooms", "permanent": true },
+    { "source": "/bathrooms", "destination": "https://www.bercohome.com/collections/bathrooms", "permanent": true },
+    { "source": "/vanities", "destination": "https://www.bercohome.com/collections/bathrooms", "permanent": true },
+    { "source": "/kitchen-accessories", "destination": "https://www.bercohome.com/collections/interior-systems", "permanent": true },
+    { "source": "/complete-home-interiors", "destination": "https://www.bercohome.com/collections/whole-home", "permanent": true },
+    { "source": "/aluminum-doors-windows", "destination": "https://www.bercohome.com/collections", "permanent": true },
+    { "source": "/architects-designers", "destination": "https://www.bercohome.com/for-designers", "permanent": true },
+    { "source": "/for-designers", "destination": "https://www.bercohome.com/for-designers", "permanent": true },
+    { "source": "/2026-collection", "destination": "https://www.bercohome.com/catalogues/2026-catalogue", "permanent": true },
+    { "source": "/process", "destination": "https://www.bercohome.com/how-we-work", "permanent": true },
+    { "source": "/about", "destination": "https://www.bercohome.com/how-we-work", "permanent": true },
+    { "source": "/contact", "destination": "https://www.bercohome.com/contact", "permanent": true },
+    { "source": "/(.*)", "destination": "https://www.bercohome.com/", "permanent": true }
   ]
 }
